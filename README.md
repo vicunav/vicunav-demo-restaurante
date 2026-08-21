@@ -19,6 +19,11 @@ The exact revisions live in `config/dependencies.json`. Packages are linked into
 existing LocalWP site; no package or WordPress installation is copied into this
 repository.
 
+The audited Bonasera copy and demo data live in `content/bonasera.json`. Licensed,
+self-hosted images live in `assets/images/`, with provenance, alt text, dimensions,
+size, and checksums in `config/media.json`. The content is not production restaurant
+data and does not replace the runtime contracts of the package repositories.
+
 ## Local installation
 
 Requirements:
@@ -51,3 +56,4 @@ bash tests/run.sh
 ```
 
 See `docs/arquitectura.md` for the internal ownership and installation contract.
+See `docs/inventario-contenido-media.md` for the content and licensing audit.

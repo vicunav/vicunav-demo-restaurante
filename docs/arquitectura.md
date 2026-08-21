@@ -38,8 +38,10 @@ Las variables `VICUNAV_PHP_BIN`, `VICUNAV_WP_CLI_BIN` y
 `VICUNAV_MYSQL_SOCKET` adaptan la ejecución al runtime de LocalWP. La contraseña de
 base de datos permanece en `wp-config.php` y nunca pasa por el instalador.
 
-## Evolución
+## Contenido demostrativo
 
-DEMO-REST-01A no aporta copy, media ni páginas. Esos artefactos entran en
-DEMO-REST-01B y DEMO-REST-01C. DEMO-REST-01D valida el resultado completo antes de
-considerar el demo terminado.
+DEMO-REST-01B versiona el copy y los datos de siembra en `content/bonasera.json` y la
+media aprobada en `assets/images/`. Esos archivos son entradas del ensamblaje, no una
+API pública ni una segunda autoridad de negocio. DEMO-REST-01C los aplicará mediante
+los contratos de cada paquete y creará las páginas FSE. DEMO-REST-01D validará el
+resultado completo antes de considerar el demo terminado.

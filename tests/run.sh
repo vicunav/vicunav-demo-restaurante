@@ -12,6 +12,8 @@ fail() {
 	exit 1
 }
 
+node "$repo_dir/tests/validate-content.mjs"
+
 repos_root="$test_root/repos"
 wp_root="$test_root/site/app/public"
 manifest="$test_root/dependencies.json"
