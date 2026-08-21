@@ -1,0 +1,37 @@
+name: Validación del demo
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  instalacion-local:
+    name: Instalación local idempotente
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v7
+
+      - name: Configurar PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.1"
+          coverage: none
+
+      - name: Validar sintaxis y manifiesto
+        shell: bash
+        run: |
+          bash -n bin/install-local.sh
+          bash -n tests/run.sh
+          jq empty config/dependencies.json
+          if grep -R '[{][{]' --exclude-dir=.git --exclude-dir=docs/standards .; then
+            echo 'Se encontraron placeholders sin resolver.'
+            exit 1
+          fi
+
+      - name: Probar instalación idempotente
+        shell: bash
+        run: bash tests/run.sh
