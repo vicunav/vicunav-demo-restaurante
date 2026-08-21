@@ -27,7 +27,7 @@ jobs:
           bash -n bin/install-local.sh
           bash -n tests/run.sh
           jq empty config/dependencies.json
-          if grep -R '[{][{]' --exclude-dir=.git --exclude-dir=docs/standards .; then
+          if grep -R -I '[{][{]' --exclude-dir=.git --exclude-dir=docs/standards .; then
             echo 'Se encontraron placeholders sin resolver.'
             exit 1
           fi
