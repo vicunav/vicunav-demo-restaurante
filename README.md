@@ -1,51 +1,53 @@
-# Vicunav Repository Template
+# Vicunav Restaurant Demo
 
-Reusable starting point for repositories in the Vicunav ecosystem. Creating a
-repository from this template copies its files and directory structure into a new,
-independent repository without treating it as a fork.
+Reproducible Full Site Editing composition for Bonasera, the restaurant reference
+site in the Vicunav WordPress ecosystem. This repository owns demo content, licensed
+media, page composition, and local installation orchestration. It does not own theme
+or business logic.
 
-## Included foundation
+## Package boundaries
 
-- `AGENTS.md` with placeholders for repository-specific instructions.
-- `CONTRIBUTING.md` with the atomic issue and squash-merge workflow.
-- `docs/standards/` pinned to the shared Vicunav standards.
-- A structured atomic-task issue form.
-- PHP linting with WordPress Coding Standards in GitHub Actions.
-- GPL-2.0-or-later licensing suitable for WordPress themes and plugins.
+The demo assembles these independent repositories at pinned revisions:
 
-## Creating a repository from this template
+- `vicunav-theme-core` for the block theme and the selectable Bonasera variation.
+- `vicunav-plugin-core` for shared settings, FAQs, and testimonials.
+- `vicunav-pagos` for payment requests and the manual payment lifecycle.
+- `vicunav-restaurante` for menu, cart, orders, pizza building, delivery, and
+  reservations.
 
-1. Open this template repository on GitHub.
-2. Select **Use this template** and then **Create a new repository**.
-3. Choose the owner, repository name, description, and visibility.
-4. Select **Create repository**.
-5. Clone the new repository, including its submodules:
-
-   ```bash
-   git clone --recurse-submodules https://github.com/OWNER/REPOSITORY.git
-   cd REPOSITORY
-   ```
-
-If the repository was cloned without submodules, initialize them afterward:
-
-```bash
-git submodule update --init --recursive
-```
-
-## Required customization
-
-After creating the repository:
-
-1. Replace this README with project-specific documentation in English.
-2. Replace every placeholder in `AGENTS.md` and document the actual validation
-   commands.
-3. Confirm that the standards submodule points to the intended commit.
-4. Add the package bootstrap, tests, and tooling required by its contract.
-5. Configure branch protection and allow only squash-merge pull requests into `main`.
-6. Verify that no `{{PLACEHOLDER}}` values remain in versioned files.
-
-Do not add product-specific files to this template merely because one consumer needs
-them. Shared repository scaffolding belongs here; package behavior belongs in the new
+The exact revisions live in `config/dependencies.json`. Packages are linked into an
+existing LocalWP site; no package or WordPress installation is copied into this
 repository.
 
-For more information, see the GitHub guide on [creating a repository from a template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+## Local installation
+
+Requirements:
+
+- an existing and running single-site LocalWP installation;
+- PHP, WP-CLI, `jq`, and Git;
+- the four package repositories checked out as siblings of this repository;
+- a MySQL socket override when the LocalWP PHP CLI cannot use its default socket.
+
+Run a preview first:
+
+```bash
+VICUNAV_PHP_BIN="/path/to/local/php" \
+VICUNAV_MYSQL_SOCKET="/path/to/mysqld.sock" \
+bash bin/install-local.sh \
+  --wp-path="/path/to/local-site/app/public" \
+  --site-url="https://example.local" \
+  --dry-run
+```
+
+Remove `--dry-run` to create missing symlinks and activate the pinned theme and
+plugins. The installer refuses non-local URLs, dirty or unpinned sources, broken
+links, and occupied destinations. Re-running it leaves an already-correct assembly
+unchanged.
+
+## Validation
+
+```bash
+bash tests/run.sh
+```
+
+See `docs/arquitectura.md` for the internal ownership and installation contract.

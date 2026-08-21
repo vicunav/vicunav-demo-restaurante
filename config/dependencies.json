@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "wordpress": {
+    "minimum": "6.6",
+    "php_minimum": "8.1"
+  },
+  "packages": [
+    {
+      "repository": "vicunav-plugin-core",
+      "slug": "vicunav-plugin-core",
+      "type": "plugin",
+      "commit": "12870b0d5e297d715c985037e76898067a749909",
+      "activate": true
+    },
+    {
+      "repository": "vicunav-pagos",
+      "slug": "vicunav-pagos",
+      "type": "plugin",
+      "commit": "16280c3bd74977ac025f0085ccdf22ae5b995277",
+      "activate": true
+    },
+    {
+      "repository": "vicunav-restaurante",
+      "slug": "vicunav-restaurante",
+      "type": "plugin",
+      "commit": "a687e76f6ab0bf3de0e75cb7a392fb775be16e7a",
+      "activate": true
+    },
+    {
+      "repository": "vicunav-theme-core",
+      "slug": "vicunav-theme-core",
+      "type": "theme",
+      "commit": "f443ca4367a24222b8ad4bbd73dfd63b7a719316",
+      "activate": true
+    }
+  ]
+}

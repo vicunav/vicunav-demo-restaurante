@@ -1,8 +1,6 @@
-<!-- Sustituye {{NOMBRE_REPO}} por el nombre oficial del repositorio. -->
-# {{NOMBRE_REPO}}
+# vicunav-demo-restaurante
 
-<!-- Sustituye {{PROPOSITO_UNA_LINEA}} por una frase que resuma el propósito del repositorio. -->
-Propósito: {{PROPOSITO_UNA_LINEA}}
+Propósito: Composición FSE, contenido y ensamblaje reproducible del demo Bonasera.
 
 ## Reglas aplicables
 
@@ -12,9 +10,19 @@ No repitas esas reglas aquí; este archivo solo contiene el contexto específico
 
 ## Validación
 
-<!-- Sustituye {{COMANDO_TEST}} por el comando completo para ejecutar las pruebas del repositorio. -->
 ```sh
-{{COMANDO_TEST}}
+bash tests/run.sh
 ```
 
 Ejecuta la validación antes de entregar cualquier cambio.
+
+## Límites del repositorio
+
+- Este repositorio conserva composición, copy, media licenciada y automatización del
+  demo. No contiene lógica reutilizable de theme, pagos ni restaurante.
+- Las dependencias se consumen desde repositorios hermanos mediante symlinks. No se
+  copian paquetes dentro del demo ni se versiona un sitio WordPress completo.
+- El sitio LocalWP existente es el único destino local. Los scripts deben exigir un
+  path y una URL `.local`, fallar ante colisiones y ser idempotentes.
+- No publicar credenciales, bases de datos, uploads privados ni configuración de
+  `wp-config.php`.
