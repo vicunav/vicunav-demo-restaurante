@@ -46,11 +46,19 @@ const normalize = (value) => {
 };
 
 const faqs = contentModule.FAQS.map((faq) => ({ question: faq.q, answer: faq.a }));
+faqs[0].answer =
+	'Sí, cubrimos las zonas publicadas en el sitio. Selecciona tu zona en el carrito para confirmar disponibilidad, tarifa y tiempo estimado.';
+faqs[1].answer =
+	'Entregamos en Maracaibo (Casco Central), La Lago / Bella Vista, San Francisco, Cabimas, Ciudad Ojeda y Santa Bárbara del Zulia. El carrito confirma si el pedido está dentro de cobertura.';
+faqs[2].answer =
+	'El costo y el tiempo estimado varían según tu zona. El carrito muestra ambos valores antes del checkout; el tiempo estimado está entre 20 y 65 minutos.';
 faqs[3] = {
 	question: '¿Cómo funciona el pago?',
 	answer:
 		'El checkout crea una solicitud en el proveedor manual de Vicunav Pagos. Sigue las instrucciones y adjunta la evidencia cuando corresponda; el pedido refleja después el estado público del pago.',
 };
+faqs[7].answer =
+	'Las reservas se gestionan desde el flujo del sitio. Esta demostración no publica un canal real para cambios o cancelaciones posteriores.';
 
 const testimonials = contentModule.TESTIMONIOS.map(({ id, imgSrc: _imgSrc, ...testimonial }) => ({
 	...testimonial,
@@ -76,6 +84,7 @@ const content = normalize({
 		'Reemplaza los cuatro métodos teatrales por el proveedor manual real de Vicunav Pagos.',
 		'Retira retratos de testimonios para no sugerir respaldo de personas reales.',
 		'Reemplaza teléfono, correo y dirección exacta no verificados por datos demostrativos.',
+		'Ajusta las preguntas frecuentes para no prometer mapas, WhatsApp ni atención operativa ausentes.',
 		'Normaliza la raya tipográfica larga según los estándares del ecosistema.',
 	],
 	brand: {

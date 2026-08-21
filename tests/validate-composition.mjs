@@ -34,6 +34,13 @@ assert.match(apply, /post_name'\s*=>\s*'privacidad'/);
 assert.match(apply, /Ver carrito/);
 assert.match(apply, /styles\/bonasera\.json/);
 assert.match(apply, /wp:heading \{\"textAlign\":\"center\",\"level\":1/);
+assert.match(apply, /\$front_template = .*\"tagName\":\"main\".*<main class=\"wp-block-group\">/);
+assert.match(apply, /\"dimRatio\":55.*<img class=\"wp-block-cover__image-background.*<span aria-hidden=\"true\" class=\"wp-block-cover__background has-background-dim-60/);
+assert.match(apply, /array_fill_keys\( array\( 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday' \), array\(\) \)/);
 assert.equal((apply.match(/<h1/g) ?? []).length, 1, 'La portada debe declarar un solo H1 en su contenido');
+
+for (const faq of content.faqs) {
+  assert.doesNotMatch(faq.answer, /WhatsApp|mapa interactivo/i);
+}
 
 console.log('Composición DEMO-REST-01C válida.');
