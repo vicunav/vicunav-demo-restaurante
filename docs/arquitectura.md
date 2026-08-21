@@ -42,6 +42,21 @@ base de datos permanece en `wp-config.php` y nunca pasa por el instalador.
 
 DEMO-REST-01B versiona el copy y los datos de siembra en `content/bonasera.json` y la
 media aprobada en `assets/images/`. Esos archivos son entradas del ensamblaje, no una
-API pública ni una segunda autoridad de negocio. DEMO-REST-01C los aplicará mediante
-los contratos de cada paquete y creará las páginas FSE. DEMO-REST-01D validará el
-resultado completo antes de considerar el demo terminado.
+API pública ni una segunda autoridad de negocio.
+
+## Aplicación del contenido
+
+`bin/apply-content.php` se ejecuta con `wp eval-file` y usa exclusivamente APIs de
+WordPress, `vicunav-plugin-core`, `vicunav-pagos` y `vicunav-restaurante`. Los UUID de
+ingredientes, opciones, zonas y descuentos se conservan en un mapa del demo. Los
+medios y contenidos usan marcadores privados para que una segunda ejecución actualice
+la misma entidad sin duplicarla.
+
+El demo crea overrides FSE de `front-page` y `page`, selecciona la variación Bonasera
+y compone las ocho rutas reales. La portada contiene su único H1; las páginas internas
+reciben su H1 desde el template y reservan el contenido a bloques editoriales y los
+siete bloques dinámicos del vertical.
+
+No se importan las rutas teatrales de la SPA. El checkout usa solo el proveedor manual
+real y el sitio no escribe directamente en tablas del vertical. DEMO-REST-01D valida
+el resultado completo antes de considerar el demo terminado.

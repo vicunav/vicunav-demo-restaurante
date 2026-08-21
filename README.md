@@ -49,6 +49,16 @@ plugins. The installer refuses non-local URLs, dirty or unpinned sources, broken
 links, and occupied destinations. Re-running it leaves an already-correct assembly
 unchanged.
 
+Once the dependencies are active, apply the audited Bonasera content with:
+
+```bash
+wp --path="/absolute/path/to/app/public" eval-file bin/apply-content.php
+```
+
+The content application is idempotent. It imports licensed local media, configures the
+public restaurant contracts and creates editable Full Site Editing pages without
+writing directly to vertical-owned database tables.
+
 ## Validation
 
 ```bash
