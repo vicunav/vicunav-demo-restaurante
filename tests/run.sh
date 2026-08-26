@@ -15,6 +15,7 @@ fail() {
 node "$repo_dir/tests/validate-content.mjs"
 node "$repo_dir/tests/validate-composition.mjs"
 node "$repo_dir/tests/validate-qa.mjs"
+node "$repo_dir/tests/validate-visual-baseline.mjs"
 
 repos_root="$test_root/repos"
 wp_root="$test_root/site/app/public"

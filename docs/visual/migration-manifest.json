@@ -1,0 +1,1548 @@
+{
+  "schemaVersion": 1,
+  "impact": "paridad-1-1",
+  "project": {
+    "id": "bonasera-restaurant-demo",
+    "title": "Demo de restaurante Bonasera"
+  },
+  "source": {
+    "repository": "vicunav/vicunav-design-to-claude-demo-restaurante",
+    "commit": "1e1f62787e088c0ca9701500e764802499d1b253",
+    "installCommand": "npm ci",
+    "runCommand": "npm run dev -- --host 127.0.0.1 --port 4173"
+  },
+  "target": {
+    "repository": "vicunav/vicunav-demo-restaurante",
+    "commit": "737d027f78ad301b4e0c80c2b316e131a1b807a5",
+    "wordpressVersion": "7.1",
+    "phpVersion": "8.2.29"
+  },
+  "environment": {
+    "browser": "Chromium",
+    "browserVersion": "151.0.7922.34",
+    "locale": "es-VE",
+    "timezone": "America/Caracas",
+    "colorScheme": "light",
+    "reducedMotion": "reduce",
+    "fonts": [
+      "Big Shoulders Display 800",
+      "Jost 400 600 700"
+    ],
+    "ignoreHTTPSErrors": true
+  },
+  "viewports": [
+    {
+      "id": "desktop-wide",
+      "width": 1440,
+      "height": 1000,
+      "deviceScaleFactor": 1
+    },
+    {
+      "id": "desktop",
+      "width": 1024,
+      "height": 900,
+      "deviceScaleFactor": 1
+    },
+    {
+      "id": "tablet",
+      "width": 768,
+      "height": 1024,
+      "deviceScaleFactor": 1
+    },
+    {
+      "id": "mobile",
+      "width": 390,
+      "height": 844,
+      "deviceScaleFactor": 1
+    },
+    {
+      "id": "mobile-narrow",
+      "width": 375,
+      "height": 812,
+      "deviceScaleFactor": 1
+    }
+  ],
+  "surfaces": [
+    {
+      "id": "home",
+      "owner": "vicunav/vicunav-demo-restaurante",
+      "sourceUrl": "http://127.0.0.1:4173/",
+      "targetUrl": "https://vicunav-demo-restaurante.local/",
+      "fixture": "public-demo-default",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        "desktop-wide",
+        "desktop",
+        "tablet",
+        "mobile",
+        "mobile-narrow"
+      ],
+      "capture": {
+        "fullPage": false,
+        "waitUntil": "networkidle",
+        "timeoutMs": 60000,
+        "readySelector": "main",
+        "states": {
+          "default": {
+            "source": [],
+            "target": []
+          }
+        }
+      }
+    },
+    {
+      "id": "menu",
+      "owner": "vicunav/vicunav-demo-restaurante",
+      "sourceUrl": "http://127.0.0.1:4173/",
+      "targetUrl": "https://vicunav-demo-restaurante.local/menu/",
+      "fixture": "public-menu-default",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        "desktop-wide",
+        "desktop",
+        "tablet",
+        "mobile",
+        "mobile-narrow"
+      ],
+      "capture": {
+        "fullPage": false,
+        "waitUntil": "networkidle",
+        "timeoutMs": 60000,
+        "readySelector": "main",
+        "states": {
+          "default": {
+            "source": [
+              {
+                "action": "click",
+                "selector": ".hero__actions [data-action=\"go-to-screen\"][data-screen=\"menu\"]"
+              },
+              {
+                "action": "wait-for",
+                "selector": ".menu-toolbar",
+                "state": "visible"
+              }
+            ],
+            "target": []
+          }
+        }
+      }
+    },
+    {
+      "id": "pizza-builder",
+      "owner": "vicunav/vicunav-demo-restaurante",
+      "sourceUrl": "http://127.0.0.1:4173/",
+      "targetUrl": "https://vicunav-demo-restaurante.local/pizzas/",
+      "fixture": "public-pizza-default",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        "desktop-wide",
+        "desktop",
+        "tablet",
+        "mobile",
+        "mobile-narrow"
+      ],
+      "capture": {
+        "fullPage": false,
+        "waitUntil": "networkidle",
+        "timeoutMs": 60000,
+        "readySelector": "main",
+        "states": {
+          "default": {
+            "source": [
+              {
+                "action": "click",
+                "selector": ".home-cta-row [data-action=\"go-to-screen\"][data-screen=\"pizzas\"]"
+              },
+              {
+                "action": "wait-for",
+                "selector": ".pizza-catalog-grid",
+                "state": "visible"
+              }
+            ],
+            "target": []
+          }
+        }
+      }
+    },
+    {
+      "id": "cart-empty",
+      "owner": "vicunav/vicunav-demo-restaurante",
+      "sourceUrl": "http://127.0.0.1:4173/",
+      "targetUrl": "https://vicunav-demo-restaurante.local/carrito/",
+      "fixture": "public-cart-empty",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        "desktop-wide",
+        "desktop",
+        "tablet",
+        "mobile",
+        "mobile-narrow"
+      ],
+      "capture": {
+        "fullPage": false,
+        "waitUntil": "networkidle",
+        "timeoutMs": 60000,
+        "readySelector": "main",
+        "states": {
+          "default": {
+            "source": [
+              {
+                "action": "click",
+                "selector": ".app-header--home [data-action=\"open-drawer\"]"
+              },
+              {
+                "action": "wait-for",
+                "selector": ".drawer",
+                "state": "visible"
+              },
+              {
+                "action": "click",
+                "selector": ".drawer [data-action=\"go-to-cart-from-drawer\"]"
+              },
+              {
+                "action": "wait-for",
+                "selector": ".cart-screen__empty",
+                "state": "visible"
+              }
+            ],
+            "target": []
+          }
+        }
+      }
+    },
+    {
+      "id": "checkout",
+      "owner": "vicunav/vicunav-demo-restaurante",
+      "sourceUrl": "http://127.0.0.1:4173/",
+      "targetUrl": "https://vicunav-demo-restaurante.local/checkout/",
+      "fixture": "source-local-cart-target-empty-read-only",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        "desktop-wide",
+        "desktop",
+        "tablet",
+        "mobile",
+        "mobile-narrow"
+      ],
+      "capture": {
+        "fullPage": false,
+        "waitUntil": "networkidle",
+        "timeoutMs": 60000,
+        "readySelector": "main",
+        "states": {
+          "default": {
+            "source": [
+              {
+                "action": "click",
+                "selector": ".hero__actions [data-action=\"go-to-screen\"][data-screen=\"menu\"]"
+              },
+              {
+                "action": "wait-for",
+                "selector": ".menu-toolbar",
+                "state": "visible"
+              },
+              {
+                "action": "click",
+                "selector": ".menu-grid [data-action=\"quick-add\"]"
+              },
+              {
+                "action": "click",
+                "selector": ".app-header [data-action=\"open-drawer\"]"
+              },
+              {
+                "action": "wait-for",
+                "selector": ".drawer",
+                "state": "visible"
+              },
+              {
+                "action": "click",
+                "selector": ".drawer [data-action=\"go-to-cart-from-drawer\"]"
+              },
+              {
+                "action": "wait-for",
+                "selector": ".cart-screen",
+                "state": "visible"
+              },
+              {
+                "action": "click",
+                "selector": "[data-action=\"go-to-checkout\"]"
+              },
+              {
+                "action": "wait-for",
+                "selector": ".checkout-screen",
+                "state": "visible"
+              }
+            ],
+            "target": []
+          }
+        }
+      }
+    },
+    {
+      "id": "reservations",
+      "owner": "vicunav/vicunav-demo-restaurante",
+      "sourceUrl": "http://127.0.0.1:4173/",
+      "targetUrl": "https://vicunav-demo-restaurante.local/reservas/",
+      "fixture": "public-reservation-default",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        "desktop-wide",
+        "desktop",
+        "tablet",
+        "mobile",
+        "mobile-narrow"
+      ],
+      "capture": {
+        "fullPage": false,
+        "waitUntil": "networkidle",
+        "timeoutMs": 60000,
+        "readySelector": "main",
+        "states": {
+          "default": {
+            "source": [
+              {
+                "action": "click",
+                "selector": ".app-footer [data-action=\"go-to-screen\"][data-screen=\"reserva\"]"
+              },
+              {
+                "action": "wait-for",
+                "selector": ".reservation-screen",
+                "state": "visible"
+              }
+            ],
+            "target": []
+          }
+        }
+      }
+    },
+    {
+      "id": "saved-pizzas",
+      "owner": "vicunav/vicunav-demo-restaurante",
+      "sourceUrl": "http://127.0.0.1:4173/",
+      "targetUrl": "https://vicunav-demo-restaurante.local/mis-pizzas/",
+      "fixture": "public-saved-pizzas-empty",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        "desktop-wide",
+        "desktop",
+        "tablet",
+        "mobile",
+        "mobile-narrow"
+      ],
+      "capture": {
+        "fullPage": false,
+        "waitUntil": "networkidle",
+        "timeoutMs": 60000,
+        "readySelector": "main",
+        "states": {
+          "default": {
+            "source": [
+              {
+                "action": "click",
+                "selector": ".app-footer [data-action=\"go-to-screen\"][data-screen=\"mispizzas\"]"
+              },
+              {
+                "action": "wait-for",
+                "selector": ".saved-pizzas-screen",
+                "state": "visible"
+              }
+            ],
+            "target": []
+          }
+        }
+      }
+    }
+  ],
+  "ownership": [
+    {
+      "id": "global-tokens",
+      "kind": "token",
+      "owner": "vicunav/vicunav-theme-core"
+    },
+    {
+      "id": "bonasera-variation",
+      "kind": "component",
+      "owner": "vicunav/vicunav-theme-core"
+    },
+    {
+      "id": "templates-parts-patterns",
+      "kind": "composition",
+      "owner": "vicunav/vicunav-theme-core"
+    },
+    {
+      "id": "restaurant-dynamic-blocks",
+      "kind": "behavior",
+      "owner": "vicunav/vicunav-restaurante"
+    },
+    {
+      "id": "commerce-and-reservations",
+      "kind": "integration",
+      "owner": "vicunav/vicunav-restaurante"
+    },
+    {
+      "id": "payment-lifecycle",
+      "kind": "integration",
+      "owner": "vicunav/vicunav-pagos"
+    },
+    {
+      "id": "shared-editorial-content",
+      "kind": "component",
+      "owner": "vicunav/vicunav-plugin-core"
+    },
+    {
+      "id": "bonasera-copy-and-media",
+      "kind": "asset",
+      "owner": "vicunav/vicunav-demo-restaurante"
+    },
+    {
+      "id": "bonasera-fse-composition",
+      "kind": "composition",
+      "owner": "vicunav/vicunav-demo-restaurante"
+    }
+  ],
+  "assets": [
+    {
+      "id": "hero-video",
+      "status": "missing",
+      "owner": "vicunav/vicunav-demo-restaurante",
+      "source": "public/uploads/hero-video.mp4",
+      "license": "no entregada"
+    },
+    {
+      "id": "map-zulia",
+      "status": "missing",
+      "owner": "vicunav/vicunav-demo-restaurante",
+      "source": "public/assets/mapa-zulia.png",
+      "license": "no entregada"
+    },
+    {
+      "id": "map-maracaibo",
+      "status": "missing",
+      "owner": "vicunav/vicunav-demo-restaurante",
+      "source": "public/assets/mapa-maracaibo.png",
+      "license": "no entregada"
+    },
+    {
+      "id": "local-food-photography",
+      "status": "available",
+      "owner": "vicunav/vicunav-demo-restaurante",
+      "source": "config/media.json",
+      "license": "documentada por asset"
+    },
+    {
+      "id": "source-fonts",
+      "status": "available",
+      "owner": "vicunav/vicunav-theme-core",
+      "source": "Big Shoulders Display y Jost",
+      "license": "SIL Open Font License 1.1"
+    }
+  ],
+  "evidence": [
+    {
+      "surface": "home",
+      "state": "default",
+      "viewport": "desktop-wide",
+      "sourceCapture": "evidence/source/home-default-desktop-wide.png",
+      "targetCapture": "evidence/target/home-default-desktop-wide.png",
+      "comparisonCapture": "evidence/comparison/home-default-desktop-wide-side-by-side.png",
+      "overlayCapture": "evidence/comparison/home-default-desktop-wide-overlay.png",
+      "diffCapture": "evidence/comparison/home-default-desktop-wide-diff.png",
+      "status": "different",
+      "difference": null,
+      "approval": null,
+      "metrics": {
+        "width": 1440,
+        "height": 1000,
+        "pixels": 1440000,
+        "exactDifferentPixels": 1439976,
+        "exactDifferenceRatio": 0.9999833333333333,
+        "perceptualDifferentPixels": 876920,
+        "perceptualDifferenceRatio": 0.6089722222222222,
+        "perceptualThreshold": 0.1
+      },
+      "sourceCapturedAt": "2026-08-26T17:12:17.217Z",
+      "sourceCaptureSha256": "7dc54be015345fcb7b4058bea006a4deabfd14b26fc251d80bb5e2c20263456a",
+      "targetCapturedAt": "2026-08-26T17:12:18.599Z",
+      "targetCaptureSha256": "4bf39de959102d5a1858bed0911b616a49a053e012ef1a9170ef1a1276558a30",
+      "comparisonCaptureSha256": "c2e45805a2d0dfd6a36aeeebe0b927a7974aa1d653b0627d8e7363a9dfdee0ae",
+      "overlayCaptureSha256": "1af6c431042ae3a802ca8969a732a2c1099ddd762a50cc913fda5efee1aac95a",
+      "diffCaptureSha256": "142f97fb36738ee940414bde2df975aa96cd18ace18d0a85ce7b064326c745ef",
+      "comparedAt": "2026-08-26T17:14:54.835Z"
+    },
+    {
+      "surface": "home",
+      "state": "default",
+      "viewport": "desktop",
+      "sourceCapture": "evidence/source/home-default-desktop.png",
+      "targetCapture": "evidence/target/home-default-desktop.png",
+      "comparisonCapture": "evidence/comparison/home-default-desktop-side-by-side.png",
+      "overlayCapture": "evidence/comparison/home-default-desktop-overlay.png",
+      "diffCapture": "evidence/comparison/home-default-desktop-diff.png",
+      "status": "different",
+      "difference": null,
+      "approval": null,
+      "metrics": {
+        "width": 1024,
+        "height": 900,
+        "pixels": 921600,
+        "exactDifferentPixels": 921566,
+        "exactDifferenceRatio": 0.9999631076388888,
+        "perceptualDifferentPixels": 558810,
+        "perceptualDifferenceRatio": 0.60634765625,
+        "perceptualThreshold": 0.1
+      },
+      "sourceCapturedAt": "2026-08-26T17:12:20.196Z",
+      "sourceCaptureSha256": "cf1b7efcdd648ea65a2ab9834db2918421d1f455d753adf2b53312bffa89d7e6",
+      "targetCapturedAt": "2026-08-26T17:12:21.391Z",
+      "targetCaptureSha256": "18fd496c8fe81191d6a726577392eed82dec41b7642616c9209c72d5400e36ac",
+      "comparisonCaptureSha256": "ed8d784de65de1a2cdd5c47df58d57704ccda88076f031dcba40e3e53f3867b0",
+      "overlayCaptureSha256": "75c272812e41d4a7f9a852aca0f911fb695adaf5fb605679ec3b7a0b0e0faad4",
+      "diffCaptureSha256": "473dc3a7dbd06bfd11b7ba3b1a6812dae74ab9d7337e0cb79499598a0f1990c8",
+      "comparedAt": "2026-08-26T17:14:55.626Z"
+    },
+    {
+      "surface": "home",
+      "state": "default",
+      "viewport": "tablet",
+      "sourceCapture": "evidence/source/home-default-tablet.png",
+      "targetCapture": "evidence/target/home-default-tablet.png",
+      "comparisonCapture": "evidence/comparison/home-default-tablet-side-by-side.png",
+      "overlayCapture": "evidence/comparison/home-default-tablet-overlay.png",
+      "diffCapture": "evidence/comparison/home-default-tablet-diff.png",
+      "status": "different",
+      "difference": null,
+      "approval": null,
+      "metrics": {
+        "width": 768,
+        "height": 1024,
+        "pixels": 786432,
+        "exactDifferentPixels": 786414,
+        "exactDifferenceRatio": 0.9999771118164062,
+        "perceptualDifferentPixels": 487097,
+        "perceptualDifferenceRatio": 0.6193758646647135,
+        "perceptualThreshold": 0.1
+      },
+      "sourceCapturedAt": "2026-08-26T17:12:22.991Z",
+      "sourceCaptureSha256": "229f3f4b693a67403aaae6d3c1a6de481441d585b3edd0af43fd43fe8de1957d",
+      "targetCapturedAt": "2026-08-26T17:12:24.162Z",
+      "targetCaptureSha256": "2264a0cd8ee675e9f3e244e7f1bebfc44e234a1d360d633ef16e2afcf2ad6052",
+      "comparisonCaptureSha256": "27f95d64f82797c7048c09c1adeae6cbd1b11940bbe315d9098aee3c21a84736",
+      "overlayCaptureSha256": "c81901f1378e880f9325e1ff5a46c3a0922b5332ddeac19fe2df7dceb3ffba93",
+      "diffCaptureSha256": "b6a159b198687ca875e711ea8d20c4a486258b3ba4baa9ae2bc5f7989d0b18f7",
+      "comparedAt": "2026-08-26T17:14:56.246Z"
+    },
+    {
+      "surface": "home",
+      "state": "default",
+      "viewport": "mobile",
+      "sourceCapture": "evidence/source/home-default-mobile.png",
+      "targetCapture": "evidence/target/home-default-mobile.png",
+      "comparisonCapture": "evidence/comparison/home-default-mobile-side-by-side.png",
+      "overlayCapture": "evidence/comparison/home-default-mobile-overlay.png",
+      "diffCapture": "evidence/comparison/home-default-mobile-diff.png",
+      "status": "different",
+      "difference": null,
+      "approval": null,
+      "metrics": {
+        "width": 390,
+        "height": 844,
+        "pixels": 329160,
+        "exactDifferentPixels": 329160,
+        "exactDifferenceRatio": 1,
+        "perceptualDifferentPixels": 207359,
+        "perceptualDifferenceRatio": 0.629964151172682,
+        "perceptualThreshold": 0.1
+      },
+      "sourceCapturedAt": "2026-08-26T17:12:25.773Z",
+      "sourceCaptureSha256": "d2630de27922d51c8b4e255a7f247909b99ad763d7a527ab90ed5f390dad79ec",
+      "targetCapturedAt": "2026-08-26T17:12:26.819Z",
+      "targetCaptureSha256": "67a2782a6c88c6dea335955e930014f66da14c9b4d0369d37596ffeb4031c263",
+      "comparisonCaptureSha256": "1001a0941795945ce0df7a2c307a28fa8711ee2fae07eac230ea872dc6b2983e",
+      "overlayCaptureSha256": "6b0bfef98be899749b654c12cc87dd11b22f58bc6f92b7cd1636d89c4b3424df",
+      "diffCaptureSha256": "647287f45647f167ea3bdaa9806f2b1f0f0669419ff8f3c6114e5a7a48e85b66",
+      "comparedAt": "2026-08-26T17:14:56.533Z"
+    },
+    {
+      "surface": "home",
+      "state": "default",
+      "viewport": "mobile-narrow",
+      "sourceCapture": "evidence/source/home-default-mobile-narrow.png",
+      "targetCapture": "evidence/target/home-default-mobile-narrow.png",
+      "comparisonCapture": "evidence/comparison/home-default-mobile-narrow-side-by-side.png",
+      "overlayCapture": "evidence/comparison/home-default-mobile-narrow-overlay.png",
+      "diffCapture": "evidence/comparison/home-default-mobile-narrow-diff.png",
+      "status": "different",
+      "difference": null,
+      "approval": null,
+      "metrics": {
+        "width": 375,
+        "height": 812,
+        "pixels": 304500,
+        "exactDifferentPixels": 304500,
+        "exactDifferenceRatio": 1,
+        "perceptualDifferentPixels": 197196,
+        "perceptualDifferenceRatio": 0.6476059113300493,
+        "perceptualThreshold": 0.1
+      },
+      "sourceCapturedAt": "2026-08-26T17:12:28.328Z",
+      "sourceCaptureSha256": "3175a26966699b1bd4afe85399163f08bf8051fcfa67dbeb80c4346c5f0baf77",
+      "targetCapturedAt": "2026-08-26T17:12:29.366Z",
+      "targetCaptureSha256": "c1c1c6f8cb1e042f074e0ce338749f33aaa70602a5a9d8b3787cc1bb552d132d",
+      "comparisonCaptureSha256": "a611bb7def27e203491dcda892315581851524dde1ce355c8c43d336fd3c488e",
+      "overlayCaptureSha256": "30c4d1207c16a1d4b08a1a9c84c648038d23397fba21cfa7532aec4d9238895b",
+      "diffCaptureSha256": "3ee4bf44a9b13a93ae7af50bf2335c2ea33facc02bf85c8b2c05924f806188c7",
+      "comparedAt": "2026-08-26T17:14:56.795Z"
+    },
+    {
+      "surface": "menu",
+      "state": "default",
+      "viewport": "desktop-wide",
+      "sourceCapture": "evidence/source/menu-default-desktop-wide.png",
+      "targetCapture": "evidence/target/menu-default-desktop-wide.png",
+      "comparisonCapture": "evidence/comparison/menu-default-desktop-wide-side-by-side.png",
+      "overlayCapture": "evidence/comparison/menu-default-desktop-wide-overlay.png",
+      "diffCapture": "evidence/comparison/menu-default-desktop-wide-diff.png",
+      "status": "different",
+      "difference": null,
+      "approval": null,
+      "metrics": {
+        "width": 1440,
+        "height": 1000,
+        "pixels": 1440000,
+        "exactDifferentPixels": 1439900,
+        "exactDifferenceRatio": 0.9999305555555555,
+        "perceptualDifferentPixels": 889249,
+        "perceptualDifferenceRatio": 0.6175340277777778,
+        "perceptualThreshold": 0.1
+      },
+      "sourceCapturedAt": "2026-08-26T17:12:31.297Z",
+      "sourceCaptureSha256": "4439d54fedf147a02e5cd94db65f3c9ca5f87796c398b70a2b41e89b35c8352f",
+      "targetCapturedAt": "2026-08-26T17:12:32.385Z",
+      "targetCaptureSha256": "f6772bfb00df0d2d49b4b4dc705d5978159f88f885821b8fb18044e1b617986a",
+      "comparisonCaptureSha256": "a7577b2f45b958debaa3ba8bbaa971f3d4532fb2cc0eb2d7be40c2eb0e412ad5",
+      "overlayCaptureSha256": "c29f15932038c070c61430f4bec2dc42e1bc333c5ee998f139fc4020d164f4da",
+      "diffCaptureSha256": "225753e7db8137a28f81b994b468e70fdf627d40a02a90722f5a2a8f90ab3e41",
+      "comparedAt": "2026-08-26T17:14:57.786Z"
+    },
+    {
+      "surface": "menu",
+      "state": "default",
+      "viewport": "desktop",
+      "sourceCapture": "evidence/source/menu-default-desktop.png",
+      "targetCapture": "evidence/target/menu-default-desktop.png",
+      "comparisonCapture": "evidence/comparison/menu-default-desktop-side-by-side.png",
+      "overlayCapture": "evidence/comparison/menu-default-desktop-overlay.png",
+      "diffCapture": "evidence/comparison/menu-default-desktop-diff.png",
+      "status": "different",
+      "difference": null,
+      "approval": null,
+      "metrics": {
+        "width": 1024,
+        "height": 900,
+        "pixels": 921600,
+        "exactDifferentPixels": 921560,
+        "exactDifferenceRatio": 0.9999565972222222,
+        "perceptualDifferentPixels": 569880,
+        "perceptualDifferenceRatio": 0.618359375,
+        "perceptualThreshold": 0.1
+      },
+      "sourceCapturedAt": "2026-08-26T17:12:34.483Z",
+      "sourceCaptureSha256": "ca2276a3a6e6b86697a77f223fb0b405fb03d57c9960c6eb00e575934ded63f1",
+      "targetCapturedAt": "2026-08-26T17:12:35.542Z",
+      "targetCaptureSha256": "23faad508c0f39cce32e68105125e26e2bbaa05b60360bd65eb2871a6deed889",
+      "comparisonCaptureSha256": "caf19702cfdcd9922207449be469b67518a39ee24eb1e9ae7d2f5832386736fe",
+      "overlayCaptureSha256": "3b361deb5cbd1b72b352ab4c9a1995517bacf1a7a2ae6d76bebfdb02e5fb606f",
+      "diffCaptureSha256": "93c4206844f48818e3489e5df92590b4b4a54ee3609daeb518045aec33b5d998",
+      "comparedAt": "2026-08-26T17:14:58.442Z"
+    },
+    {
+      "surface": "menu",
+      "state": "default",
+      "viewport": "tablet",
+      "sourceCapture": "evidence/source/menu-default-tablet.png",
+      "targetCapture": "evidence/target/menu-default-tablet.png",
+      "comparisonCapture": "evidence/comparison/menu-default-tablet-side-by-side.png",
+      "overlayCapture": "evidence/comparison/menu-default-tablet-overlay.png",
+      "diffCapture": "evidence/comparison/menu-default-tablet-diff.png",
+      "status": "different",
+      "difference": null,
+      "approval": null,
+      "metrics": {
+        "width": 768,
+        "height": 1024,
+        "pixels": 786432,
+        "exactDifferentPixels": 786405,
+        "exactDifferenceRatio": 0.9999656677246094,
+        "perceptualDifferentPixels": 517945,
+        "perceptualDifferenceRatio": 0.6586011250813802,
+        "perceptualThreshold": 0.1
+      },
+      "sourceCapturedAt": "2026-08-26T17:12:37.492Z",
+      "sourceCaptureSha256": "bc42ce74321a30ec0edc3815b2df61519398fa182d67b1139cc22ad641998142",
+      "targetCapturedAt": "2026-08-26T17:12:38.543Z",
+      "targetCaptureSha256": "5cff0863a0869d536528eb892d6bc9eee7ed4b2e8497ab4e068672c010e196b0",
+      "comparisonCaptureSha256": "253b272db228ff0e7e00ec4ade0386158d8af4ff26da137544fe3ee4ebdac1a6",
+      "overlayCaptureSha256": "04a36d7755a410a649133a473b93bfa655338b88ecbce9ab55bc6058a15fb917",
+      "diffCaptureSha256": "776c5c714e3f50b756b0a1e27090df06f700de73848acc4af20559a9b081e345",
+      "comparedAt": "2026-08-26T17:14:59.003Z"
+    },
+    {
+      "surface": "menu",
+      "state": "default",
+      "viewport": "mobile",
+      "sourceCapture": "evidence/source/menu-default-mobile.png",
+      "targetCapture": "evidence/target/menu-default-mobile.png",
+      "comparisonCapture": "evidence/comparison/menu-default-mobile-side-by-side.png",
+      "overlayCapture": "evidence/comparison/menu-default-mobile-overlay.png",
+      "diffCapture": "evidence/comparison/menu-default-mobile-diff.png",
+      "status": "different",
+      "difference": null,
+      "approval": null,
+      "metrics": {
+        "width": 390,
+        "height": 844,
+        "pixels": 329160,
+        "exactDifferentPixels": 329154,
+        "exactDifferenceRatio": 0.9999817717827196,
+        "perceptualDifferentPixels": 181362,
+        "perceptualDifferenceRatio": 0.5509843237331389,
+        "perceptualThreshold": 0.1
+      },
+      "sourceCapturedAt": "2026-08-26T17:12:40.189Z",
+      "sourceCaptureSha256": "8317fb536eb815723eed07b9741340b496a846a87eca4ebea5d808695f8d1716",
+      "targetCapturedAt": "2026-08-26T17:12:41.220Z",
+      "targetCaptureSha256": "1a6f1dd344510277de66e4f5072703a3fba656f7781e7f74782e447d5a078316",
+      "comparisonCaptureSha256": "0d7515db3b086e7c3a87b9ea7c9d7faf571ee4cf70c9a2b0a9e27b13bca0c34f",
+      "overlayCaptureSha256": "f9193f4823fac75755535e9853c17b88baaa679c4a13662cbb13e12365e1d49e",
+      "diffCaptureSha256": "9c398c66830db4ef4af592db71fe5774675a5d42a2d7c7718219e77f0f30da92",
+      "comparedAt": "2026-08-26T17:14:59.230Z"
+    },
+    {
+      "surface": "menu",
+      "state": "default",
+      "viewport": "mobile-narrow",
+      "sourceCapture": "evidence/source/menu-default-mobile-narrow.png",
+      "targetCapture": "evidence/target/menu-default-mobile-narrow.png",
+      "comparisonCapture": "evidence/comparison/menu-default-mobile-narrow-side-by-side.png",
+      "overlayCapture": "evidence/comparison/menu-default-mobile-narrow-overlay.png",
+      "diffCapture": "evidence/comparison/menu-default-mobile-narrow-diff.png",
+      "status": "different",
+      "difference": null,
+      "approval": null,
+      "metrics": {
+        "width": 375,
+        "height": 812,
+        "pixels": 304500,
+        "exactDifferentPixels": 304495,
+        "exactDifferenceRatio": 0.9999835796387521,
+        "perceptualDifferentPixels": 163984,
+        "perceptualDifferenceRatio": 0.5385353037766831,
+        "perceptualThreshold": 0.1
+      },
+      "sourceCapturedAt": "2026-08-26T17:12:57.403Z",
+      "sourceCaptureSha256": "ae561652ed580e89c8cd75b8d0589e376cc04866260cd14858d1c272a7af45c4",
+      "targetCapturedAt": "2026-08-26T17:12:58.509Z",
+      "targetCaptureSha256": "0c705318b2541934faf88f3f0f3b81237242b9d5c97c0d8019830d2fa517113a",
+      "comparisonCaptureSha256": "dbce57ccffa9f6cc260c3b0c9c6531961274543032c2f0d68f0b471596cab4cc",
+      "overlayCaptureSha256": "be7895ec7e6a1d66e7538a1824e0db8ffce2b7520793d1207f72452de72c9c0f",
+      "diffCaptureSha256": "628470b5d09ddc9ddf4537f186bfe5574a29757745d7ed89628fe405874a6250",
+      "comparedAt": "2026-08-26T17:14:59.424Z"
+    },
+    {
+      "surface": "pizza-builder",
+      "state": "default",
+      "viewport": "desktop-wide",
+      "sourceCapture": "evidence/source/pizza-builder-default-desktop-wide.png",
+      "targetCapture": "evidence/target/pizza-builder-default-desktop-wide.png",
+      "comparisonCapture": "evidence/comparison/pizza-builder-default-desktop-wide-side-by-side.png",
+      "overlayCapture": "evidence/comparison/pizza-builder-default-desktop-wide-overlay.png",
+      "diffCapture": "evidence/comparison/pizza-builder-default-desktop-wide-diff.png",
+      "status": "different",
+      "difference": null,
+      "approval": null,
+      "metrics": {
+        "width": 1440,
+        "height": 1000,
+        "pixels": 1440000,
+        "exactDifferentPixels": 1439984,
+        "exactDifferenceRatio": 0.9999888888888889,
+        "perceptualDifferentPixels": 1288352,
+        "perceptualDifferenceRatio": 0.8946888888888889,
+        "perceptualThreshold": 0.1
+      },
+      "sourceCapturedAt": "2026-08-26T17:13:00.197Z",
+      "sourceCaptureSha256": "3df16ba366866faa97445675b7998fc41f845a84a645019f38c75a772ff34788",
+      "targetCapturedAt": "2026-08-26T17:13:01.275Z",
+      "targetCaptureSha256": "89955918d03a98c15cd415802ce332fbe0293d343d6cf4f9c3250fc015d312d7",
+      "comparisonCaptureSha256": "3c2a6a4bd4de8d9ae3f4079a73948d324908780dd2d9c075a74a51ace7b62f7b",
+      "overlayCaptureSha256": "ef2e75076146160fff94a3809c85992e0d417f84319fd32343980501205c4bd8",
+      "diffCaptureSha256": "8b94395e0b09876b92120a72e9aab3bab53a0f78bdcc89973ea30a8ee8b2d818",
+      "comparedAt": "2026-08-26T17:15:00.438Z"
+    },
+    {
+      "surface": "pizza-builder",
+      "state": "default",
+      "viewport": "desktop",
+      "sourceCapture": "evidence/source/pizza-builder-default-desktop.png",
+      "targetCapture": "evidence/target/pizza-builder-default-desktop.png",
+      "comparisonCapture": "evidence/comparison/pizza-builder-default-desktop-side-by-side.png",
+      "overlayCapture": "evidence/comparison/pizza-builder-default-desktop-overlay.png",
+      "diffCapture": "evidence/comparison/pizza-builder-default-desktop-diff.png",
+      "status": "different",
+      "difference": null,
+      "approval": null,
+      "metrics": {
+        "width": 1024,
+        "height": 900,
+        "pixels": 921600,
+        "exactDifferentPixels": 921600,
+        "exactDifferenceRatio": 1,
+        "perceptualDifferentPixels": 723058,
+        "perceptualDifferenceRatio": 0.7845681423611112,
+        "perceptualThreshold": 0.1
+      },
+      "sourceCapturedAt": "2026-08-26T17:13:03.097Z",
+      "sourceCaptureSha256": "ae760003076a70b64d34a773e8e40de9c9f0f3e2a5a0dc2d23bbd318cc022dc4",
+      "targetCapturedAt": "2026-08-26T17:13:04.136Z",
+      "targetCaptureSha256": "54a781080e4caa812cad574fa255e46defd5549deaa551c233fde0fa2fbc7297",
+      "comparisonCaptureSha256": "511d87bf5e9b1aafd59c11b7722ea9bd3c60d3a858cf296fd588fd8ea1e1b90f",
+      "overlayCaptureSha256": "f525fe089cb74a528e18443dc9306fb69f4b3e7af27411cfa24dd056e831bac7",
+      "diffCaptureSha256": "52100ce17418c0805b5116cdfacc17e33a5e60f075c2d98bc76909520ad981f3",
+      "comparedAt": "2026-08-26T17:15:01.159Z"
+    },
+    {
+      "surface": "pizza-builder",
+      "state": "default",
+      "viewport": "tablet",
+      "sourceCapture": "evidence/source/pizza-builder-default-tablet.png",
+      "targetCapture": "evidence/target/pizza-builder-default-tablet.png",
+      "comparisonCapture": "evidence/comparison/pizza-builder-default-tablet-side-by-side.png",
+      "overlayCapture": "evidence/comparison/pizza-builder-default-tablet-overlay.png",
+      "diffCapture": "evidence/comparison/pizza-builder-default-tablet-diff.png",
+      "status": "different",
+      "difference": null,
+      "approval": null,
+      "metrics": {
+        "width": 768,
+        "height": 1024,
+        "pixels": 786432,
+        "exactDifferentPixels": 786430,
+        "exactDifferenceRatio": 0.9999974568684896,
+        "perceptualDifferentPixels": 671347,
+        "perceptualDifferenceRatio": 0.853661855061849,
+        "perceptualThreshold": 0.1
+      },
+      "sourceCapturedAt": "2026-08-26T17:13:05.895Z",
+      "sourceCaptureSha256": "bf02ca32150d2a26f99de64c3ba602018ec583959acde1734030c417eaacf856",
+      "targetCapturedAt": "2026-08-26T17:13:06.903Z",
+      "targetCaptureSha256": "29bb2ec01e07b8e2cd6ba37886c000ddb3a3048b5a1065bd766deced2886c540",
+      "comparisonCaptureSha256": "15f0a1b6703f08399e9484a2b132be696438318de3386012cdfbb5e7539eabe0",
+      "overlayCaptureSha256": "caef28870f9a97555b1f64f6e89039f956cdd71819c65096138b483646aea319",
+      "diffCaptureSha256": "5f69c45feedbfc82ba28385aa9e4366efa657fe702d706119d1ebd93e9976c9c",
+      "comparedAt": "2026-08-26T17:15:01.726Z"
+    },
+    {
+      "surface": "pizza-builder",
+      "state": "default",
+      "viewport": "mobile",
+      "sourceCapture": "evidence/source/pizza-builder-default-mobile.png",
+      "targetCapture": "evidence/target/pizza-builder-default-mobile.png",
+      "comparisonCapture": "evidence/comparison/pizza-builder-default-mobile-side-by-side.png",
+      "overlayCapture": "evidence/comparison/pizza-builder-default-mobile-overlay.png",
+      "diffCapture": "evidence/comparison/pizza-builder-default-mobile-diff.png",
+      "status": "different",
+      "difference": null,
+      "approval": null,
+      "metrics": {
+        "width": 390,
+        "height": 844,
+        "pixels": 329160,
+        "exactDifferentPixels": 329071,
+        "exactDifferenceRatio": 0.9997296147770082,
+        "perceptualDifferentPixels": 289270,
+        "perceptualDifferenceRatio": 0.8788127354478066,
+        "perceptualThreshold": 0.1
+      },
+      "sourceCapturedAt": "2026-08-26T17:13:08.626Z",
+      "sourceCaptureSha256": "3cb71376dc57cf0f56370c2371a73f1fa1be4c063d39260f4a94d4922227782d",
+      "targetCapturedAt": "2026-08-26T17:13:09.541Z",
+      "targetCaptureSha256": "5bb3033fd285581630977c0457fedd825eff9d35c638df6f5274f21c1d53d867",
+      "comparisonCaptureSha256": "20ac26252276f26581af9ade53b1645113c33942f12909ba3ac5d874cd4b739e",
+      "overlayCaptureSha256": "5012e6a18045ec9660c9696eaf8edfed7aa844a8d9c667fedfc5e57802e55a3c",
+      "diffCaptureSha256": "f5b0720a9ee444b58c24727e24bfe4633b47cb925b702d89fcd8da02e2f16e8a",
+      "comparedAt": "2026-08-26T17:15:02.015Z"
+    },
+    {
+      "surface": "pizza-builder",
+      "state": "default",
+      "viewport": "mobile-narrow",
+      "sourceCapture": "evidence/source/pizza-builder-default-mobile-narrow.png",
+      "targetCapture": "evidence/target/pizza-builder-default-mobile-narrow.png",
+      "comparisonCapture": "evidence/comparison/pizza-builder-default-mobile-narrow-side-by-side.png",
+      "overlayCapture": "evidence/comparison/pizza-builder-default-mobile-narrow-overlay.png",
+      "diffCapture": "evidence/comparison/pizza-builder-default-mobile-narrow-diff.png",
+      "status": "different",
+      "difference": null,
+      "approval": null,
+      "metrics": {
+        "width": 375,
+        "height": 812,
+        "pixels": 304500,
+        "exactDifferentPixels": 304492,
+        "exactDifferenceRatio": 0.9999737274220033,
+        "perceptualDifferentPixels": 275482,
+        "perceptualDifferenceRatio": 0.9047027914614122,
+        "perceptualThreshold": 0.1
+      },
+      "sourceCapturedAt": "2026-08-26T17:13:11.243Z",
+      "sourceCaptureSha256": "735693c496af4458ea0bc6637da8115634d148dc2b53a62092af56b988776ca2",
+      "targetCapturedAt": "2026-08-26T17:13:12.156Z",
+      "targetCaptureSha256": "8e025a3e25ddd8c23c61605e5067939dda2927d379069810baed6fce471c0042",
+      "comparisonCaptureSha256": "6a2af3dafa46705b3cefb7ed6b88ddb500d987255bd8fb0a0098ad7f86a59816",
+      "overlayCaptureSha256": "2720e8d6f6b3405c192f994afdca380c65de459bf80c3ed916e16a146c3197a7",
+      "diffCaptureSha256": "fe212e8b1d8cecbd4b51c9e0fb018a60583d5307bb9aec5f3561fe0ad68d0813",
+      "comparedAt": "2026-08-26T17:15:02.280Z"
+    },
+    {
+      "surface": "cart-empty",
+      "state": "default",
+      "viewport": "desktop-wide",
+      "sourceCapture": "evidence/source/cart-empty-default-desktop-wide.png",
+      "targetCapture": "evidence/target/cart-empty-default-desktop-wide.png",
+      "comparisonCapture": "evidence/comparison/cart-empty-default-desktop-wide-side-by-side.png",
+      "overlayCapture": "evidence/comparison/cart-empty-default-desktop-wide-overlay.png",
+      "diffCapture": "evidence/comparison/cart-empty-default-desktop-wide-diff.png",
+      "status": "different",
+      "difference": null,
+      "approval": null,
+      "metrics": {
+        "width": 1440,
+        "height": 1000,
+        "pixels": 1440000,
+        "exactDifferentPixels": 1440000,
+        "exactDifferenceRatio": 1,
+        "perceptualDifferentPixels": 498355,
+        "perceptualDifferenceRatio": 0.3460798611111111,
+        "perceptualThreshold": 0.1
+      },
+      "sourceCapturedAt": "2026-08-26T17:13:14.448Z",
+      "sourceCaptureSha256": "995f1438618a41a3da6bb0a513a6ef85ce1444c939aa607c567211d9e0dff150",
+      "targetCapturedAt": "2026-08-26T17:13:15.371Z",
+      "targetCaptureSha256": "ab27f8f6fe66709bc0f6712ce5dacc4d9641c39bfc9ddb30ea4a031393f5ca57",
+      "comparisonCaptureSha256": "79fa83b9f0983da99a0190f3acd69afb4cd4fe6598bfc7118af058d807e1742e",
+      "overlayCaptureSha256": "7f90e8e548810a232aa4bae6bd6954d97b425effd846d71881e2c050bf6c83ad",
+      "diffCaptureSha256": "2fc6be74b427727fd839a1226d543538ffdb6783bb827738e0a45d96964e2dbe",
+      "comparedAt": "2026-08-26T17:15:03.008Z"
+    },
+    {
+      "surface": "cart-empty",
+      "state": "default",
+      "viewport": "desktop",
+      "sourceCapture": "evidence/source/cart-empty-default-desktop.png",
+      "targetCapture": "evidence/target/cart-empty-default-desktop.png",
+      "comparisonCapture": "evidence/comparison/cart-empty-default-desktop-side-by-side.png",
+      "overlayCapture": "evidence/comparison/cart-empty-default-desktop-overlay.png",
+      "diffCapture": "evidence/comparison/cart-empty-default-desktop-diff.png",
+      "status": "different",
+      "difference": null,
+      "approval": null,
+      "metrics": {
+        "width": 1024,
+        "height": 900,
+        "pixels": 921600,
+        "exactDifferentPixels": 921600,
+        "exactDifferenceRatio": 1,
+        "perceptualDifferentPixels": 353826,
+        "perceptualDifferenceRatio": 0.38392578125,
+        "perceptualThreshold": 0.1
+      },
+      "sourceCapturedAt": "2026-08-26T17:13:41.023Z",
+      "sourceCaptureSha256": "a0972ece54c75afd5d176ee2af935054efd84ba978f8a2ed6d5031b7a26f2862",
+      "targetCapturedAt": "2026-08-26T17:13:41.915Z",
+      "targetCaptureSha256": "391c4c2f552fc7f7331ed8b14e7e8238207616448d7eeeb9c09ed1d43a8bdf58",
+      "comparisonCaptureSha256": "1e52c2f970be76e688b8ebccbed9287a31ea6e9ae6e91eb76274da84c48d117f",
+      "overlayCaptureSha256": "9f42c25ca0bc67a753a17ad6b5fefc910ed8e41163c60d3b2045fc62b3588f64",
+      "diffCaptureSha256": "3a8609c691683358a083544c61b5083520aa2e4228a9950fe177cf3da22fe7b3",
+      "comparedAt": "2026-08-26T17:15:03.483Z"
+    },
+    {
+      "surface": "cart-empty",
+      "state": "default",
+      "viewport": "tablet",
+      "sourceCapture": "evidence/source/cart-empty-default-tablet.png",
+      "targetCapture": "evidence/target/cart-empty-default-tablet.png",
+      "comparisonCapture": "evidence/comparison/cart-empty-default-tablet-side-by-side.png",
+      "overlayCapture": "evidence/comparison/cart-empty-default-tablet-overlay.png",
+      "diffCapture": "evidence/comparison/cart-empty-default-tablet-diff.png",
+      "status": "different",
+      "difference": null,
+      "approval": null,
+      "metrics": {
+        "width": 768,
+        "height": 1024,
+        "pixels": 786432,
+        "exactDifferentPixels": 786432,
+        "exactDifferenceRatio": 1,
+        "perceptualDifferentPixels": 267804,
+        "perceptualDifferenceRatio": 0.3405303955078125,
+        "perceptualThreshold": 0.1
+      },
+      "sourceCapturedAt": "2026-08-26T17:13:57.330Z",
+      "sourceCaptureSha256": "7928b47bc736df1f043d378b9c58cf90f8a28078362ee9e968197d5a90365105",
+      "targetCapturedAt": "2026-08-26T17:13:58.227Z",
+      "targetCaptureSha256": "5a22ffdd7e78c77aa51b09d9c3d030b4067bf763fed9973f413e7bb5c64904f1",
+      "comparisonCaptureSha256": "1c11b76d4a7cf2cc145c0b24d0ec0fbcee2ffc5ae5ddb3590edc284bb1877e7f",
+      "overlayCaptureSha256": "492b93cd0fdf4ab4aca6082dfa2bb6e68b6cd833544dd6790ea88cc4f0a83810",
+      "diffCaptureSha256": "0eb44611d4b0e50a84d8b7d4433cc35625249a04fd7ca3f76637bd0d56f7267c",
+      "comparedAt": "2026-08-26T17:15:03.885Z"
+    },
+    {
+      "surface": "cart-empty",
+      "state": "default",
+      "viewport": "mobile",
+      "sourceCapture": "evidence/source/cart-empty-default-mobile.png",
+      "targetCapture": "evidence/target/cart-empty-default-mobile.png",
+      "comparisonCapture": "evidence/comparison/cart-empty-default-mobile-side-by-side.png",
+      "overlayCapture": "evidence/comparison/cart-empty-default-mobile-overlay.png",
+      "diffCapture": "evidence/comparison/cart-empty-default-mobile-diff.png",
+      "status": "different",
+      "difference": null,
+      "approval": null,
+      "metrics": {
+        "width": 390,
+        "height": 844,
+        "pixels": 329160,
+        "exactDifferentPixels": 329160,
+        "exactDifferenceRatio": 1,
+        "perceptualDifferentPixels": 129709,
+        "perceptualDifferenceRatio": 0.3940606392028193,
+        "perceptualThreshold": 0.1
+      },
+      "sourceCapturedAt": "2026-08-26T17:13:59.846Z",
+      "sourceCaptureSha256": "5f05ad2d6626cf929c2b78731a78db937ce22a9fcca344ce569748a3344ee6dd",
+      "targetCapturedAt": "2026-08-26T17:14:00.713Z",
+      "targetCaptureSha256": "8e8014a08bc680ca41e56d94dac5cf668f6772745334c4ba904818331c6de4d1",
+      "comparisonCaptureSha256": "0539d22e73835a5999ed189f875291af95a5e79d594b8411ae7bbf9e6a015fdc",
+      "overlayCaptureSha256": "36d79cdbbfefd715d623264cf88bacced86560034fa50e2fe36f8a06eed93d27",
+      "diffCaptureSha256": "89b5450bf980b89608f80404e99e19227d79d59591f9b6231bf22dc5fcf8490d",
+      "comparedAt": "2026-08-26T17:15:04.062Z"
+    },
+    {
+      "surface": "cart-empty",
+      "state": "default",
+      "viewport": "mobile-narrow",
+      "sourceCapture": "evidence/source/cart-empty-default-mobile-narrow.png",
+      "targetCapture": "evidence/target/cart-empty-default-mobile-narrow.png",
+      "comparisonCapture": "evidence/comparison/cart-empty-default-mobile-narrow-side-by-side.png",
+      "overlayCapture": "evidence/comparison/cart-empty-default-mobile-narrow-overlay.png",
+      "diffCapture": "evidence/comparison/cart-empty-default-mobile-narrow-diff.png",
+      "status": "different",
+      "difference": null,
+      "approval": null,
+      "metrics": {
+        "width": 375,
+        "height": 812,
+        "pixels": 304500,
+        "exactDifferentPixels": 304500,
+        "exactDifferenceRatio": 1,
+        "perceptualDifferentPixels": 111345,
+        "perceptualDifferenceRatio": 0.36566502463054185,
+        "perceptualThreshold": 0.1
+      },
+      "sourceCapturedAt": "2026-08-26T17:14:02.453Z",
+      "sourceCaptureSha256": "6d775c1634e1750d6d42f17b373e45373a7542210c5bee443fdda3fd4461fa52",
+      "targetCapturedAt": "2026-08-26T17:14:03.334Z",
+      "targetCaptureSha256": "e924196f9bfdf0ba37d56ed5436943d5b7259109182d260d095a81fc74a17d29",
+      "comparisonCaptureSha256": "6c62e6021e47e9ea998edb41470e5170f34638df517d6ec25bbe8f012e9fd2d0",
+      "overlayCaptureSha256": "a6e041dc0032cf3dc0f18abffb865122e284eb1c907116043262604e3284485a",
+      "diffCaptureSha256": "8176ab7593023759494f123530289a96a618559c8d51a1594151fe809965e62c",
+      "comparedAt": "2026-08-26T17:15:04.234Z"
+    },
+    {
+      "surface": "checkout",
+      "state": "default",
+      "viewport": "desktop-wide",
+      "sourceCapture": "evidence/source/checkout-default-desktop-wide.png",
+      "targetCapture": "evidence/target/checkout-default-desktop-wide.png",
+      "comparisonCapture": "evidence/comparison/checkout-default-desktop-wide-side-by-side.png",
+      "overlayCapture": "evidence/comparison/checkout-default-desktop-wide-overlay.png",
+      "diffCapture": "evidence/comparison/checkout-default-desktop-wide-diff.png",
+      "status": "different",
+      "difference": null,
+      "approval": null,
+      "metrics": {
+        "width": 1440,
+        "height": 1000,
+        "pixels": 1440000,
+        "exactDifferentPixels": 1440000,
+        "exactDifferenceRatio": 1,
+        "perceptualDifferentPixels": 534812,
+        "perceptualDifferenceRatio": 0.3713972222222222,
+        "perceptualThreshold": 0.1
+      },
+      "sourceCapturedAt": "2026-08-26T17:14:05.246Z",
+      "sourceCaptureSha256": "b0f2b0c69e60f825cfe9f0129a18c41e9ca64ea0f2fb04222967651a954fcf0a",
+      "targetCapturedAt": "2026-08-26T17:14:06.137Z",
+      "targetCaptureSha256": "7bf53df6d0d34555c1a131484e6fdac2e84e293e2b3d7f5405ed36c118e5d378",
+      "comparisonCaptureSha256": "1165dbf5cf0be6a6be9cc9024ddea39f437604549a44972463590c5d92787d8b",
+      "overlayCaptureSha256": "a6cd39c3cbdaa80939cf5bdc4d398a073ba34328f55df2ad798e119ba910ef9a",
+      "diffCaptureSha256": "cf7c05b60b38e455a64116d011efdec24d742f42ee95e4715633a65153971a5a",
+      "comparedAt": "2026-08-26T17:15:04.975Z"
+    },
+    {
+      "surface": "checkout",
+      "state": "default",
+      "viewport": "desktop",
+      "sourceCapture": "evidence/source/checkout-default-desktop.png",
+      "targetCapture": "evidence/target/checkout-default-desktop.png",
+      "comparisonCapture": "evidence/comparison/checkout-default-desktop-side-by-side.png",
+      "overlayCapture": "evidence/comparison/checkout-default-desktop-overlay.png",
+      "diffCapture": "evidence/comparison/checkout-default-desktop-diff.png",
+      "status": "different",
+      "difference": null,
+      "approval": null,
+      "metrics": {
+        "width": 1024,
+        "height": 900,
+        "pixels": 921600,
+        "exactDifferentPixels": 921600,
+        "exactDifferenceRatio": 1,
+        "perceptualDifferentPixels": 392010,
+        "perceptualDifferenceRatio": 0.42535807291666666,
+        "perceptualThreshold": 0.1
+      },
+      "sourceCapturedAt": "2026-08-26T17:14:08.039Z",
+      "sourceCaptureSha256": "1e47953b536fd846d910511ef8ff0cb6cdac74afea9e5998905bdcb7796ddd69",
+      "targetCapturedAt": "2026-08-26T17:14:08.911Z",
+      "targetCaptureSha256": "4a84cf51adb718e1f8c81ae313d77ce9ab2c30c7a06f88daaa3efd28cdc9df6b",
+      "comparisonCaptureSha256": "ad2b06384cf8e174657685b3d451943537009f739cebbee6de6ed286cbf4f70f",
+      "overlayCaptureSha256": "2b3e9b8e82bfda73c7b81d0f6e53b5afea25aa73b01554acec2e95f5287ee5bb",
+      "diffCaptureSha256": "ceca57106dd47abb3096416b6ef91cef603dbc7804b4cccfd94a7444f103c15a",
+      "comparedAt": "2026-08-26T17:15:05.465Z"
+    },
+    {
+      "surface": "checkout",
+      "state": "default",
+      "viewport": "tablet",
+      "sourceCapture": "evidence/source/checkout-default-tablet.png",
+      "targetCapture": "evidence/target/checkout-default-tablet.png",
+      "comparisonCapture": "evidence/comparison/checkout-default-tablet-side-by-side.png",
+      "overlayCapture": "evidence/comparison/checkout-default-tablet-overlay.png",
+      "diffCapture": "evidence/comparison/checkout-default-tablet-diff.png",
+      "status": "different",
+      "difference": null,
+      "approval": null,
+      "metrics": {
+        "width": 768,
+        "height": 1024,
+        "pixels": 786432,
+        "exactDifferentPixels": 786432,
+        "exactDifferenceRatio": 1,
+        "perceptualDifferentPixels": 302209,
+        "perceptualDifferenceRatio": 0.3842786153157552,
+        "perceptualThreshold": 0.1
+      },
+      "sourceCapturedAt": "2026-08-26T17:14:10.900Z",
+      "sourceCaptureSha256": "bef9a108a608654685827a25ab28dd6cd7b67a76c6e8a02e48e3b148f6f70ac1",
+      "targetCapturedAt": "2026-08-26T17:14:11.776Z",
+      "targetCaptureSha256": "309f45e1ba441b0d11867ba5a358f51a9366b65bc4f56aade57a56e61b6c5ac9",
+      "comparisonCaptureSha256": "beb90f71ad6eb1e5f2f89ae5b3501c969f1b4ed741d52ab7101f76c570aacdd5",
+      "overlayCaptureSha256": "dc1d906578932511ce94a2e17a058b9611274e6ff72d534f3c254d311e6b5701",
+      "diffCaptureSha256": "e1f73575d0a5028874bb88a914cf507cfa648496348b9f94251b53f99ec95ac6",
+      "comparedAt": "2026-08-26T17:15:05.874Z"
+    },
+    {
+      "surface": "checkout",
+      "state": "default",
+      "viewport": "mobile",
+      "sourceCapture": "evidence/source/checkout-default-mobile.png",
+      "targetCapture": "evidence/target/checkout-default-mobile.png",
+      "comparisonCapture": "evidence/comparison/checkout-default-mobile-side-by-side.png",
+      "overlayCapture": "evidence/comparison/checkout-default-mobile-overlay.png",
+      "diffCapture": "evidence/comparison/checkout-default-mobile-diff.png",
+      "status": "different",
+      "difference": null,
+      "approval": null,
+      "metrics": {
+        "width": 390,
+        "height": 844,
+        "pixels": 329160,
+        "exactDifferentPixels": 329152,
+        "exactDifferenceRatio": 0.9999756957102929,
+        "perceptualDifferentPixels": 154266,
+        "perceptualDifferenceRatio": 0.4686656944950784,
+        "perceptualThreshold": 0.1
+      },
+      "sourceCapturedAt": "2026-08-26T17:14:16.028Z",
+      "sourceCaptureSha256": "d3720d04c0c31dabd379254fb810cf18693f9d3ab6533ea8af7b968a745d309c",
+      "targetCapturedAt": "2026-08-26T17:14:16.963Z",
+      "targetCaptureSha256": "ea97a829b7f7dfd09c4143a84989050eab93fe88ccc35b0e97788b5b797d80f4",
+      "comparisonCaptureSha256": "9df3cab427cf6cc57db652207cc6e94412a5ff5d0b14a76f83cbe2c4f2e7beda",
+      "overlayCaptureSha256": "f733a0371c771b8e0df41098aea80fd162c322f71949014c4993facb8fe175f7",
+      "diffCaptureSha256": "17100347a6c23b0cd2c31d3c34de90768e97ecd4fbc813f55584ecfe5ab6cc4d",
+      "comparedAt": "2026-08-26T17:15:06.058Z"
+    },
+    {
+      "surface": "checkout",
+      "state": "default",
+      "viewport": "mobile-narrow",
+      "sourceCapture": "evidence/source/checkout-default-mobile-narrow.png",
+      "targetCapture": "evidence/target/checkout-default-mobile-narrow.png",
+      "comparisonCapture": "evidence/comparison/checkout-default-mobile-narrow-side-by-side.png",
+      "overlayCapture": "evidence/comparison/checkout-default-mobile-narrow-overlay.png",
+      "diffCapture": "evidence/comparison/checkout-default-mobile-narrow-diff.png",
+      "status": "different",
+      "difference": null,
+      "approval": null,
+      "metrics": {
+        "width": 375,
+        "height": 812,
+        "pixels": 304500,
+        "exactDifferentPixels": 304493,
+        "exactDifferenceRatio": 0.9999770114942529,
+        "perceptualDifferentPixels": 119021,
+        "perceptualDifferenceRatio": 0.3908735632183908,
+        "perceptualThreshold": 0.1
+      },
+      "sourceCapturedAt": "2026-08-26T17:14:21.226Z",
+      "sourceCaptureSha256": "2fb17ace666c2035229fc0012eff3ed093472f7d20a9ff7ecd616f9fae93d88c",
+      "targetCapturedAt": "2026-08-26T17:14:22.092Z",
+      "targetCaptureSha256": "15cb82b139bc31f4201c145ef2cabc6991cb65e226d1889c931590713d30355f",
+      "comparisonCaptureSha256": "84e85edc11417f1e55d24d1800aaeb224b5cbb58ff20cb7045fdd5bc0c690f52",
+      "overlayCaptureSha256": "eba363c27ac577bc772e07e1ae91564deb717985f7ee089cd2ce6ace5cc3a23d",
+      "diffCaptureSha256": "3f5504866a85f3d5685add02e1468d5c039b4c299d57b20bd3e1622642f83f44",
+      "comparedAt": "2026-08-26T17:15:06.219Z"
+    },
+    {
+      "surface": "reservations",
+      "state": "default",
+      "viewport": "desktop-wide",
+      "sourceCapture": "evidence/source/reservations-default-desktop-wide.png",
+      "targetCapture": "evidence/target/reservations-default-desktop-wide.png",
+      "comparisonCapture": "evidence/comparison/reservations-default-desktop-wide-side-by-side.png",
+      "overlayCapture": "evidence/comparison/reservations-default-desktop-wide-overlay.png",
+      "diffCapture": "evidence/comparison/reservations-default-desktop-wide-diff.png",
+      "status": "different",
+      "difference": null,
+      "approval": null,
+      "metrics": {
+        "width": 1440,
+        "height": 1000,
+        "pixels": 1440000,
+        "exactDifferentPixels": 1439955,
+        "exactDifferenceRatio": 0.99996875,
+        "perceptualDifferentPixels": 915828,
+        "perceptualDifferenceRatio": 0.6359916666666666,
+        "perceptualThreshold": 0.1
+      },
+      "sourceCapturedAt": "2026-08-26T17:14:23.802Z",
+      "sourceCaptureSha256": "e5736e54c370c235a0c188a1c8801fb92f4ae6ba8ae8d46e72e499c46d74caaf",
+      "targetCapturedAt": "2026-08-26T17:14:24.813Z",
+      "targetCaptureSha256": "21b2078dc625ee89b0077da1744dcfcc695889594c36cdbb981335a61c7cb7de",
+      "comparisonCaptureSha256": "e8cc5fdd9bd6d4faf5df015aff69399a78acb959febe2a279933f98882333474",
+      "overlayCaptureSha256": "fbe3f90b96556ed0a851588f9d901398c1cc2d431f5d47404cef96a0b474a56e",
+      "diffCaptureSha256": "3c83c11e6fcf770af765f276c5d02068015e2fe307c68b03a8e9dadac3ada509",
+      "comparedAt": "2026-08-26T17:15:07.148Z"
+    },
+    {
+      "surface": "reservations",
+      "state": "default",
+      "viewport": "desktop",
+      "sourceCapture": "evidence/source/reservations-default-desktop.png",
+      "targetCapture": "evidence/target/reservations-default-desktop.png",
+      "comparisonCapture": "evidence/comparison/reservations-default-desktop-side-by-side.png",
+      "overlayCapture": "evidence/comparison/reservations-default-desktop-overlay.png",
+      "diffCapture": "evidence/comparison/reservations-default-desktop-diff.png",
+      "status": "different",
+      "difference": null,
+      "approval": null,
+      "metrics": {
+        "width": 1024,
+        "height": 900,
+        "pixels": 921600,
+        "exactDifferentPixels": 921590,
+        "exactDifferenceRatio": 0.9999891493055556,
+        "perceptualDifferentPixels": 686856,
+        "perceptualDifferenceRatio": 0.7452864583333333,
+        "perceptualThreshold": 0.1
+      },
+      "sourceCapturedAt": "2026-08-26T17:14:26.585Z",
+      "sourceCaptureSha256": "bb9df8846d10bf4cc8f7450d9730ebaed8c22f71c4d1de459abd7382f7adad02",
+      "targetCapturedAt": "2026-08-26T17:14:27.589Z",
+      "targetCaptureSha256": "f93d6fa8eb5b42da1dc53c1550898a530080793c2bb8dd3d3e9b107553cc9438",
+      "comparisonCaptureSha256": "dfc840cd2126ab20a8182d474fbe0d2d0d18d8d5f4a81841ae6de2359866abdb",
+      "overlayCaptureSha256": "da03755a7d9c37f7c8ae29519378843bbb985195ccec3cfe000f3cea7a6ab8ec",
+      "diffCaptureSha256": "cbe41ecb93dcb0f3b6a098098491f84535bddf40cc6227907b876c9097435602",
+      "comparedAt": "2026-08-26T17:15:07.785Z"
+    },
+    {
+      "surface": "reservations",
+      "state": "default",
+      "viewport": "tablet",
+      "sourceCapture": "evidence/source/reservations-default-tablet.png",
+      "targetCapture": "evidence/target/reservations-default-tablet.png",
+      "comparisonCapture": "evidence/comparison/reservations-default-tablet-side-by-side.png",
+      "overlayCapture": "evidence/comparison/reservations-default-tablet-overlay.png",
+      "diffCapture": "evidence/comparison/reservations-default-tablet-diff.png",
+      "status": "different",
+      "difference": null,
+      "approval": null,
+      "metrics": {
+        "width": 768,
+        "height": 1024,
+        "pixels": 786432,
+        "exactDifferentPixels": 786404,
+        "exactDifferenceRatio": 0.9999643961588541,
+        "perceptualDifferentPixels": 549539,
+        "perceptualDifferenceRatio": 0.6987749735514323,
+        "perceptualThreshold": 0.1
+      },
+      "sourceCapturedAt": "2026-08-26T17:14:29.239Z",
+      "sourceCaptureSha256": "30bb93bec6ed858883b9ab7520673884ba47d88e114e3fc68a1a9b6134c5f4be",
+      "targetCapturedAt": "2026-08-26T17:14:30.198Z",
+      "targetCaptureSha256": "831448d447293aab01c73938ef0da3c7df502ff223134d9eced878c643aa0163",
+      "comparisonCaptureSha256": "8a41fda3a85c9ee2428fae9b459f28dd6f881b753d18b0502aab098f3c8236a2",
+      "overlayCaptureSha256": "815e2984a9cb5390a77c8de6d3c49012a0308ea4029ce8d5535c625cdae573a6",
+      "diffCaptureSha256": "a0bff5d0e92cb09e5101e1a6bbe94bb227ab35604ee7bd22214b4b802365643d",
+      "comparedAt": "2026-08-26T17:15:08.297Z"
+    },
+    {
+      "surface": "reservations",
+      "state": "default",
+      "viewport": "mobile",
+      "sourceCapture": "evidence/source/reservations-default-mobile.png",
+      "targetCapture": "evidence/target/reservations-default-mobile.png",
+      "comparisonCapture": "evidence/comparison/reservations-default-mobile-side-by-side.png",
+      "overlayCapture": "evidence/comparison/reservations-default-mobile-overlay.png",
+      "diffCapture": "evidence/comparison/reservations-default-mobile-diff.png",
+      "status": "different",
+      "difference": null,
+      "approval": null,
+      "metrics": {
+        "width": 390,
+        "height": 844,
+        "pixels": 329160,
+        "exactDifferentPixels": 329131,
+        "exactDifferenceRatio": 0.9999118969498116,
+        "perceptualDifferentPixels": 178246,
+        "perceptualDifferenceRatio": 0.5415178028922105,
+        "perceptualThreshold": 0.1
+      },
+      "sourceCapturedAt": "2026-08-26T17:14:31.854Z",
+      "sourceCaptureSha256": "c25b5de01038b8fd80d261715ce824c83153430b1feebec93770984c750f9ff9",
+      "targetCapturedAt": "2026-08-26T17:14:32.739Z",
+      "targetCaptureSha256": "fd6aa6ffe37a8950937f5ac9a44792139f505ce4ce00fc08e6a1276afbda2830",
+      "comparisonCaptureSha256": "f40f7a5f83541fc36f060adfa4691a3afda0095828cf1c4f4c586b7ea7d21724",
+      "overlayCaptureSha256": "80bfd7c05da75abe932620d593f1577be481be9b79aefc681425c0fb1a8b129a",
+      "diffCaptureSha256": "85d66ae825f4ca247798c7ac36fdb2f64fdddb78c41e9c2033cb0ce1a00aa723",
+      "comparedAt": "2026-08-26T17:15:08.499Z"
+    },
+    {
+      "surface": "reservations",
+      "state": "default",
+      "viewport": "mobile-narrow",
+      "sourceCapture": "evidence/source/reservations-default-mobile-narrow.png",
+      "targetCapture": "evidence/target/reservations-default-mobile-narrow.png",
+      "comparisonCapture": "evidence/comparison/reservations-default-mobile-narrow-side-by-side.png",
+      "overlayCapture": "evidence/comparison/reservations-default-mobile-narrow-overlay.png",
+      "diffCapture": "evidence/comparison/reservations-default-mobile-narrow-diff.png",
+      "status": "different",
+      "difference": null,
+      "approval": null,
+      "metrics": {
+        "width": 375,
+        "height": 812,
+        "pixels": 304500,
+        "exactDifferentPixels": 304472,
+        "exactDifferenceRatio": 0.9999080459770114,
+        "perceptualDifferentPixels": 158360,
+        "perceptualDifferenceRatio": 0.5200656814449918,
+        "perceptualThreshold": 0.1
+      },
+      "sourceCapturedAt": "2026-08-26T17:14:34.375Z",
+      "sourceCaptureSha256": "7247c8c11ac87bed385639252e6ff403e51acb62b088592520f77bb0c2b8f12b",
+      "targetCapturedAt": "2026-08-26T17:14:35.278Z",
+      "targetCaptureSha256": "526f187a4281fe11b326a094ed22d9e2c5dfc8ebf8f415600c5cc0f4f59d7833",
+      "comparisonCaptureSha256": "28e28ce899839ca3e00d89cb18a68c94e89dd61db7272af3c9d03cc734631c1f",
+      "overlayCaptureSha256": "ae5734417808f5bf434a5bfc1e61837a93d62d1161e834942818f9f8568be09f",
+      "diffCaptureSha256": "fda76e579a8e6dfcfd72206f3ece3f890369cbb31ccf8e5ef616bab7418de9c3",
+      "comparedAt": "2026-08-26T17:15:08.704Z"
+    },
+    {
+      "surface": "saved-pizzas",
+      "state": "default",
+      "viewport": "desktop-wide",
+      "sourceCapture": "evidence/source/saved-pizzas-default-desktop-wide.png",
+      "targetCapture": "evidence/target/saved-pizzas-default-desktop-wide.png",
+      "comparisonCapture": "evidence/comparison/saved-pizzas-default-desktop-wide-side-by-side.png",
+      "overlayCapture": "evidence/comparison/saved-pizzas-default-desktop-wide-overlay.png",
+      "diffCapture": "evidence/comparison/saved-pizzas-default-desktop-wide-diff.png",
+      "status": "different",
+      "difference": null,
+      "approval": null,
+      "metrics": {
+        "width": 1440,
+        "height": 1000,
+        "pixels": 1440000,
+        "exactDifferentPixels": 1440000,
+        "exactDifferenceRatio": 1,
+        "perceptualDifferentPixels": 516386,
+        "perceptualDifferenceRatio": 0.3586013888888889,
+        "perceptualThreshold": 0.1
+      },
+      "sourceCapturedAt": "2026-08-26T17:14:37.016Z",
+      "sourceCaptureSha256": "344595bac5e2c7a6690029c1a9554cce9815443b24eb36584050a6953d3e71a9",
+      "targetCapturedAt": "2026-08-26T17:14:37.898Z",
+      "targetCaptureSha256": "f325711ad9f891984f7a4a40f75a2b09e8b795e016c521d24038c7d67f0fbf4b",
+      "comparisonCaptureSha256": "a509c366f543212722756dd544e887db4ef16456855d8962b7107f7e0df508fe",
+      "overlayCaptureSha256": "d4a70e9458dd6dd6ca68920f86298bb2e322303b0a66fcd3d3674374e4cdfa0e",
+      "diffCaptureSha256": "c1a8032f53e061ea21c08196b2f1201d95a0dddabd26a41cea9cd94a5933e964",
+      "comparedAt": "2026-08-26T17:15:09.419Z"
+    },
+    {
+      "surface": "saved-pizzas",
+      "state": "default",
+      "viewport": "desktop",
+      "sourceCapture": "evidence/source/saved-pizzas-default-desktop.png",
+      "targetCapture": "evidence/target/saved-pizzas-default-desktop.png",
+      "comparisonCapture": "evidence/comparison/saved-pizzas-default-desktop-side-by-side.png",
+      "overlayCapture": "evidence/comparison/saved-pizzas-default-desktop-overlay.png",
+      "diffCapture": "evidence/comparison/saved-pizzas-default-desktop-diff.png",
+      "status": "different",
+      "difference": null,
+      "approval": null,
+      "metrics": {
+        "width": 1024,
+        "height": 900,
+        "pixels": 921600,
+        "exactDifferentPixels": 921600,
+        "exactDifferenceRatio": 1,
+        "perceptualDifferentPixels": 370671,
+        "perceptualDifferenceRatio": 0.4022037760416667,
+        "perceptualThreshold": 0.1
+      },
+      "sourceCapturedAt": "2026-08-26T17:14:39.531Z",
+      "sourceCaptureSha256": "d5ed30ea65354a515b9db123dd60d0887481955ff8cdb12d8a26c05e258c3651",
+      "targetCapturedAt": "2026-08-26T17:14:40.411Z",
+      "targetCaptureSha256": "9652b8eb5de67506a0c19934e70e178013d154260417bd10075a007a76d369a0",
+      "comparisonCaptureSha256": "fbac7b9c0848d035d598314f98f4e6ec7f67ea60540189058360ca004b7ecaf7",
+      "overlayCaptureSha256": "0aeb703a34508122853e239df6c49fcfffa64321487562fc04c741c8cbe8ed00",
+      "diffCaptureSha256": "41c20d9b8510a5687c49914b2a5f9ee7f4715159f4e77fe95a082109212d84f4",
+      "comparedAt": "2026-08-26T17:15:09.886Z"
+    },
+    {
+      "surface": "saved-pizzas",
+      "state": "default",
+      "viewport": "tablet",
+      "sourceCapture": "evidence/source/saved-pizzas-default-tablet.png",
+      "targetCapture": "evidence/target/saved-pizzas-default-tablet.png",
+      "comparisonCapture": "evidence/comparison/saved-pizzas-default-tablet-side-by-side.png",
+      "overlayCapture": "evidence/comparison/saved-pizzas-default-tablet-overlay.png",
+      "diffCapture": "evidence/comparison/saved-pizzas-default-tablet-diff.png",
+      "status": "different",
+      "difference": null,
+      "approval": null,
+      "metrics": {
+        "width": 768,
+        "height": 1024,
+        "pixels": 786432,
+        "exactDifferentPixels": 786430,
+        "exactDifferenceRatio": 0.9999974568684896,
+        "perceptualDifferentPixels": 278214,
+        "perceptualDifferenceRatio": 0.35376739501953125,
+        "perceptualThreshold": 0.1
+      },
+      "sourceCapturedAt": "2026-08-26T17:14:42.139Z",
+      "sourceCaptureSha256": "1e9fb4131551f3a604f488c96367db763620cf9bb314cd710727003aa799d4a9",
+      "targetCapturedAt": "2026-08-26T17:14:43.031Z",
+      "targetCaptureSha256": "d1be35700ed57714e9761f9be70eb1df2f1121d9c1798b51c84a508c184fc22c",
+      "comparisonCaptureSha256": "615b88e52d1ad6f9fad78906d193d344770f230558c8f48bdb572e885d8c9725",
+      "overlayCaptureSha256": "2e71dad5031c84260f29d88e8a5eb84abfab22c6c3ee465c5dea895133b27793",
+      "diffCaptureSha256": "ec7586905c62388bdddb3cac6484d5e33afb8994c36e66a456e2ca38d47562a8",
+      "comparedAt": "2026-08-26T17:15:10.266Z"
+    },
+    {
+      "surface": "saved-pizzas",
+      "state": "default",
+      "viewport": "mobile",
+      "sourceCapture": "evidence/source/saved-pizzas-default-mobile.png",
+      "targetCapture": "evidence/target/saved-pizzas-default-mobile.png",
+      "comparisonCapture": "evidence/comparison/saved-pizzas-default-mobile-side-by-side.png",
+      "overlayCapture": "evidence/comparison/saved-pizzas-default-mobile-overlay.png",
+      "diffCapture": "evidence/comparison/saved-pizzas-default-mobile-diff.png",
+      "status": "different",
+      "difference": null,
+      "approval": null,
+      "metrics": {
+        "width": 390,
+        "height": 844,
+        "pixels": 329160,
+        "exactDifferentPixels": 329143,
+        "exactDifferenceRatio": 0.9999483533843724,
+        "perceptualDifferentPixels": 103853,
+        "perceptualDifferenceRatio": 0.3155091748693644,
+        "perceptualThreshold": 0.1
+      },
+      "sourceCapturedAt": "2026-08-26T17:14:44.643Z",
+      "sourceCaptureSha256": "ddd47b547f54a8b66db72bbac563f3bdb2ef9f931c9380d2954a6d5afa7a28b3",
+      "targetCapturedAt": "2026-08-26T17:14:45.501Z",
+      "targetCaptureSha256": "bdbebb7c92e81dc179ef1b07eaf8d79137f1e72d448973d21c5baf3f6f15e9e6",
+      "comparisonCaptureSha256": "efd4745bc65bb5411921665e9dcffdca4a6f2b68ad6d43d215f86ea64371cde9",
+      "overlayCaptureSha256": "b570caf41f6c7d1be2112131168af4883b945657af5a41020be7fced9ec860e4",
+      "diffCaptureSha256": "9a130b1b7ac4093bd4d942ebbbd6435ec4cbe10fd9355e9d7967822e4b1cb22a",
+      "comparedAt": "2026-08-26T17:15:10.450Z"
+    },
+    {
+      "surface": "saved-pizzas",
+      "state": "default",
+      "viewport": "mobile-narrow",
+      "sourceCapture": "evidence/source/saved-pizzas-default-mobile-narrow.png",
+      "targetCapture": "evidence/target/saved-pizzas-default-mobile-narrow.png",
+      "comparisonCapture": "evidence/comparison/saved-pizzas-default-mobile-narrow-side-by-side.png",
+      "overlayCapture": "evidence/comparison/saved-pizzas-default-mobile-narrow-overlay.png",
+      "diffCapture": "evidence/comparison/saved-pizzas-default-mobile-narrow-diff.png",
+      "status": "different",
+      "difference": null,
+      "approval": null,
+      "metrics": {
+        "width": 375,
+        "height": 812,
+        "pixels": 304500,
+        "exactDifferentPixels": 304481,
+        "exactDifferenceRatio": 0.9999376026272578,
+        "perceptualDifferentPixels": 101217,
+        "perceptualDifferenceRatio": 0.3324039408866995,
+        "perceptualThreshold": 0.1
+      },
+      "sourceCapturedAt": "2026-08-26T17:14:47.178Z",
+      "sourceCaptureSha256": "e42a28f9de540d958b4feacd5ec618f3762d157f9b5ea23713b98075d66cb29c",
+      "targetCapturedAt": "2026-08-26T17:14:48.057Z",
+      "targetCaptureSha256": "ef4701ee17ec65f9109426bd5c79e44be3c22a251465f150e81e394b979736b9",
+      "comparisonCaptureSha256": "07ae1b8d0841cdea53fc1adfd1de9387900657384c6b0671d23af69646764213",
+      "overlayCaptureSha256": "186774116b927eebfdf3bfda123382cb07eaf80a2e878cc25853c3ade6e6d7cc",
+      "diffCaptureSha256": "f55c5b1f808777d8e932a1423537773d36c59d291d45ae82ec5d87611e8f5051",
+      "comparedAt": "2026-08-26T17:15:10.616Z"
+    }
+  ],
+  "report": {
+    "json": "evidence/visual-report.json",
+    "html": "evidence/visual-report.html",
+    "generatedAt": "2026-08-26T17:15:10.616Z",
+    "jsonSha256": "355354bf944d314b49aa8d38a7701e0b40973da09aa691f4d442c833a9c5d9c1",
+    "htmlSha256": "5d082c6590eb19490c9dd8c815ffde9315b232cd5e74b01bfdb9864a4ec8a766"
+  }
+}

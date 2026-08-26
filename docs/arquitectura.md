@@ -60,3 +60,12 @@ siete bloques dinámicos del vertical.
 No se importan las rutas teatrales de la SPA. El checkout usa solo el proveedor manual
 real y el sitio no escribe directamente en tablas del vertical. DEMO-REST-01D valida
 el resultado completo antes de considerar el demo terminado.
+
+## Contrato visual
+
+DESIGN-REST-02 fija la fuente, el entorno, las siete superficies comparables, cinco
+viewports y la propiedad multirrepositorio en
+[`visual/migration-manifest.json`](visual/migration-manifest.json). El contexto y los
+bloqueos se documentan en
+[`visual/baseline-bonasera.md`](visual/baseline-bonasera.md). Una suite funcional o
+estructural aprobada no sustituye el gate de fidelidad 1:1.
