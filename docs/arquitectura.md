@@ -69,3 +69,7 @@ viewports y la propiedad multirrepositorio en
 bloqueos se documentan en
 [`visual/baseline-bonasera.md`](visual/baseline-bonasera.md). Una suite funcional o
 estructural aprobada no sustituye el gate de fidelidad 1:1.
+
+El estado de cada original, sustituto y omisión se conserva en
+[`visual/assets-bonasera.md`](visual/assets-bonasera.md). Solo el demo versiona media
+Bonasera; theme y plugins consumen contratos visuales sin apropiarse de esos archivos.

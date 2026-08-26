@@ -44,23 +44,27 @@ como autoridad de precios del demo.
 
 ## Media versionada
 
-`config/media.json` es el inventario verificable. Cada imagen WebP es local, tiene
+`config/media.json` es el inventario verificable de schema 2. Cada imagen WebP es local, tiene
 uso previsto, texto alternativo, autor, fuente, licencia, dimensiones, peso y SHA-256.
 Las fotos de Unsplash se usan bajo la
 [Unsplash License](https://unsplash.com/license) y las de Pexels bajo la
 [Pexels License](https://www.pexels.com/legal-pages/license/), verificadas el
-2026-08-20. La atribución no es obligatoria en esas licencias, pero se conserva para
+2026-08-26. La atribución no es obligatoria en esas licencias, pero se conserva para
 trazabilidad y crédito.
 
 Se excluyeron los tres retratos testimoniales, la foto de dos trabajadores presentada
 como familia y la foto de postre con una marca visible. No hay hotlinks en el contenido
 que consumirá WordPress; las URL externas solo sobreviven como evidencia en el
-inventario.
+inventario. Ocho archivos recuperan la misma foto de la fuente auditada. `dolci.webp`
+es una sustitución conservadora y continúa pendiente de aprobación visual.
+
+El estado 1:1 por activo, incluidas las omisiones de seguridad, está en
+[`visual/assets-bonasera.md`](visual/assets-bonasera.md).
 
 ## Ausencias confirmadas
 
 El video hero y los mapas de Zulia y Maracaibo no están en el commit auditado ni se
-entregaron por otra vía. Permanecen registrados como `not-delivered` y no se crean
-sustitutos que aparenten ser mapas reales. DEMO-REST-01C usará una imagen hero local y
-una lista textual de zonas. Incorporar video o cartografía exige un activo nuevo con
-licencia y procedencia comprobables.
+entregaron por otra vía. Permanecen registrados como `missing-original` y no se crean
+sustitutos que aparenten ser mapas reales. La composición actual usa una imagen hero
+local y una lista textual de zonas sin declararlas paridad. Incorporar video o
+cartografía exige un activo nuevo con licencia y procedencia comprobables.
