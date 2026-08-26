@@ -1,0 +1,749 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-26T17:15:10.616Z",
+  "sourceCommit": "1e1f62787e088c0ca9701500e764802499d1b253",
+  "targetCommit": "737d027f78ad301b4e0c80c2b316e131a1b807a5",
+  "summary": {
+    "rows": 35,
+    "matched": 0,
+    "different": 35,
+    "approvedDifferences": 0
+  },
+  "evidence": [
+    {
+      "key": "home|default|desktop-wide",
+      "status": "different",
+      "paths": {
+        "source": "evidence/source/home-default-desktop-wide.png",
+        "target": "evidence/target/home-default-desktop-wide.png",
+        "sideBySide": "evidence/comparison/home-default-desktop-wide-side-by-side.png",
+        "overlay": "evidence/comparison/home-default-desktop-wide-overlay.png",
+        "diff": "evidence/comparison/home-default-desktop-wide-diff.png"
+      },
+      "metrics": {
+        "width": 1440,
+        "height": 1000,
+        "pixels": 1440000,
+        "exactDifferentPixels": 1439976,
+        "exactDifferenceRatio": 0.9999833333333333,
+        "perceptualDifferentPixels": 876920,
+        "perceptualDifferenceRatio": 0.6089722222222222,
+        "perceptualThreshold": 0.1
+      }
+    },
+    {
+      "key": "home|default|desktop",
+      "status": "different",
+      "paths": {
+        "source": "evidence/source/home-default-desktop.png",
+        "target": "evidence/target/home-default-desktop.png",
+        "sideBySide": "evidence/comparison/home-default-desktop-side-by-side.png",
+        "overlay": "evidence/comparison/home-default-desktop-overlay.png",
+        "diff": "evidence/comparison/home-default-desktop-diff.png"
+      },
+      "metrics": {
+        "width": 1024,
+        "height": 900,
+        "pixels": 921600,
+        "exactDifferentPixels": 921566,
+        "exactDifferenceRatio": 0.9999631076388888,
+        "perceptualDifferentPixels": 558810,
+        "perceptualDifferenceRatio": 0.60634765625,
+        "perceptualThreshold": 0.1
+      }
+    },
+    {
+      "key": "home|default|tablet",
+      "status": "different",
+      "paths": {
+        "source": "evidence/source/home-default-tablet.png",
+        "target": "evidence/target/home-default-tablet.png",
+        "sideBySide": "evidence/comparison/home-default-tablet-side-by-side.png",
+        "overlay": "evidence/comparison/home-default-tablet-overlay.png",
+        "diff": "evidence/comparison/home-default-tablet-diff.png"
+      },
+      "metrics": {
+        "width": 768,
+        "height": 1024,
+        "pixels": 786432,
+        "exactDifferentPixels": 786414,
+        "exactDifferenceRatio": 0.9999771118164062,
+        "perceptualDifferentPixels": 487097,
+        "perceptualDifferenceRatio": 0.6193758646647135,
+        "perceptualThreshold": 0.1
+      }
+    },
+    {
+      "key": "home|default|mobile",
+      "status": "different",
+      "paths": {
+        "source": "evidence/source/home-default-mobile.png",
+        "target": "evidence/target/home-default-mobile.png",
+        "sideBySide": "evidence/comparison/home-default-mobile-side-by-side.png",
+        "overlay": "evidence/comparison/home-default-mobile-overlay.png",
+        "diff": "evidence/comparison/home-default-mobile-diff.png"
+      },
+      "metrics": {
+        "width": 390,
+        "height": 844,
+        "pixels": 329160,
+        "exactDifferentPixels": 329160,
+        "exactDifferenceRatio": 1,
+        "perceptualDifferentPixels": 207359,
+        "perceptualDifferenceRatio": 0.629964151172682,
+        "perceptualThreshold": 0.1
+      }
+    },
+    {
+      "key": "home|default|mobile-narrow",
+      "status": "different",
+      "paths": {
+        "source": "evidence/source/home-default-mobile-narrow.png",
+        "target": "evidence/target/home-default-mobile-narrow.png",
+        "sideBySide": "evidence/comparison/home-default-mobile-narrow-side-by-side.png",
+        "overlay": "evidence/comparison/home-default-mobile-narrow-overlay.png",
+        "diff": "evidence/comparison/home-default-mobile-narrow-diff.png"
+      },
+      "metrics": {
+        "width": 375,
+        "height": 812,
+        "pixels": 304500,
+        "exactDifferentPixels": 304500,
+        "exactDifferenceRatio": 1,
+        "perceptualDifferentPixels": 197196,
+        "perceptualDifferenceRatio": 0.6476059113300493,
+        "perceptualThreshold": 0.1
+      }
+    },
+    {
+      "key": "menu|default|desktop-wide",
+      "status": "different",
+      "paths": {
+        "source": "evidence/source/menu-default-desktop-wide.png",
+        "target": "evidence/target/menu-default-desktop-wide.png",
+        "sideBySide": "evidence/comparison/menu-default-desktop-wide-side-by-side.png",
+        "overlay": "evidence/comparison/menu-default-desktop-wide-overlay.png",
+        "diff": "evidence/comparison/menu-default-desktop-wide-diff.png"
+      },
+      "metrics": {
+        "width": 1440,
+        "height": 1000,
+        "pixels": 1440000,
+        "exactDifferentPixels": 1439900,
+        "exactDifferenceRatio": 0.9999305555555555,
+        "perceptualDifferentPixels": 889249,
+        "perceptualDifferenceRatio": 0.6175340277777778,
+        "perceptualThreshold": 0.1
+      }
+    },
+    {
+      "key": "menu|default|desktop",
+      "status": "different",
+      "paths": {
+        "source": "evidence/source/menu-default-desktop.png",
+        "target": "evidence/target/menu-default-desktop.png",
+        "sideBySide": "evidence/comparison/menu-default-desktop-side-by-side.png",
+        "overlay": "evidence/comparison/menu-default-desktop-overlay.png",
+        "diff": "evidence/comparison/menu-default-desktop-diff.png"
+      },
+      "metrics": {
+        "width": 1024,
+        "height": 900,
+        "pixels": 921600,
+        "exactDifferentPixels": 921560,
+        "exactDifferenceRatio": 0.9999565972222222,
+        "perceptualDifferentPixels": 569880,
+        "perceptualDifferenceRatio": 0.618359375,
+        "perceptualThreshold": 0.1
+      }
+    },
+    {
+      "key": "menu|default|tablet",
+      "status": "different",
+      "paths": {
+        "source": "evidence/source/menu-default-tablet.png",
+        "target": "evidence/target/menu-default-tablet.png",
+        "sideBySide": "evidence/comparison/menu-default-tablet-side-by-side.png",
+        "overlay": "evidence/comparison/menu-default-tablet-overlay.png",
+        "diff": "evidence/comparison/menu-default-tablet-diff.png"
+      },
+      "metrics": {
+        "width": 768,
+        "height": 1024,
+        "pixels": 786432,
+        "exactDifferentPixels": 786405,
+        "exactDifferenceRatio": 0.9999656677246094,
+        "perceptualDifferentPixels": 517945,
+        "perceptualDifferenceRatio": 0.6586011250813802,
+        "perceptualThreshold": 0.1
+      }
+    },
+    {
+      "key": "menu|default|mobile",
+      "status": "different",
+      "paths": {
+        "source": "evidence/source/menu-default-mobile.png",
+        "target": "evidence/target/menu-default-mobile.png",
+        "sideBySide": "evidence/comparison/menu-default-mobile-side-by-side.png",
+        "overlay": "evidence/comparison/menu-default-mobile-overlay.png",
+        "diff": "evidence/comparison/menu-default-mobile-diff.png"
+      },
+      "metrics": {
+        "width": 390,
+        "height": 844,
+        "pixels": 329160,
+        "exactDifferentPixels": 329154,
+        "exactDifferenceRatio": 0.9999817717827196,
+        "perceptualDifferentPixels": 181362,
+        "perceptualDifferenceRatio": 0.5509843237331389,
+        "perceptualThreshold": 0.1
+      }
+    },
+    {
+      "key": "menu|default|mobile-narrow",
+      "status": "different",
+      "paths": {
+        "source": "evidence/source/menu-default-mobile-narrow.png",
+        "target": "evidence/target/menu-default-mobile-narrow.png",
+        "sideBySide": "evidence/comparison/menu-default-mobile-narrow-side-by-side.png",
+        "overlay": "evidence/comparison/menu-default-mobile-narrow-overlay.png",
+        "diff": "evidence/comparison/menu-default-mobile-narrow-diff.png"
+      },
+      "metrics": {
+        "width": 375,
+        "height": 812,
+        "pixels": 304500,
+        "exactDifferentPixels": 304495,
+        "exactDifferenceRatio": 0.9999835796387521,
+        "perceptualDifferentPixels": 163984,
+        "perceptualDifferenceRatio": 0.5385353037766831,
+        "perceptualThreshold": 0.1
+      }
+    },
+    {
+      "key": "pizza-builder|default|desktop-wide",
+      "status": "different",
+      "paths": {
+        "source": "evidence/source/pizza-builder-default-desktop-wide.png",
+        "target": "evidence/target/pizza-builder-default-desktop-wide.png",
+        "sideBySide": "evidence/comparison/pizza-builder-default-desktop-wide-side-by-side.png",
+        "overlay": "evidence/comparison/pizza-builder-default-desktop-wide-overlay.png",
+        "diff": "evidence/comparison/pizza-builder-default-desktop-wide-diff.png"
+      },
+      "metrics": {
+        "width": 1440,
+        "height": 1000,
+        "pixels": 1440000,
+        "exactDifferentPixels": 1439984,
+        "exactDifferenceRatio": 0.9999888888888889,
+        "perceptualDifferentPixels": 1288352,
+        "perceptualDifferenceRatio": 0.8946888888888889,
+        "perceptualThreshold": 0.1
+      }
+    },
+    {
+      "key": "pizza-builder|default|desktop",
+      "status": "different",
+      "paths": {
+        "source": "evidence/source/pizza-builder-default-desktop.png",
+        "target": "evidence/target/pizza-builder-default-desktop.png",
+        "sideBySide": "evidence/comparison/pizza-builder-default-desktop-side-by-side.png",
+        "overlay": "evidence/comparison/pizza-builder-default-desktop-overlay.png",
+        "diff": "evidence/comparison/pizza-builder-default-desktop-diff.png"
+      },
+      "metrics": {
+        "width": 1024,
+        "height": 900,
+        "pixels": 921600,
+        "exactDifferentPixels": 921600,
+        "exactDifferenceRatio": 1,
+        "perceptualDifferentPixels": 723058,
+        "perceptualDifferenceRatio": 0.7845681423611112,
+        "perceptualThreshold": 0.1
+      }
+    },
+    {
+      "key": "pizza-builder|default|tablet",
+      "status": "different",
+      "paths": {
+        "source": "evidence/source/pizza-builder-default-tablet.png",
+        "target": "evidence/target/pizza-builder-default-tablet.png",
+        "sideBySide": "evidence/comparison/pizza-builder-default-tablet-side-by-side.png",
+        "overlay": "evidence/comparison/pizza-builder-default-tablet-overlay.png",
+        "diff": "evidence/comparison/pizza-builder-default-tablet-diff.png"
+      },
+      "metrics": {
+        "width": 768,
+        "height": 1024,
+        "pixels": 786432,
+        "exactDifferentPixels": 786430,
+        "exactDifferenceRatio": 0.9999974568684896,
+        "perceptualDifferentPixels": 671347,
+        "perceptualDifferenceRatio": 0.853661855061849,
+        "perceptualThreshold": 0.1
+      }
+    },
+    {
+      "key": "pizza-builder|default|mobile",
+      "status": "different",
+      "paths": {
+        "source": "evidence/source/pizza-builder-default-mobile.png",
+        "target": "evidence/target/pizza-builder-default-mobile.png",
+        "sideBySide": "evidence/comparison/pizza-builder-default-mobile-side-by-side.png",
+        "overlay": "evidence/comparison/pizza-builder-default-mobile-overlay.png",
+        "diff": "evidence/comparison/pizza-builder-default-mobile-diff.png"
+      },
+      "metrics": {
+        "width": 390,
+        "height": 844,
+        "pixels": 329160,
+        "exactDifferentPixels": 329071,
+        "exactDifferenceRatio": 0.9997296147770082,
+        "perceptualDifferentPixels": 289270,
+        "perceptualDifferenceRatio": 0.8788127354478066,
+        "perceptualThreshold": 0.1
+      }
+    },
+    {
+      "key": "pizza-builder|default|mobile-narrow",
+      "status": "different",
+      "paths": {
+        "source": "evidence/source/pizza-builder-default-mobile-narrow.png",
+        "target": "evidence/target/pizza-builder-default-mobile-narrow.png",
+        "sideBySide": "evidence/comparison/pizza-builder-default-mobile-narrow-side-by-side.png",
+        "overlay": "evidence/comparison/pizza-builder-default-mobile-narrow-overlay.png",
+        "diff": "evidence/comparison/pizza-builder-default-mobile-narrow-diff.png"
+      },
+      "metrics": {
+        "width": 375,
+        "height": 812,
+        "pixels": 304500,
+        "exactDifferentPixels": 304492,
+        "exactDifferenceRatio": 0.9999737274220033,
+        "perceptualDifferentPixels": 275482,
+        "perceptualDifferenceRatio": 0.9047027914614122,
+        "perceptualThreshold": 0.1
+      }
+    },
+    {
+      "key": "cart-empty|default|desktop-wide",
+      "status": "different",
+      "paths": {
+        "source": "evidence/source/cart-empty-default-desktop-wide.png",
+        "target": "evidence/target/cart-empty-default-desktop-wide.png",
+        "sideBySide": "evidence/comparison/cart-empty-default-desktop-wide-side-by-side.png",
+        "overlay": "evidence/comparison/cart-empty-default-desktop-wide-overlay.png",
+        "diff": "evidence/comparison/cart-empty-default-desktop-wide-diff.png"
+      },
+      "metrics": {
+        "width": 1440,
+        "height": 1000,
+        "pixels": 1440000,
+        "exactDifferentPixels": 1440000,
+        "exactDifferenceRatio": 1,
+        "perceptualDifferentPixels": 498355,
+        "perceptualDifferenceRatio": 0.3460798611111111,
+        "perceptualThreshold": 0.1
+      }
+    },
+    {
+      "key": "cart-empty|default|desktop",
+      "status": "different",
+      "paths": {
+        "source": "evidence/source/cart-empty-default-desktop.png",
+        "target": "evidence/target/cart-empty-default-desktop.png",
+        "sideBySide": "evidence/comparison/cart-empty-default-desktop-side-by-side.png",
+        "overlay": "evidence/comparison/cart-empty-default-desktop-overlay.png",
+        "diff": "evidence/comparison/cart-empty-default-desktop-diff.png"
+      },
+      "metrics": {
+        "width": 1024,
+        "height": 900,
+        "pixels": 921600,
+        "exactDifferentPixels": 921600,
+        "exactDifferenceRatio": 1,
+        "perceptualDifferentPixels": 353826,
+        "perceptualDifferenceRatio": 0.38392578125,
+        "perceptualThreshold": 0.1
+      }
+    },
+    {
+      "key": "cart-empty|default|tablet",
+      "status": "different",
+      "paths": {
+        "source": "evidence/source/cart-empty-default-tablet.png",
+        "target": "evidence/target/cart-empty-default-tablet.png",
+        "sideBySide": "evidence/comparison/cart-empty-default-tablet-side-by-side.png",
+        "overlay": "evidence/comparison/cart-empty-default-tablet-overlay.png",
+        "diff": "evidence/comparison/cart-empty-default-tablet-diff.png"
+      },
+      "metrics": {
+        "width": 768,
+        "height": 1024,
+        "pixels": 786432,
+        "exactDifferentPixels": 786432,
+        "exactDifferenceRatio": 1,
+        "perceptualDifferentPixels": 267804,
+        "perceptualDifferenceRatio": 0.3405303955078125,
+        "perceptualThreshold": 0.1
+      }
+    },
+    {
+      "key": "cart-empty|default|mobile",
+      "status": "different",
+      "paths": {
+        "source": "evidence/source/cart-empty-default-mobile.png",
+        "target": "evidence/target/cart-empty-default-mobile.png",
+        "sideBySide": "evidence/comparison/cart-empty-default-mobile-side-by-side.png",
+        "overlay": "evidence/comparison/cart-empty-default-mobile-overlay.png",
+        "diff": "evidence/comparison/cart-empty-default-mobile-diff.png"
+      },
+      "metrics": {
+        "width": 390,
+        "height": 844,
+        "pixels": 329160,
+        "exactDifferentPixels": 329160,
+        "exactDifferenceRatio": 1,
+        "perceptualDifferentPixels": 129709,
+        "perceptualDifferenceRatio": 0.3940606392028193,
+        "perceptualThreshold": 0.1
+      }
+    },
+    {
+      "key": "cart-empty|default|mobile-narrow",
+      "status": "different",
+      "paths": {
+        "source": "evidence/source/cart-empty-default-mobile-narrow.png",
+        "target": "evidence/target/cart-empty-default-mobile-narrow.png",
+        "sideBySide": "evidence/comparison/cart-empty-default-mobile-narrow-side-by-side.png",
+        "overlay": "evidence/comparison/cart-empty-default-mobile-narrow-overlay.png",
+        "diff": "evidence/comparison/cart-empty-default-mobile-narrow-diff.png"
+      },
+      "metrics": {
+        "width": 375,
+        "height": 812,
+        "pixels": 304500,
+        "exactDifferentPixels": 304500,
+        "exactDifferenceRatio": 1,
+        "perceptualDifferentPixels": 111345,
+        "perceptualDifferenceRatio": 0.36566502463054185,
+        "perceptualThreshold": 0.1
+      }
+    },
+    {
+      "key": "checkout|default|desktop-wide",
+      "status": "different",
+      "paths": {
+        "source": "evidence/source/checkout-default-desktop-wide.png",
+        "target": "evidence/target/checkout-default-desktop-wide.png",
+        "sideBySide": "evidence/comparison/checkout-default-desktop-wide-side-by-side.png",
+        "overlay": "evidence/comparison/checkout-default-desktop-wide-overlay.png",
+        "diff": "evidence/comparison/checkout-default-desktop-wide-diff.png"
+      },
+      "metrics": {
+        "width": 1440,
+        "height": 1000,
+        "pixels": 1440000,
+        "exactDifferentPixels": 1440000,
+        "exactDifferenceRatio": 1,
+        "perceptualDifferentPixels": 534812,
+        "perceptualDifferenceRatio": 0.3713972222222222,
+        "perceptualThreshold": 0.1
+      }
+    },
+    {
+      "key": "checkout|default|desktop",
+      "status": "different",
+      "paths": {
+        "source": "evidence/source/checkout-default-desktop.png",
+        "target": "evidence/target/checkout-default-desktop.png",
+        "sideBySide": "evidence/comparison/checkout-default-desktop-side-by-side.png",
+        "overlay": "evidence/comparison/checkout-default-desktop-overlay.png",
+        "diff": "evidence/comparison/checkout-default-desktop-diff.png"
+      },
+      "metrics": {
+        "width": 1024,
+        "height": 900,
+        "pixels": 921600,
+        "exactDifferentPixels": 921600,
+        "exactDifferenceRatio": 1,
+        "perceptualDifferentPixels": 392010,
+        "perceptualDifferenceRatio": 0.42535807291666666,
+        "perceptualThreshold": 0.1
+      }
+    },
+    {
+      "key": "checkout|default|tablet",
+      "status": "different",
+      "paths": {
+        "source": "evidence/source/checkout-default-tablet.png",
+        "target": "evidence/target/checkout-default-tablet.png",
+        "sideBySide": "evidence/comparison/checkout-default-tablet-side-by-side.png",
+        "overlay": "evidence/comparison/checkout-default-tablet-overlay.png",
+        "diff": "evidence/comparison/checkout-default-tablet-diff.png"
+      },
+      "metrics": {
+        "width": 768,
+        "height": 1024,
+        "pixels": 786432,
+        "exactDifferentPixels": 786432,
+        "exactDifferenceRatio": 1,
+        "perceptualDifferentPixels": 302209,
+        "perceptualDifferenceRatio": 0.3842786153157552,
+        "perceptualThreshold": 0.1
+      }
+    },
+    {
+      "key": "checkout|default|mobile",
+      "status": "different",
+      "paths": {
+        "source": "evidence/source/checkout-default-mobile.png",
+        "target": "evidence/target/checkout-default-mobile.png",
+        "sideBySide": "evidence/comparison/checkout-default-mobile-side-by-side.png",
+        "overlay": "evidence/comparison/checkout-default-mobile-overlay.png",
+        "diff": "evidence/comparison/checkout-default-mobile-diff.png"
+      },
+      "metrics": {
+        "width": 390,
+        "height": 844,
+        "pixels": 329160,
+        "exactDifferentPixels": 329152,
+        "exactDifferenceRatio": 0.9999756957102929,
+        "perceptualDifferentPixels": 154266,
+        "perceptualDifferenceRatio": 0.4686656944950784,
+        "perceptualThreshold": 0.1
+      }
+    },
+    {
+      "key": "checkout|default|mobile-narrow",
+      "status": "different",
+      "paths": {
+        "source": "evidence/source/checkout-default-mobile-narrow.png",
+        "target": "evidence/target/checkout-default-mobile-narrow.png",
+        "sideBySide": "evidence/comparison/checkout-default-mobile-narrow-side-by-side.png",
+        "overlay": "evidence/comparison/checkout-default-mobile-narrow-overlay.png",
+        "diff": "evidence/comparison/checkout-default-mobile-narrow-diff.png"
+      },
+      "metrics": {
+        "width": 375,
+        "height": 812,
+        "pixels": 304500,
+        "exactDifferentPixels": 304493,
+        "exactDifferenceRatio": 0.9999770114942529,
+        "perceptualDifferentPixels": 119021,
+        "perceptualDifferenceRatio": 0.3908735632183908,
+        "perceptualThreshold": 0.1
+      }
+    },
+    {
+      "key": "reservations|default|desktop-wide",
+      "status": "different",
+      "paths": {
+        "source": "evidence/source/reservations-default-desktop-wide.png",
+        "target": "evidence/target/reservations-default-desktop-wide.png",
+        "sideBySide": "evidence/comparison/reservations-default-desktop-wide-side-by-side.png",
+        "overlay": "evidence/comparison/reservations-default-desktop-wide-overlay.png",
+        "diff": "evidence/comparison/reservations-default-desktop-wide-diff.png"
+      },
+      "metrics": {
+        "width": 1440,
+        "height": 1000,
+        "pixels": 1440000,
+        "exactDifferentPixels": 1439955,
+        "exactDifferenceRatio": 0.99996875,
+        "perceptualDifferentPixels": 915828,
+        "perceptualDifferenceRatio": 0.6359916666666666,
+        "perceptualThreshold": 0.1
+      }
+    },
+    {
+      "key": "reservations|default|desktop",
+      "status": "different",
+      "paths": {
+        "source": "evidence/source/reservations-default-desktop.png",
+        "target": "evidence/target/reservations-default-desktop.png",
+        "sideBySide": "evidence/comparison/reservations-default-desktop-side-by-side.png",
+        "overlay": "evidence/comparison/reservations-default-desktop-overlay.png",
+        "diff": "evidence/comparison/reservations-default-desktop-diff.png"
+      },
+      "metrics": {
+        "width": 1024,
+        "height": 900,
+        "pixels": 921600,
+        "exactDifferentPixels": 921590,
+        "exactDifferenceRatio": 0.9999891493055556,
+        "perceptualDifferentPixels": 686856,
+        "perceptualDifferenceRatio": 0.7452864583333333,
+        "perceptualThreshold": 0.1
+      }
+    },
+    {
+      "key": "reservations|default|tablet",
+      "status": "different",
+      "paths": {
+        "source": "evidence/source/reservations-default-tablet.png",
+        "target": "evidence/target/reservations-default-tablet.png",
+        "sideBySide": "evidence/comparison/reservations-default-tablet-side-by-side.png",
+        "overlay": "evidence/comparison/reservations-default-tablet-overlay.png",
+        "diff": "evidence/comparison/reservations-default-tablet-diff.png"
+      },
+      "metrics": {
+        "width": 768,
+        "height": 1024,
+        "pixels": 786432,
+        "exactDifferentPixels": 786404,
+        "exactDifferenceRatio": 0.9999643961588541,
+        "perceptualDifferentPixels": 549539,
+        "perceptualDifferenceRatio": 0.6987749735514323,
+        "perceptualThreshold": 0.1
+      }
+    },
+    {
+      "key": "reservations|default|mobile",
+      "status": "different",
+      "paths": {
+        "source": "evidence/source/reservations-default-mobile.png",
+        "target": "evidence/target/reservations-default-mobile.png",
+        "sideBySide": "evidence/comparison/reservations-default-mobile-side-by-side.png",
+        "overlay": "evidence/comparison/reservations-default-mobile-overlay.png",
+        "diff": "evidence/comparison/reservations-default-mobile-diff.png"
+      },
+      "metrics": {
+        "width": 390,
+        "height": 844,
+        "pixels": 329160,
+        "exactDifferentPixels": 329131,
+        "exactDifferenceRatio": 0.9999118969498116,
+        "perceptualDifferentPixels": 178246,
+        "perceptualDifferenceRatio": 0.5415178028922105,
+        "perceptualThreshold": 0.1
+      }
+    },
+    {
+      "key": "reservations|default|mobile-narrow",
+      "status": "different",
+      "paths": {
+        "source": "evidence/source/reservations-default-mobile-narrow.png",
+        "target": "evidence/target/reservations-default-mobile-narrow.png",
+        "sideBySide": "evidence/comparison/reservations-default-mobile-narrow-side-by-side.png",
+        "overlay": "evidence/comparison/reservations-default-mobile-narrow-overlay.png",
+        "diff": "evidence/comparison/reservations-default-mobile-narrow-diff.png"
+      },
+      "metrics": {
+        "width": 375,
+        "height": 812,
+        "pixels": 304500,
+        "exactDifferentPixels": 304472,
+        "exactDifferenceRatio": 0.9999080459770114,
+        "perceptualDifferentPixels": 158360,
+        "perceptualDifferenceRatio": 0.5200656814449918,
+        "perceptualThreshold": 0.1
+      }
+    },
+    {
+      "key": "saved-pizzas|default|desktop-wide",
+      "status": "different",
+      "paths": {
+        "source": "evidence/source/saved-pizzas-default-desktop-wide.png",
+        "target": "evidence/target/saved-pizzas-default-desktop-wide.png",
+        "sideBySide": "evidence/comparison/saved-pizzas-default-desktop-wide-side-by-side.png",
+        "overlay": "evidence/comparison/saved-pizzas-default-desktop-wide-overlay.png",
+        "diff": "evidence/comparison/saved-pizzas-default-desktop-wide-diff.png"
+      },
+      "metrics": {
+        "width": 1440,
+        "height": 1000,
+        "pixels": 1440000,
+        "exactDifferentPixels": 1440000,
+        "exactDifferenceRatio": 1,
+        "perceptualDifferentPixels": 516386,
+        "perceptualDifferenceRatio": 0.3586013888888889,
+        "perceptualThreshold": 0.1
+      }
+    },
+    {
+      "key": "saved-pizzas|default|desktop",
+      "status": "different",
+      "paths": {
+        "source": "evidence/source/saved-pizzas-default-desktop.png",
+        "target": "evidence/target/saved-pizzas-default-desktop.png",
+        "sideBySide": "evidence/comparison/saved-pizzas-default-desktop-side-by-side.png",
+        "overlay": "evidence/comparison/saved-pizzas-default-desktop-overlay.png",
+        "diff": "evidence/comparison/saved-pizzas-default-desktop-diff.png"
+      },
+      "metrics": {
+        "width": 1024,
+        "height": 900,
+        "pixels": 921600,
+        "exactDifferentPixels": 921600,
+        "exactDifferenceRatio": 1,
+        "perceptualDifferentPixels": 370671,
+        "perceptualDifferenceRatio": 0.4022037760416667,
+        "perceptualThreshold": 0.1
+      }
+    },
+    {
+      "key": "saved-pizzas|default|tablet",
+      "status": "different",
+      "paths": {
+        "source": "evidence/source/saved-pizzas-default-tablet.png",
+        "target": "evidence/target/saved-pizzas-default-tablet.png",
+        "sideBySide": "evidence/comparison/saved-pizzas-default-tablet-side-by-side.png",
+        "overlay": "evidence/comparison/saved-pizzas-default-tablet-overlay.png",
+        "diff": "evidence/comparison/saved-pizzas-default-tablet-diff.png"
+      },
+      "metrics": {
+        "width": 768,
+        "height": 1024,
+        "pixels": 786432,
+        "exactDifferentPixels": 786430,
+        "exactDifferenceRatio": 0.9999974568684896,
+        "perceptualDifferentPixels": 278214,
+        "perceptualDifferenceRatio": 0.35376739501953125,
+        "perceptualThreshold": 0.1
+      }
+    },
+    {
+      "key": "saved-pizzas|default|mobile",
+      "status": "different",
+      "paths": {
+        "source": "evidence/source/saved-pizzas-default-mobile.png",
+        "target": "evidence/target/saved-pizzas-default-mobile.png",
+        "sideBySide": "evidence/comparison/saved-pizzas-default-mobile-side-by-side.png",
+        "overlay": "evidence/comparison/saved-pizzas-default-mobile-overlay.png",
+        "diff": "evidence/comparison/saved-pizzas-default-mobile-diff.png"
+      },
+      "metrics": {
+        "width": 390,
+        "height": 844,
+        "pixels": 329160,
+        "exactDifferentPixels": 329143,
+        "exactDifferenceRatio": 0.9999483533843724,
+        "perceptualDifferentPixels": 103853,
+        "perceptualDifferenceRatio": 0.3155091748693644,
+        "perceptualThreshold": 0.1
+      }
+    },
+    {
+      "key": "saved-pizzas|default|mobile-narrow",
+      "status": "different",
+      "paths": {
+        "source": "evidence/source/saved-pizzas-default-mobile-narrow.png",
+        "target": "evidence/target/saved-pizzas-default-mobile-narrow.png",
+        "sideBySide": "evidence/comparison/saved-pizzas-default-mobile-narrow-side-by-side.png",
+        "overlay": "evidence/comparison/saved-pizzas-default-mobile-narrow-overlay.png",
+        "diff": "evidence/comparison/saved-pizzas-default-mobile-narrow-diff.png"
+      },
+      "metrics": {
+        "width": 375,
+        "height": 812,
+        "pixels": 304500,
+        "exactDifferentPixels": 304481,
+        "exactDifferenceRatio": 0.9999376026272578,
+        "perceptualDifferentPixels": 101217,
+        "perceptualDifferenceRatio": 0.3324039408866995,
+        "perceptualThreshold": 0.1
+      }
+    }
+  ]
+}

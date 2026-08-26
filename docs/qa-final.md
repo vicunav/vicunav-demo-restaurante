@@ -48,15 +48,20 @@ sin fallos: nueve rutas 200, un H1 por ruta, cero hotlinks, siete bloques del ve
 37 productos, ocho categorías, tres entidades compartidas, 35 entidades operativas y
 nueve páginas.
 
-## Matriz visual
+## Matriz estructural y responsive
+
+> Corrección de alcance de DESIGN-REST-02: esta matriz no fue una comparación
+> visual contra la fuente. `Aprobado` acredita los checks estructurales descritos en
+> la tabla, no fidelidad 1:1. El baseline visual y las diferencias reales están en
+> [`visual/baseline-bonasera.md`](visual/baseline-bonasera.md).
 
 | Ancho | Portada | Nueve rutas | Header y overflow | Controles de comercio | Estado |
 | ---: | --- | --- | --- | --- | --- |
-| 1440 px | Pasa | Pasa | Pasa | Pasa | Aprobado |
-| 1024 px | Pasa | Pasa | Pasa | Pasa | Aprobado |
-| 768 px | Pasa | Pasa | Pasa | Pasa | Aprobado |
-| 390 px | Pasa | Pasa | Pasa | Pasa | Aprobado |
-| 375 px | Pasa | Pasa | Pasa | Pasa | Aprobado |
+| 1440 px | Pasa | Pasa | Pasa | Pasa | Estructura aprobada |
+| 1024 px | Pasa | Pasa | Pasa | Pasa | Estructura aprobada |
+| 768 px | Pasa | Pasa | Pasa | Pasa | Estructura aprobada |
+| 390 px | Pasa | Pasa | Pasa | Pasa | Estructura aprobada |
+| 375 px | Pasa | Pasa | Pasa | Pasa | Estructura aprobada |
 
 Las 45 combinaciones pasan con un `main` y un H1, cero overflow horizontal, cero
 imágenes rotas y cero controles de formulario sin etiqueta. La consola pública quedó
