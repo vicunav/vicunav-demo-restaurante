@@ -124,6 +124,13 @@ commit auditado. Permanecen `missing` en el manifiesto. Las imágenes WebP local
 demo tienen procedencia, licencia, alt, dimensiones y checksums documentados, pero no
 son sustitutos aprobados para esos tres faltantes.
 
+DEMO-REST-02A descompone además tres diferencias de media disponibles pero retenidas:
+la foto de historia, los tres avatares de testimonios y la foto original de dolci.
+Sus omisiones o sustitución protegen contra atribuir identidades y respaldo ficticios
+o mostrar una marca ajena, pero todavía requieren aprobación humana como diferencias
+visuales. El inventario detallado está en
+[`assets-bonasera.md`](assets-bonasera.md).
+
 No se versionan hotlinks, cookies, nonces, credenciales, rutas personales ni datos
 privados como parte del baseline.
 
@@ -153,7 +160,8 @@ aplicada como Bonasera y evita volver a confundir un gate funcional con un gate 
 La comparación produjo 35 de 35 filas en estado `different`, cero coincidencias y
 cero diferencias aprobadas. La diferencia perceptual medida está entre 31,55 % y
 90,47 % según la superficie y el viewport. El gate final falla de forma esperada con
-38 bloqueos: las 35 diferencias y los tres assets ausentes. Ese fallo es la prueba de
+41 bloqueos: las 35 diferencias y seis grupos de assets sin aprobación. Tres nunca
+fueron entregados y tres se retienen o sustituyen por seguridad. Ese fallo es la prueba de
 que el tooling impide declarar terminada la migración actual.
 
 El manifiesto y el reporte viven junto a este documento. `different` significa deuda

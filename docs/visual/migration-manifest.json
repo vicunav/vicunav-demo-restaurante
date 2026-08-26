@@ -437,6 +437,27 @@
       "license": "no entregada"
     },
     {
+      "id": "history-original",
+      "status": "missing",
+      "owner": "vicunav/vicunav-demo-restaurante",
+      "source": "src/data/media.js:HISTORIA_IMG",
+      "license": "Pexels; original retenido y omisión pendiente de aprobación"
+    },
+    {
+      "id": "testimonial-avatars",
+      "status": "missing",
+      "owner": "vicunav/vicunav-demo-restaurante",
+      "source": "src/data/media.js:AVATAR_MAP",
+      "license": "Pexels; originales retenidos y omisión pendiente de aprobación"
+    },
+    {
+      "id": "dolci-original",
+      "status": "missing",
+      "owner": "vicunav/vicunav-demo-restaurante",
+      "source": "src/data/media.js:CATEGORY_IMG.dolci",
+      "license": "Unsplash; sustituto Pexels pendiente de aprobación"
+    },
+    {
       "id": "local-food-photography",
       "status": "available",
       "owner": "vicunav/vicunav-demo-restaurante",

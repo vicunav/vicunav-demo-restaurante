@@ -36,9 +36,35 @@ assert(
 );
 assert(!/https?:\/\//i.test(contentRaw), 'El contenido consumible contiene un hotlink.');
 
-assert(media.schema_version === 1, 'El inventario de media no usa el schema 1.');
-assert(media.assets.length === 9, 'El inventario debe contener nueve imágenes aprobadas.');
+assert(media.schema_version === 2, 'El inventario de media no usa el schema 2.');
+assert(media.license_checked_at === '2026-08-26', 'La fecha de revisión de licencias cambió.');
+assert(media.assets.length === 9, 'El inventario debe contener nueve imágenes locales.');
 assert(Object.keys(media.licenses).sort().join(',') === 'pexels,unsplash', 'Licencias inesperadas.');
+assert(
+	media.licenses.unsplash.url === 'https://unsplash.com/license',
+	'La referencia oficial de la licencia Unsplash cambió.'
+);
+assert(
+	media.licenses.pexels.url === 'https://www.pexels.com/legal-pages/license/',
+	'La referencia oficial de la licencia Pexels cambió.'
+);
+assert(
+	media.visual_contract.source_commit === '1e1f62787e088c0ca9701500e764802499d1b253',
+	'El contrato visual perdió la revisión auditada.'
+);
+assert(media.visual_contract.final_gate === 'blocked', 'El inventario no bloquea el gate final.');
+assert(media.visual_contract.human_approval_reference === null, 'Se inventó una aprobación humana.');
+
+const expectedSourceRefs = new Map([
+	['antipasti', 'src/data/media.js:CATEGORY_IMG.antipasti'],
+	['insalate', 'src/data/media.js:CATEGORY_IMG.insalate'],
+	['pizze', 'src/data/media.js:CATEGORY_IMG.pizze'],
+	['pasta', 'src/data/media.js:CATEGORY_IMG.pasta'],
+	['secondi', 'src/data/media.js:CATEGORY_IMG.secondi'],
+	['contorni', 'src/data/media.js:CATEGORY_IMG.contorni'],
+	['bevande', 'src/data/media.js:CATEGORY_IMG.bevande'],
+	['reservas', 'src/data/media.js:RESERVA_IMG'],
+]);
 
 const expectedPaths = new Set();
 for (const asset of media.assets) {
@@ -47,6 +73,19 @@ for (const asset of media.assets) {
 	assert(asset.creator?.trim(), `Falta autor: ${asset.id}`);
 	assert(asset.source_url?.startsWith('https://'), `Falta fuente HTTPS: ${asset.id}`);
 	assert(media.licenses[asset.license], `Licencia desconocida: ${asset.id}`);
+	if (asset.id === 'dolci') {
+		assert(asset.visual_status === 'substitute-pending-approval', 'El sustituto dolci figura aprobado.');
+		assert(
+			asset.source_ref === 'sustituto-seguro-de:src/data/media.js:CATEGORY_IMG.dolci',
+			'La referencia del sustituto dolci cambió.'
+		);
+		assert(asset.approval === null, 'El sustituto dolci inventó una aprobación.');
+		assert(asset.blocks_final_parity === true, 'El sustituto dolci no bloquea paridad.');
+	} else {
+		assert(asset.visual_status === 'exact-source-recovered', `Original no recuperado: ${asset.id}`);
+		assert(asset.source_ref === expectedSourceRefs.get(asset.id), `Referencia fuente inesperada: ${asset.id}`);
+		assert(asset.blocks_final_parity === false, `Original recuperado bloquea paridad: ${asset.id}`);
+	}
 	assert(!expectedPaths.has(asset.path), `Ruta duplicada: ${asset.path}`);
 	expectedPaths.add(asset.path);
 
@@ -67,14 +106,40 @@ const actualPaths = readdirSync(path.join(repoRoot, 'assets', 'images'))
 	.map((filename) => `assets/images/${filename}`);
 assert(actualPaths.length === expectedPaths.size, 'Hay imágenes sin inventariar.');
 assert(actualPaths.every((assetPath) => expectedPaths.has(assetPath)), 'Hay imágenes ajenas al inventario.');
+assert(expectedSourceRefs.size === 8, 'Deben existir ocho originales recuperados.');
 
 assert(media.missing.length === 3, 'Deben registrarse tres activos no entregados.');
-assert(media.missing.every(({ status }) => status === 'not-delivered'), 'Una ausencia tiene estado inválido.');
+assert(
+	media.missing.every(
+		({ status, blocks_final_parity: blocksFinalParity, approval }) =>
+			status === 'missing-original' && blocksFinalParity === true && approval === null
+	),
+	'Una ausencia no bloquea correctamente el gate final.'
+);
 assert(
 	media.missing.map(({ id }) => id).sort().join(',') === 'hero-video,map-maracaibo,map-zulia',
 	'El inventario de ausencias cambió.'
 );
-assert(media.excluded.some(({ source }) => source.includes('AVATAR_MAP')), 'Falta excluir los retratos.');
+assert(media.excluded.length === 5, 'El inventario de omisiones no está descompuesto por asset.');
+assert(
+	media.excluded.map(({ id }) => id).sort().join(',') ===
+		'dolci-original,historia-original,testimonial-avatar-t1,testimonial-avatar-t2,testimonial-avatar-t3',
+	'El conjunto de originales retenidos cambió.'
+);
+assert(
+	media.excluded.every(
+		({ visual_status: visualStatus, blocks_final_parity: blocksFinalParity, approval, license }) =>
+			['omitted-policy-pending-approval', 'substitute-pending-approval'].includes(visualStatus) &&
+			blocksFinalParity === true &&
+			approval === null &&
+			media.licenses[license]
+	),
+	'Una omisión o sustitución figura aprobada o sin licencia.'
+);
+assert(
+	media.excluded.filter(({ source }) => source.includes('AVATAR_MAP')).length === 3,
+	'Falta excluir cada retrato de forma atómica.'
+);
 
 console.log('Contenido y media Bonasera validados.');
 

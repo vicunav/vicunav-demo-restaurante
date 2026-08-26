@@ -89,7 +89,14 @@ const missingAssets = manifest.assets
   .filter(({ status }) => status === 'missing')
   .map(({ id }) => id)
   .sort();
-assert.deepEqual(missingAssets, ['hero-video', 'map-maracaibo', 'map-zulia']);
+assert.deepEqual(missingAssets, [
+  'dolci-original',
+  'hero-video',
+  'history-original',
+  'map-maracaibo',
+  'map-zulia',
+  'testimonial-avatars',
+]);
 
 assert.match(baseline, /\/pedido\//);
 assert.match(baseline, /\/privacidad\//);

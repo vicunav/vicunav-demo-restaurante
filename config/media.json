@@ -1,6 +1,6 @@
 {
-  "schema_version": 1,
-  "license_checked_at": "2026-08-20",
+  "schema_version": 2,
+  "license_checked_at": "2026-08-26",
   "licenses": {
     "unsplash": {
       "name": "Unsplash License",
@@ -11,10 +11,25 @@
       "url": "https://www.pexels.com/legal-pages/license/"
     }
   },
+  "visual_contract": {
+    "source_repository": "vicunav-design-to-claude-demo-restaurante",
+    "source_commit": "1e1f62787e088c0ca9701500e764802499d1b253",
+    "final_gate": "blocked",
+    "allowed_statuses": [
+      "exact-source-recovered",
+      "substitute-pending-approval",
+      "omitted-policy-pending-approval",
+      "missing-original"
+    ],
+    "human_approval_reference": null
+  },
   "assets": [
     {
       "id": "antipasti",
       "path": "assets/images/antipasti.webp",
+      "source_ref": "src/data/media.js:CATEGORY_IMG.antipasti",
+      "visual_status": "exact-source-recovered",
+      "blocks_final_parity": false,
       "uses": ["category-antipasti"],
       "alt": "Bruschette con tomate, aceitunas y hojas verdes sobre una tabla",
       "creator": "Margarita Zueva",
@@ -29,6 +44,9 @@
     {
       "id": "insalate",
       "path": "assets/images/insalate.webp",
+      "source_ref": "src/data/media.js:CATEGORY_IMG.insalate",
+      "visual_status": "exact-source-recovered",
+      "blocks_final_parity": false,
       "uses": ["category-insalate"],
       "alt": "Ensalada verde con crotones y aderezo cremoso",
       "creator": "Chris Tweten",
@@ -43,6 +61,9 @@
     {
       "id": "pizze",
       "path": "assets/images/pizze.webp",
+      "source_ref": "src/data/media.js:CATEGORY_IMG.pizze",
+      "visual_status": "exact-source-recovered",
+      "blocks_final_parity": false,
       "uses": ["hero", "category-pizze", "page-pizzas", "page-saved-pizzas"],
       "alt": "Pizza Margherita recién horneada con albahaca fresca",
       "creator": "Aurélien Lemasson-Théobald",
@@ -57,6 +78,9 @@
     {
       "id": "pasta",
       "path": "assets/images/pasta.webp",
+      "source_ref": "src/data/media.js:CATEGORY_IMG.pasta",
+      "visual_status": "exact-source-recovered",
+      "blocks_final_parity": false,
       "uses": ["category-pasta", "editorial-story", "page-cart", "page-checkout"],
       "alt": "Plato de pasta larga con salsa cremosa y panceta",
       "creator": "Raphael Nogueira",
@@ -71,6 +95,9 @@
     {
       "id": "secondi",
       "path": "assets/images/secondi.webp",
+      "source_ref": "src/data/media.js:CATEGORY_IMG.secondi",
+      "visual_status": "exact-source-recovered",
+      "blocks_final_parity": false,
       "uses": ["category-secondi"],
       "alt": "Pechuga de pollo a la parrilla con arroz y vegetales",
       "creator": "Joe Boshra",
@@ -85,6 +112,9 @@
     {
       "id": "contorni",
       "path": "assets/images/contorni.webp",
+      "source_ref": "src/data/media.js:CATEGORY_IMG.contorni",
+      "visual_status": "exact-source-recovered",
+      "blocks_final_parity": false,
       "uses": ["category-contorni"],
       "alt": "Papas asadas con ajo y perejil sobre un plato blanco",
       "creator": "Markus Winkler",
@@ -99,6 +129,11 @@
     {
       "id": "dolci",
       "path": "assets/images/dolci.webp",
+      "source_ref": "sustituto-seguro-de:src/data/media.js:CATEGORY_IMG.dolci",
+      "visual_status": "substitute-pending-approval",
+      "blocks_final_parity": true,
+      "approval": null,
+      "source_original_url": "https://images.unsplash.com/photo-1746888151121-1002113ed286",
       "uses": ["category-dolci"],
       "alt": "Porciones de tiramisú espolvoreadas con cacao sobre platos blancos",
       "creator": "K Zoltan",
@@ -113,6 +148,9 @@
     {
       "id": "bevande",
       "path": "assets/images/bevande.webp",
+      "source_ref": "src/data/media.js:CATEGORY_IMG.bevande",
+      "visual_status": "exact-source-recovered",
+      "blocks_final_parity": false,
       "uses": ["category-bevande"],
       "alt": "Copa de vino tinto sobre una mesa con fondo cálido",
       "creator": "Thomas Franke",
@@ -127,6 +165,9 @@
     {
       "id": "reservas",
       "path": "assets/images/reservas.webp",
+      "source_ref": "src/data/media.js:RESERVA_IMG",
+      "visual_status": "exact-source-recovered",
+      "blocks_final_parity": false,
       "uses": ["page-reservations"],
       "alt": "Mesas preparadas con copas y velas en un restaurante",
       "creator": "Chan Walrus",
@@ -141,33 +182,81 @@
   ],
   "excluded": [
     {
+      "id": "historia-original",
       "source": "src/data/media.js:HISTORIA_IMG",
+      "source_url": "https://images.pexels.com/photos/2696064/pexels-photo-2696064.jpeg",
+      "license": "pexels",
+      "visual_status": "omitted-policy-pending-approval",
+      "blocks_final_parity": true,
+      "approval": null,
       "reason": "Muestra personas identificables y el prototipo las presenta como una familia ficticia."
     },
     {
-      "source": "src/data/media.js:AVATAR_MAP",
+      "id": "testimonial-avatar-t1",
+      "source": "src/data/media.js:AVATAR_MAP.t1",
+      "source_url": "https://images.pexels.com/photos/1024311/pexels-photo-1024311.jpeg",
+      "license": "pexels",
+      "visual_status": "omitted-policy-pending-approval",
+      "blocks_final_parity": true,
+      "approval": null,
       "reason": "Los retratos de stock podrían sugerir respaldo de personas reales a testimonios ficticios."
     },
     {
+      "id": "testimonial-avatar-t2",
+      "source": "src/data/media.js:AVATAR_MAP.t2",
+      "source_url": "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
+      "license": "pexels",
+      "visual_status": "omitted-policy-pending-approval",
+      "blocks_final_parity": true,
+      "approval": null,
+      "reason": "Los retratos de stock podrían sugerir respaldo de personas reales a testimonios ficticios."
+    },
+    {
+      "id": "testimonial-avatar-t3",
+      "source": "src/data/media.js:AVATAR_MAP.t3",
+      "source_url": "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg",
+      "license": "pexels",
+      "visual_status": "omitted-policy-pending-approval",
+      "blocks_final_parity": true,
+      "approval": null,
+      "reason": "Los retratos de stock podrían sugerir respaldo de personas reales a testimonios ficticios."
+    },
+    {
+      "id": "dolci-original",
       "source": "src/data/media.js:CATEGORY_IMG.dolci",
+      "source_url": "https://images.unsplash.com/photo-1746888151121-1002113ed286",
+      "license": "unsplash",
+      "visual_status": "substitute-pending-approval",
+      "replacement_asset_id": "dolci",
+      "blocks_final_parity": true,
+      "approval": null,
       "reason": "La foto contiene una marca visible; se sustituyó por tiramisú sin marca bajo licencia Pexels."
     }
   ],
   "missing": [
     {
       "id": "hero-video",
+      "source": "src/data/media.js:HERO_VIDEO_SRC",
       "expected_path": "public/uploads/hero-video.mp4",
-      "status": "not-delivered"
+      "status": "missing-original",
+      "blocks_final_parity": true,
+      "approval": null
     },
     {
       "id": "map-zulia",
+      "source": "src/data/media.js:MAP_ZULIA_IMG",
       "expected_path": "public/assets/mapa-zulia.png",
-      "status": "not-delivered"
+      "status": "missing-original",
+      "blocks_final_parity": true,
+      "approval": null
     },
     {
       "id": "map-maracaibo",
+      "source": "src/data/media.js:MAP_MARACAIBO_IMG",
       "expected_path": "public/assets/mapa-maracaibo.png",
-      "status": "not-delivered"
+      "status": "missing-original",
+      "blocks_final_parity": true,
+      "approval": null
     }
   ]
 }

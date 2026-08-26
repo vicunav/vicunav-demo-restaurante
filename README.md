@@ -69,3 +69,5 @@ See `docs/arquitectura.md` for the internal ownership and installation contract.
 See `docs/inventario-contenido-media.md` for the content and licensing audit.
 See `docs/visual/baseline-bonasera.md` for the immutable visual source, ownership
 matrix, known differences, and reproducible evidence contract.
+See `docs/visual/assets-bonasera.md` for recovered originals, licensing, pending
+substitutions, and media blockers.
