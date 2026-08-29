@@ -174,7 +174,8 @@ $front_template = get_block_template( get_stylesheet() . '//front-page', 'wp_tem
 $page_template  = get_block_template( get_stylesheet() . '//page', 'wp_template' );
 vicu_demo_qa_assert( $front_template && 'custom' === $front_template->source, 'La portada no usa un override FSE editable.' );
 vicu_demo_qa_assert( $page_template && 'custom' === $page_template->source, 'Las páginas no usan un override FSE editable.' );
-vicu_demo_qa_assert( $page_template && str_contains( $page_template->content, 'wp:post-title {"level":1}' ), 'El template interno no aporta su H1.' );
+vicu_demo_qa_assert( $front_template && str_contains( $front_template->content, '"align":"full"' ), 'La portada no permite secciones de ancho completo.' );
+vicu_demo_qa_assert( $page_template && ! str_contains( $page_template->content, 'wp:post-title' ), 'El template interno duplica el H1 del banner editorial.' );
 
 foreach ( $routes as $route ) {
 	$response = wp_remote_get(

@@ -306,6 +306,25 @@ function vicu_demo_image_block( int $id, string $size = 'large' ): string {
 }
 
 /**
+ * Compone un hero editable con el contrato visual del restaurante.
+ *
+ * @param string $title    Título único de la página.
+ * @param string $lead     Introducción de la página.
+ * @param int    $image_id Medio local o placeholder aprobado.
+ * @param bool   $home     Si corresponde al hero principal.
+ * @return string
+ */
+function vicu_demo_hero( string $title, string $lead, int $image_id, bool $home = false ): string {
+	$url       = wp_get_attachment_image_url( $image_id, 'full' );
+	$class     = $home ? 'vicunav-pattern-hero' : 'vicunav-pattern-page-hero';
+	$content   = $home ? 'vicunav-pattern-hero__content' : 'vicunav-pattern-page-hero__content';
+	$title_css = $home ? 'vicunav-pattern-hero__title' : 'vicunav-pattern-page-hero__title';
+	$height    = $home ? 680 : 360;
+
+	return '<!-- wp:cover {"url":"' . esc_url( $url ) . '","id":' . $image_id . ',"dimRatio":70,"overlayColor":"vicunav-neutral-900","minHeight":' . $height . ',"minHeightUnit":"px","contentPosition":"bottom left","align":"full","className":"' . $class . '"} --><div class="wp-block-cover alignfull has-custom-content-position is-position-bottom-left ' . $class . '" style="min-height:' . $height . 'px"><img class="wp-block-cover__image-background wp-image-' . $image_id . '" alt="" src="' . esc_url( $url ) . '" data-object-fit="cover"/><span aria-hidden="true" class="wp-block-cover__background has-vicunav-neutral-900-background-color has-background-dim-70 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:group {"className":"' . $content . '","layout":{"type":"constrained"}} --><div class="wp-block-group ' . $content . '"><!-- wp:heading {"level":1,"textColor":"vicunav-neutral-100","fontSize":"vicunav-xl","fontFamily":"vicunav-heading","className":"' . $title_css . '"} --><h1 class="wp-block-heading ' . $title_css . ' has-vicunav-neutral-100-color has-text-color has-vicunav-heading-font-family has-vicunav-xl-font-size">' . esc_html( $title ) . '</h1><!-- /wp:heading --><!-- wp:paragraph {"textColor":"vicunav-neutral-300","fontSize":"vicunav-lg","fontFamily":"vicunav-body"} --><p class="has-vicunav-neutral-300-color has-text-color has-vicunav-body-font-family has-vicunav-lg-font-size">' . esc_html( $lead ) . '</p><!-- /wp:paragraph -->' . ( $home ? '<!-- wp:buttons --><div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"vicunav-neutral-100","textColor":"vicunav-neutral-900"} --><div class="wp-block-button"><a class="wp-block-button__link has-vicunav-neutral-900-color has-vicunav-neutral-100-background-color has-text-color has-background wp-element-button" href="/menu/">Ordenar</a></div><!-- /wp:button --><!-- wp:button {"className":"is-style-outline","textColor":"vicunav-neutral-100"} --><div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-vicunav-neutral-100-color has-text-color wp-element-button" href="/menu/">Ver menú</a></div><!-- /wp:button --></div><!-- /wp:buttons -->' : '' ) . '</div><!-- /wp:group --></div></div><!-- /wp:cover -->';
+}
+
+/**
  * Compone la portada editorial y sus bloques dinámicos.
  *
  * @param array<string, mixed> $content   Inventario Bonasera.
@@ -313,14 +332,14 @@ function vicu_demo_image_block( int $id, string $size = 'large' ): string {
  * @return string
  */
 function vicu_demo_front_content( array $content, array $media_ids ): string {
-	$pizza_url = wp_get_attachment_image_url( $media_ids['pizze'], 'full' );
-	$story     = $content['editorial']['story'];
+	$story = $content['editorial']['story'];
 
-	return '<!-- wp:cover {"url":"' . esc_url( $pizza_url ) . '","id":' . $media_ids['pizze'] . ',"dimRatio":55,"minHeight":680,"minHeightUnit":"px","align":"full","className":"vicu-restaurant-hero"} --><div class="wp-block-cover alignfull vicu-restaurant-hero" style="min-height:680px"><img class="wp-block-cover__image-background wp-image-' . $media_ids['pizze'] . '" alt="" src="' . esc_url( $pizza_url ) . '" data-object-fit="cover"/><span aria-hidden="true" class="wp-block-cover__background has-background-dim-60 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:group {"layout":{"type":"constrained"}} --><div class="wp-block-group"><!-- wp:paragraph {"align":"center","className":"is-style-eyebrow"} --><p class="has-text-align-center is-style-eyebrow">' . esc_html( $content['pages'][0]['eyebrow'] ) . '</p><!-- /wp:paragraph --><!-- wp:heading {"textAlign":"center","level":1,"fontSize":"xx-large"} --><h1 class="wp-block-heading has-text-align-center has-xx-large-font-size">Bonasera</h1><!-- /wp:heading --><!-- wp:paragraph {"align":"center","fontSize":"large"} --><p class="has-text-align-center has-large-font-size">' . esc_html( $content['pages'][0]['lead'] ) . '</p><!-- /wp:paragraph --><!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} --><div class="wp-block-buttons"><!-- wp:button --><div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/menu/">Ver menú</a></div><!-- /wp:button --><!-- wp:button {"className":"is-style-outline"} --><div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/reservas/">Reservar mesa</a></div><!-- /wp:button --></div><!-- /wp:buttons --></div><!-- /wp:group --></div></div><!-- /wp:cover -->'
-		. '<!-- wp:group {"tagName":"section","align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70"}}},"layout":{"type":"constrained"}} --><section class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)"><!-- wp:heading {"textAlign":"center"} --><h2 class="wp-block-heading has-text-align-center">Nuestro menú</h2><!-- /wp:heading --><!-- wp:paragraph {"align":"center"} --><p class="has-text-align-center">Explora recetas italianas preparadas al momento o crea tu propia pizza.</p><!-- /wp:paragraph --><!-- wp:columns --><div class="wp-block-columns"><!-- wp:column --><div class="wp-block-column">' . vicu_demo_image_block( $media_ids['pizze'] ) . '<!-- wp:heading {"level":3} --><h3 class="wp-block-heading">Pizze</h3><!-- /wp:heading --><!-- wp:paragraph --><p>Clásicas al horno de piedra o configuradas a tu gusto.</p><!-- /wp:paragraph --></div><!-- /wp:column --><!-- wp:column --><div class="wp-block-column">' . vicu_demo_image_block( $media_ids['pasta'] ) . '<!-- wp:heading {"level":3} --><h3 class="wp-block-heading">Pasta fresca</h3><!-- /wp:heading --><!-- wp:paragraph --><p>Recetas de la Nonna con salsas preparadas al momento.</p><!-- /wp:paragraph --></div><!-- /wp:column --><!-- wp:column --><div class="wp-block-column">' . vicu_demo_image_block( $media_ids['dolci'] ) . '<!-- wp:heading {"level":3} --><h3 class="wp-block-heading">Dolci</h3><!-- /wp:heading --><!-- wp:paragraph --><p>Postres italianos para cerrar la mesa.</p><!-- /wp:paragraph --></div><!-- /wp:column --></div><!-- /wp:columns --><!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} --><div class="wp-block-buttons"><!-- wp:button --><div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/menu/">Explorar el menú completo</a></div><!-- /wp:button --><!-- wp:button {"className":"is-style-outline"} --><div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/pizzas/">Crear una pizza</a></div><!-- /wp:button --></div><!-- /wp:buttons --></section><!-- /wp:group -->'
-		. '<!-- wp:group {"tagName":"section","align":"full","backgroundColor":"surface-alt","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70"}}},"layout":{"type":"constrained"}} --><section class="wp-block-group alignfull has-surface-alt-background-color has-background" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)"><!-- wp:columns {"verticalAlignment":"center"} --><div class="wp-block-columns are-vertically-aligned-center"><!-- wp:column {"verticalAlignment":"center"} --><div class="wp-block-column is-vertically-aligned-center">' . vicu_demo_image_block( $media_ids['pasta'] ) . '</div><!-- /wp:column --><!-- wp:column {"verticalAlignment":"center"} --><div class="wp-block-column is-vertically-aligned-center"><!-- wp:heading --><h2 class="wp-block-heading">Nuestra historia</h2><!-- /wp:heading --><!-- wp:paragraph --><p>' . esc_html( $story[0] ) . '</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>' . esc_html( $story[1] ) . '</p><!-- /wp:paragraph --></div><!-- /wp:column --></div><!-- /wp:columns --></section><!-- /wp:group -->'
-		. '<!-- wp:group {"tagName":"section","align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70"}}},"layout":{"type":"constrained"}} --><section class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)"><!-- wp:heading {"textAlign":"center"} --><h2 class="wp-block-heading has-text-align-center">Dónde entregamos</h2><!-- /wp:heading --><!-- wp:paragraph {"align":"center"} --><p class="has-text-align-center">Selecciona una zona en el carrito para obtener tarifa y tiempo estimado autoritativos.</p><!-- /wp:paragraph --><!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} --><div class="wp-block-buttons"><!-- wp:button {"className":"is-style-outline"} --><div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/carrito/">Consultar entrega</a></div><!-- /wp:button --></div><!-- /wp:buttons --></section><!-- /wp:group -->'
-		. '<!-- wp:pattern {"slug":"vicunav-theme-core/testimonials-grid"} /--><!-- wp:pattern {"slug":"vicunav-theme-core/faq-accordion"} /--><!-- wp:pattern {"slug":"vicunav-theme-core/contact-info"} /-->';
+	return vicu_demo_hero( $content['pages'][0]['h1'], $content['pages'][0]['lead'], $media_ids['pizze'], true )
+		. '<!-- wp:group {"tagName":"section","align":"full","className":"vicunav-pattern-cta","backgroundColor":"vicunav-primary","textColor":"vicunav-neutral-100","layout":{"type":"constrained"}} --><section class="wp-block-group alignfull vicunav-pattern-cta has-vicunav-neutral-100-color has-vicunav-primary-background-color has-text-color has-background"><!-- wp:heading {"textAlign":"center","level":2,"fontSize":"vicunav-lg","fontFamily":"vicunav-heading"} --><h2 class="wp-block-heading has-text-align-center has-vicunav-heading-font-family has-vicunav-lg-font-size">¿Entregamos en tu zona?</h2><!-- /wp:heading --><!-- wp:paragraph {"align":"center"} --><p class="has-text-align-center">Consulta la cobertura, la tarifa y el tiempo estimado antes de confirmar tu pedido.</p><!-- /wp:paragraph --><!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} --><div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"vicunav-neutral-100","textColor":"vicunav-neutral-900"} --><div class="wp-block-button"><a class="wp-block-button__link has-vicunav-neutral-900-color has-vicunav-neutral-100-background-color has-text-color has-background wp-element-button" href="/carrito/">Verificar</a></div><!-- /wp:button --></div><!-- /wp:buttons --></section><!-- /wp:group -->'
+		. '<!-- wp:group {"tagName":"section","align":"full","className":"vicunav-pattern-section vicunav-linked-cards-grid","backgroundColor":"vicunav-neutral-100","layout":{"type":"constrained"}} --><section class="wp-block-group alignfull vicunav-pattern-section vicunav-linked-cards-grid has-vicunav-neutral-100-background-color has-background"><!-- wp:heading {"className":"vicunav-section-heading","fontSize":"vicunav-xl","fontFamily":"vicunav-heading"} --><h2 class="wp-block-heading vicunav-section-heading has-vicunav-heading-font-family has-vicunav-xl-font-size">Platillos destacados</h2><!-- /wp:heading --><!-- wp:columns {"className":"vicunav-linked-cards-grid__columns"} --><div class="wp-block-columns vicunav-linked-cards-grid__columns"><!-- wp:column --><div class="wp-block-column">' . vicu_demo_image_block( $media_ids['antipasti'] ) . '<!-- wp:heading {"level":3} --><h3 class="wp-block-heading">Caprese di Bufala</h3><!-- /wp:heading --><!-- wp:paragraph --><p>Mozzarella di bufala, tomate maduro y albahaca.</p><!-- /wp:paragraph --></div><!-- /wp:column --><!-- wp:column --><div class="wp-block-column">' . vicu_demo_image_block( $media_ids['pizze'] ) . '<!-- wp:heading {"level":3} --><h3 class="wp-block-heading">Margherita</h3><!-- /wp:heading --><!-- wp:paragraph --><p>Salsa pomodoro, mozzarella fresca y albahaca.</p><!-- /wp:paragraph --></div><!-- /wp:column --><!-- wp:column --><div class="wp-block-column">' . vicu_demo_image_block( $media_ids['pasta'] ) . '<!-- wp:heading {"level":3} --><h3 class="wp-block-heading">Spaghetti alla Carbonara</h3><!-- /wp:heading --><!-- wp:paragraph --><p>Panceta, huevo, pecorino y pimienta negra.</p><!-- /wp:paragraph --></div><!-- /wp:column --><!-- wp:column --><div class="wp-block-column">' . vicu_demo_image_block( $media_ids['dolci'] ) . '<!-- wp:heading {"level":3} --><h3 class="wp-block-heading">Tiramisù</h3><!-- /wp:heading --><!-- wp:paragraph --><p>Bizcocho al café bañado en mascarpone y cacao.</p><!-- /wp:paragraph --></div><!-- /wp:column --></div><!-- /wp:columns --></section><!-- /wp:group -->'
+		. '<!-- wp:pattern {"slug":"vicunav-theme-core/linked-cards-grid"} /-->'
+		. '<!-- wp:group {"tagName":"section","align":"full","className":"vicunav-pattern-section vicunav-editorial-story","backgroundColor":"vicunav-neutral-100","layout":{"type":"constrained"}} --><section class="wp-block-group alignfull vicunav-pattern-section vicunav-editorial-story has-vicunav-neutral-100-background-color has-background"><!-- wp:columns {"verticalAlignment":"center","className":"vicunav-editorial-story__columns"} --><div class="wp-block-columns are-vertically-aligned-center vicunav-editorial-story__columns"><!-- wp:column --><div class="wp-block-column"><!-- wp:group {"className":"vicunav-editorial-story__copy","layout":{"type":"constrained"}} --><div class="wp-block-group vicunav-editorial-story__copy"><!-- wp:heading {"className":"vicunav-section-heading","fontSize":"vicunav-xl","fontFamily":"vicunav-heading"} --><h2 class="wp-block-heading vicunav-section-heading has-vicunav-heading-font-family has-vicunav-xl-font-size">Nuestra historia</h2><!-- /wp:heading --><!-- wp:paragraph --><p>' . esc_html( $story[0] ) . '</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>' . esc_html( $story[1] ) . '</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>' . esc_html( $story[2] ) . '</p><!-- /wp:paragraph --></div><!-- /wp:group --></div><!-- /wp:column --><!-- wp:column --><div class="wp-block-column">' . vicu_demo_image_block( $media_ids['pasta'], 'full' ) . '</div><!-- /wp:column --></div><!-- /wp:columns --></section><!-- /wp:group -->'
+		. '<!-- wp:pattern {"slug":"vicunav-theme-core/editorial-location"} /--><!-- wp:pattern {"slug":"vicunav-theme-core/testimonials-grid"} /--><!-- wp:pattern {"slug":"vicunav-theme-core/faq-accordion"} /--><!-- wp:pattern {"slug":"vicunav-theme-core/contact-info"} /--><!-- wp:pattern {"slug":"vicunav-theme-core/cta-simple"} /-->';
 }
 
 /**
@@ -331,13 +350,8 @@ function vicu_demo_front_content( array $content, array $media_ids ): string {
  * @param int|null $image_id Adjunto editorial opcional.
  * @return string
  */
-function vicu_demo_page_content( string $lead, string $block, ?int $image_id = null ): string {
-	$content = '<!-- wp:group {"layout":{"type":"constrained"},"style":{"spacing":{"padding":{"bottom":"var:preset|spacing|70"}}}} --><div class="wp-block-group" style="padding-bottom:var(--wp--preset--spacing--70)"><!-- wp:paragraph {"fontSize":"large"} --><p class="has-large-font-size">' . esc_html( $lead ) . '</p><!-- /wp:paragraph -->';
-	if ( null !== $image_id ) {
-		$content .= vicu_demo_image_block( $image_id );
-	}
-
-	return $content . '<!-- wp:' . $block . ' /--></div><!-- /wp:group -->';
+function vicu_demo_page_content( string $title, string $lead, string $block, int $image_id ): string {
+	return vicu_demo_hero( $title, $lead, $image_id ) . '<!-- wp:group {"tagName":"section","align":"wide","className":"vicunav-pattern-section","layout":{"type":"constrained"}} --><section class="wp-block-group alignwide vicunav-pattern-section"><!-- wp:' . $block . ' /--></section><!-- /wp:group -->';
 }
 
 /**
@@ -652,13 +666,13 @@ foreach ( $content['testimonials']['items'] as $order => $testimonial ) {
 }
 
 $page_blocks = array(
-	'menu'       => array( 'vicunav/restaurante-menu', null ),
+	'menu'       => array( 'vicunav/restaurante-menu', $media_ids['antipasti'] ),
 	'pizzas'     => array( 'vicunav/restaurante-pizza-builder', $media_ids['pizze'] ),
-	'carrito'    => array( 'vicunav/restaurante-cart', null ),
-	'checkout'   => array( 'vicunav/restaurante-checkout', null ),
-	'pedido'     => array( 'vicunav/restaurante-order-status', null ),
+	'carrito'    => array( 'vicunav/restaurante-cart', $media_ids['bevande'] ),
+	'checkout'   => array( 'vicunav/restaurante-checkout', $media_ids['pasta'] ),
+	'pedido'     => array( 'vicunav/restaurante-order-status', $media_ids['contorni'] ),
 	'reservas'   => array( 'vicunav/restaurante-reservations', $media_ids['reservas'] ),
-	'mis-pizzas' => array( 'vicunav/restaurante-saved-pizzas', null ),
+	'mis-pizzas' => array( 'vicunav/restaurante-saved-pizzas', $media_ids['pizze'] ),
 );
 $page_ids    = array();
 foreach ( $content['pages'] as $page ) {
@@ -667,7 +681,7 @@ foreach ( $content['pages'] as $page ) {
 		$page_content = vicu_demo_front_content( $content, $media_ids );
 		$slug         = 'inicio';
 	} else {
-		$page_content = vicu_demo_page_content( $page['lead'], $page_blocks[ $page['id'] ][0], $page_blocks[ $page['id'] ][1] );
+		$page_content = vicu_demo_page_content( $page['h1'], $page['lead'], $page_blocks[ $page['id'] ][0], $page_blocks[ $page['id'] ][1] );
 	}
 	$page_ids[ $page['id'] ] = vicu_demo_upsert_post(
 		'page',
@@ -685,7 +699,7 @@ $page_ids['privacidad'] = vicu_demo_upsert_post(
 	array(
 		'post_title'   => 'Privacidad',
 		'post_name'    => 'privacidad',
-		'post_content' => '<!-- wp:paragraph {"fontSize":"large"} --><p class="has-large-font-size">Este sitio es una demostración ficticia. No introduzcas datos personales, financieros ni comprobantes reales.</p><!-- /wp:paragraph --><!-- wp:heading --><h2 class="wp-block-heading">Datos del flujo</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Las pruebas locales de carrito, pedidos, pagos manuales y reservas se conservan únicamente en esta instalación de desarrollo. Su eliminación corresponde a quien administra el entorno.</p><!-- /wp:paragraph -->',
+		'post_content' => '<!-- wp:group {"className":"vicunav-pattern-section","layout":{"type":"constrained"}} --><div class="wp-block-group vicunav-pattern-section"><!-- wp:heading {"level":1,"fontSize":"vicunav-xl","fontFamily":"vicunav-heading"} --><h1 class="wp-block-heading has-vicunav-heading-font-family has-vicunav-xl-font-size">Privacidad</h1><!-- /wp:heading --><!-- wp:paragraph {"fontSize":"large"} --><p class="has-large-font-size">Este sitio es una demostración ficticia. No introduzcas datos personales, financieros ni comprobantes reales.</p><!-- /wp:paragraph --><!-- wp:heading --><h2 class="wp-block-heading">Datos del flujo</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Las pruebas locales de carrito, pedidos, pagos manuales y reservas se conservan únicamente en esta instalación de desarrollo. Su eliminación corresponde a quien administra el entorno.</p><!-- /wp:paragraph --></div><!-- /wp:group -->',
 	)
 );
 
@@ -694,22 +708,28 @@ update_option( 'page_on_front', $page_ids['inicio'] );
 update_option( 'blogname', 'Bonasera' );
 update_option( 'blogdescription', 'Trattoria italiana familiar' );
 
+$header_home_path  = get_theme_file_path( 'parts/header-restaurant-home.html' );
 $header_inner_path = get_theme_file_path( 'parts/header-restaurant-inner.html' );
 $footer_full_path  = get_theme_file_path( 'parts/footer-restaurant-full.html' );
-if ( ! is_file( $header_inner_path ) || ! is_file( $footer_full_path ) ) {
+if ( ! is_file( $header_home_path ) || ! is_file( $header_inner_path ) || ! is_file( $footer_full_path ) ) {
 	WP_CLI::error( 'Faltan los template parts contractuales del restaurante.' );
 }
+$navigation_from = array( 'url":"#inicio"', 'url":"#menu"', 'url":"#pizzas"', 'url":"#reservar"', 'url":"#cuenta"', 'label":"Cuenta"', 'href="#accion-principal"' );
+$navigation_to   = array( 'url":"/"', 'url":"/menu/"', 'url":"/pizzas/"', 'url":"/reservas/"', 'url":"/mis-pizzas/"', 'label":"Mis pizzas"', 'href="/menu/"' );
+$header_home     = str_replace( $navigation_from, $navigation_to, (string) file_get_contents( $header_home_path ) );
 $header_inner = str_replace( array( 'href="/contacto/"', '>Contacto</a' ), array( 'href="/carrito/"', '>Ver carrito</a' ), (string) file_get_contents( $header_inner_path ) );
+$header_inner = str_replace( $navigation_from, $navigation_to, $header_inner );
 $footer_full  = str_replace(
 	array( 'Descripción editable del restaurante.', 'Dirección editable del restaurante.', 'Horario editable del restaurante.', '© Sitio. Todos los derechos reservados.' ),
 	array( $content['brand']['descriptor'] . ' en ' . $content['brand']['location_label'] . '.', $content['brand']['address'], 'Martes a domingo: almuerzo y cena. Lunes cerrado.', '© Bonasera. Sitio demostrativo ficticio.' ),
 	(string) file_get_contents( $footer_full_path )
 );
+vicu_demo_upsert_template_part( 'header-restaurant-home', 'Cabecera principal Bonasera', $header_home, 'header' );
 vicu_demo_upsert_template_part( 'header-restaurant-inner', 'Cabecera interna Bonasera', $header_inner, 'header' );
 vicu_demo_upsert_template_part( 'footer-restaurant-full', 'Pie completo Bonasera', $footer_full, 'footer' );
 
-$front_template = '<!-- wp:template-part {"slug":"header-restaurant-home","theme":"vicunav-theme-core","area":"header"} /--><!-- wp:group {"tagName":"main","layout":{"type":"constrained"}} --><main class="wp-block-group"><!-- wp:post-content {"layout":{"type":"constrained"}} /--></main><!-- /wp:group --><!-- wp:template-part {"slug":"footer-restaurant-full","theme":"vicunav-theme-core","area":"footer"} /-->';
-$page_template  = '<!-- wp:template-part {"slug":"header-restaurant-inner","theme":"vicunav-theme-core","area":"header"} /--><!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"var:preset|spacing|60"}}},"layout":{"type":"constrained"}} --><main class="wp-block-group" style="padding-top:var(--wp--preset--spacing--60)"><!-- wp:post-title {"level":1} /--><!-- wp:post-content {"layout":{"type":"constrained"}} /--></main><!-- /wp:group --><!-- wp:template-part {"slug":"footer-restaurant-minimal","theme":"vicunav-theme-core","area":"footer"} /-->';
+$front_template = '<!-- wp:template-part {"slug":"header-restaurant-home","theme":"vicunav-theme-core","area":"header"} /--><!-- wp:group {"tagName":"main","layout":{"type":"default"}} --><main class="wp-block-group"><!-- wp:post-content {"align":"full","layout":{"type":"default"}} /--></main><!-- /wp:group --><!-- wp:template-part {"slug":"footer-restaurant-full","theme":"vicunav-theme-core","area":"footer"} /-->';
+$page_template  = '<!-- wp:template-part {"slug":"header-restaurant-inner","theme":"vicunav-theme-core","area":"header"} /--><!-- wp:group {"tagName":"main","layout":{"type":"default"}} --><main class="wp-block-group"><!-- wp:post-content {"align":"full","layout":{"type":"default"}} /--></main><!-- /wp:group --><!-- wp:template-part {"slug":"footer-restaurant-minimal","theme":"vicunav-theme-core","area":"footer"} /-->';
 vicu_demo_upsert_template( 'front-page', 'Portada Bonasera', $front_template );
 vicu_demo_upsert_template( 'page', 'Página Bonasera', $page_template );
 

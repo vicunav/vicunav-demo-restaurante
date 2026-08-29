@@ -51,9 +51,9 @@
     {
       "id": "inicio",
       "path": "/",
-      "h1": "Bonasera",
-      "eyebrow": "Trattoria italiana familiar en Maracaibo",
-      "lead": "Pastas, pizzas al horno de piedra y recetas de la Nonna, listas para pedir o retirar.",
+      "h1": "Cucina italiana, tradición viva.",
+      "eyebrow": "Cucina italiana",
+      "lead": "Trattoria familiar en Maracaibo: pastas, pizzas al horno de piedra y recetas de la Nonna, listas para pedir en segundos desde tu teléfono y recibir calientitas en tu puerta, o retirar tú mismo en el local.",
       "sections": [
         "Platillos destacados",
         "Nuestro menú",
@@ -110,7 +110,8 @@
   "editorial": {
     "story": [
       "Bonasera nació en la cocina de la familia Ferraro, italianos que llegaron a Maracaibo en los años sesenta y conservaron sus recetas de casa.",
-      "Hoy esa memoria inspira una trattoria demostrativa de ambiente cálido, horno de piedra y cocina hecha al momento."
+      "El nombre viene de \"buonasera\", el saludo con el que el abuelo Vittorio recibía a cada cliente en la puerta, sin excepción.",
+      "Hoy seguimos siendo una trattoria familiar, con recetas que pasan de generación en generación. Lo único que cambió es que ahora puedes pedirlo desde tu teléfono."
     ],
     "contact_heading": "Hablemos",
     "contact_copy": "Para pedidos y reservas utiliza los flujos del sitio. Los datos de contacto visibles son demostrativos y no reciben mensajes reales."

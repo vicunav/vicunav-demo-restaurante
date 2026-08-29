@@ -36,11 +36,12 @@ assert.match(apply, /styles\/bonasera\.json/);
 assert.match(apply, /\$style_data\['isGlobalStylesUserThemeJSON'\]\s*=\s*true/);
 assert.match(apply, /'tax_input'\s*=>\s*array\(\s*'wp_theme'\s*=>\s*array\( get_stylesheet\(\) \)/s);
 assert.match(apply, /'tax_query'\s*=>\s*array\(\s*array\(\s*'taxonomy'\s*=>\s*'wp_theme'/s);
-assert.match(apply, /wp:heading \{\"textAlign\":\"center\",\"level\":1/);
-assert.match(apply, /\$front_template = .*\"tagName\":\"main\".*<main class=\"wp-block-group\">/);
-assert.match(apply, /\"dimRatio\":55.*<img class=\"wp-block-cover__image-background.*<span aria-hidden=\"true\" class=\"wp-block-cover__background has-background-dim-60/);
+assert.match(apply, /function vicu_demo_hero/);
+assert.match(apply, /vicunav-pattern-page-hero/);
+assert.match(apply, /\$front_template = .*\"tagName\":\"main\".*<main class=\"wp-block-group\">.*\"align\":\"full\"/);
+assert.match(apply, /\"dimRatio\":70.*<img class=\"wp-block-cover__image-background.*has-background-dim-70/);
 assert.match(apply, /array_fill_keys\( array\( 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday' \), array\(\) \)/);
-assert.equal((apply.match(/<h1/g) ?? []).length, 1, 'La portada debe declarar un solo H1 en su contenido');
+assert.equal((apply.match(/<h1/g) ?? []).length, 2, 'Los compositores deben declarar el H1 del hero y el de privacidad');
 
 for (const faq of content.faqs) {
   assert.doesNotMatch(faq.answer, /WhatsApp|mapa interactivo/i);
