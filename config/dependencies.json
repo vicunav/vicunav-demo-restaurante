@@ -23,14 +23,14 @@
       "repository": "vicunav-restaurante",
       "slug": "vicunav-restaurante",
       "type": "plugin",
-      "commit": "f14ee43be4f9e6757f572ecc93d87487073f8666",
+      "commit": "a46d1d746e0b880dca949a875d2dceb4b9207c61",
       "activate": true
     },
     {
       "repository": "vicunav-theme-core",
       "slug": "vicunav-theme-core",
       "type": "theme",
-      "commit": "4a5eeb5741fea50f9d2e6d7ae09346ae2b7afe89",
+      "commit": "7c30b2ce250bb85572dae4a4cd51841921c4e98a",
       "activate": true
     }
   ]
