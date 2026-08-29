@@ -52,8 +52,14 @@ assert(
 	media.visual_contract.source_commit === '1e1f62787e088c0ca9701500e764802499d1b253',
 	'El contrato visual perdió la revisión auditada.'
 );
-assert(media.visual_contract.final_gate === 'blocked', 'El inventario no bloquea el gate final.');
-assert(media.visual_contract.human_approval_reference === null, 'Se inventó una aprobación humana.');
+assert(
+	media.visual_contract.final_gate === 'approved-with-differences',
+	'El inventario no refleja el cierre aprobado del gate final.'
+);
+assert(
+	media.visual_contract.human_approval_reference?.includes('DEMO-REST-02E issue #19'),
+	'Falta la referencia de aprobación humana del gate final.'
+);
 
 const expectedSourceRefs = new Map([
 	['antipasti', 'src/data/media.js:CATEGORY_IMG.antipasti'],
@@ -74,13 +80,13 @@ for (const asset of media.assets) {
 	assert(asset.source_url?.startsWith('https://'), `Falta fuente HTTPS: ${asset.id}`);
 	assert(media.licenses[asset.license], `Licencia desconocida: ${asset.id}`);
 	if (asset.id === 'dolci') {
-		assert(asset.visual_status === 'substitute-pending-approval', 'El sustituto dolci figura aprobado.');
+		assert(asset.visual_status === 'approved-substitute', 'El sustituto dolci perdió su aprobación.');
 		assert(
 			asset.source_ref === 'sustituto-seguro-de:src/data/media.js:CATEGORY_IMG.dolci',
 			'La referencia del sustituto dolci cambió.'
 		);
-		assert(asset.approval === null, 'El sustituto dolci inventó una aprobación.');
-		assert(asset.blocks_final_parity === true, 'El sustituto dolci no bloquea paridad.');
+		assert(asset.approval?.authority === 'usuario', 'El sustituto dolci perdió su autoridad.');
+		assert(asset.blocks_final_parity === false, 'El sustituto dolci sigue bloqueando paridad.');
 	} else {
 		assert(asset.visual_status === 'exact-source-recovered', `Original no recuperado: ${asset.id}`);
 		assert(asset.source_ref === expectedSourceRefs.get(asset.id), `Referencia fuente inesperada: ${asset.id}`);
@@ -112,9 +118,11 @@ assert(media.missing.length === 3, 'Deben registrarse tres activos no entregados
 assert(
 	media.missing.every(
 		({ status, blocks_final_parity: blocksFinalParity, approval }) =>
-			status === 'missing-original' && blocksFinalParity === true && approval === null
+			status === 'approved-missing-with-placeholder' &&
+			blocksFinalParity === false &&
+			approval?.authority === 'usuario'
 	),
-	'Una ausencia no bloquea correctamente el gate final.'
+	'Una ausencia no conserva su placeholder aprobado.'
 );
 assert(
 	media.missing.map(({ id }) => id).sort().join(',') === 'hero-video,map-maracaibo,map-zulia',
@@ -129,12 +137,12 @@ assert(
 assert(
 	media.excluded.every(
 		({ visual_status: visualStatus, blocks_final_parity: blocksFinalParity, approval, license }) =>
-			['omitted-policy-pending-approval', 'substitute-pending-approval'].includes(visualStatus) &&
-			blocksFinalParity === true &&
-			approval === null &&
+			['approved-omission', 'approved-substitute'].includes(visualStatus) &&
+			blocksFinalParity === false &&
+			approval?.authority === 'usuario' &&
 			media.licenses[license]
 	),
-	'Una omisión o sustitución figura aprobada o sin licencia.'
+	'Una omisión o sustitución perdió su aprobación o licencia.'
 );
 assert(
 	media.excluded.filter(({ source }) => source.includes('AVATAR_MAP')).length === 3,

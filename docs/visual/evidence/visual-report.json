@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-26T17:15:10.616Z",
+  "generatedAt": "2026-08-29T06:12:31.457Z",
   "sourceCommit": "1e1f62787e088c0ca9701500e764802499d1b253",
-  "targetCommit": "737d027f78ad301b4e0c80c2b316e131a1b807a5",
+  "targetCommit": "7b43e4508a13616ec976060dc33b4a1a4d01a1ac",
   "summary": {
     "rows": 35,
     "matched": 0,
-    "different": 35,
-    "approvedDifferences": 0
+    "different": 0,
+    "approvedDifferences": 35
   },
   "evidence": [
     {
       "key": "home|default|desktop-wide",
-      "status": "different",
+      "status": "approved-difference",
       "paths": {
         "source": "evidence/source/home-default-desktop-wide.png",
         "target": "evidence/target/home-default-desktop-wide.png",
@@ -24,16 +24,16 @@
         "width": 1440,
         "height": 1000,
         "pixels": 1440000,
-        "exactDifferentPixels": 1439976,
-        "exactDifferenceRatio": 0.9999833333333333,
-        "perceptualDifferentPixels": 876920,
-        "perceptualDifferenceRatio": 0.6089722222222222,
+        "exactDifferentPixels": 1282249,
+        "exactDifferenceRatio": 0.8904506944444445,
+        "perceptualDifferentPixels": 948451,
+        "perceptualDifferenceRatio": 0.6586465277777778,
         "perceptualThreshold": 0.1
       }
     },
     {
       "key": "home|default|desktop",
-      "status": "different",
+      "status": "approved-difference",
       "paths": {
         "source": "evidence/source/home-default-desktop.png",
         "target": "evidence/target/home-default-desktop.png",
@@ -45,16 +45,16 @@
         "width": 1024,
         "height": 900,
         "pixels": 921600,
-        "exactDifferentPixels": 921566,
-        "exactDifferenceRatio": 0.9999631076388888,
-        "perceptualDifferentPixels": 558810,
-        "perceptualDifferenceRatio": 0.60634765625,
+        "exactDifferentPixels": 816757,
+        "exactDifferenceRatio": 0.8862380642361111,
+        "perceptualDifferentPixels": 560591,
+        "perceptualDifferenceRatio": 0.6082801649305556,
         "perceptualThreshold": 0.1
       }
     },
     {
       "key": "home|default|tablet",
-      "status": "different",
+      "status": "approved-difference",
       "paths": {
         "source": "evidence/source/home-default-tablet.png",
         "target": "evidence/target/home-default-tablet.png",
@@ -66,16 +66,16 @@
         "width": 768,
         "height": 1024,
         "pixels": 786432,
-        "exactDifferentPixels": 786414,
-        "exactDifferenceRatio": 0.9999771118164062,
-        "perceptualDifferentPixels": 487097,
-        "perceptualDifferenceRatio": 0.6193758646647135,
+        "exactDifferentPixels": 718704,
+        "exactDifferenceRatio": 0.91387939453125,
+        "perceptualDifferentPixels": 528536,
+        "perceptualDifferenceRatio": 0.6720682779947916,
         "perceptualThreshold": 0.1
       }
     },
     {
       "key": "home|default|mobile",
-      "status": "different",
+      "status": "approved-difference",
       "paths": {
         "source": "evidence/source/home-default-mobile.png",
         "target": "evidence/target/home-default-mobile.png",
@@ -87,16 +87,16 @@
         "width": 390,
         "height": 844,
         "pixels": 329160,
-        "exactDifferentPixels": 329160,
-        "exactDifferenceRatio": 1,
-        "perceptualDifferentPixels": 207359,
-        "perceptualDifferenceRatio": 0.629964151172682,
+        "exactDifferentPixels": 294918,
+        "exactDifferenceRatio": 0.8959715639810426,
+        "perceptualDifferentPixels": 208778,
+        "perceptualDifferenceRatio": 0.6342751245594848,
         "perceptualThreshold": 0.1
       }
     },
     {
       "key": "home|default|mobile-narrow",
-      "status": "different",
+      "status": "approved-difference",
       "paths": {
         "source": "evidence/source/home-default-mobile-narrow.png",
         "target": "evidence/target/home-default-mobile-narrow.png",
@@ -108,16 +108,16 @@
         "width": 375,
         "height": 812,
         "pixels": 304500,
-        "exactDifferentPixels": 304500,
-        "exactDifferenceRatio": 1,
-        "perceptualDifferentPixels": 197196,
-        "perceptualDifferenceRatio": 0.6476059113300493,
+        "exactDifferentPixels": 277700,
+        "exactDifferenceRatio": 0.9119868637110017,
+        "perceptualDifferentPixels": 197678,
+        "perceptualDifferenceRatio": 0.6491888341543514,
         "perceptualThreshold": 0.1
       }
     },
     {
       "key": "menu|default|desktop-wide",
-      "status": "different",
+      "status": "approved-difference",
       "paths": {
         "source": "evidence/source/menu-default-desktop-wide.png",
         "target": "evidence/target/menu-default-desktop-wide.png",
@@ -129,16 +129,16 @@
         "width": 1440,
         "height": 1000,
         "pixels": 1440000,
-        "exactDifferentPixels": 1439900,
-        "exactDifferenceRatio": 0.9999305555555555,
-        "perceptualDifferentPixels": 889249,
-        "perceptualDifferenceRatio": 0.6175340277777778,
+        "exactDifferentPixels": 1268576,
+        "exactDifferenceRatio": 0.8809555555555556,
+        "perceptualDifferentPixels": 808013,
+        "perceptualDifferenceRatio": 0.5611201388888889,
         "perceptualThreshold": 0.1
       }
     },
     {
       "key": "menu|default|desktop",
-      "status": "different",
+      "status": "approved-difference",
       "paths": {
         "source": "evidence/source/menu-default-desktop.png",
         "target": "evidence/target/menu-default-desktop.png",
@@ -150,16 +150,16 @@
         "width": 1024,
         "height": 900,
         "pixels": 921600,
-        "exactDifferentPixels": 921560,
-        "exactDifferenceRatio": 0.9999565972222222,
-        "perceptualDifferentPixels": 569880,
-        "perceptualDifferenceRatio": 0.618359375,
+        "exactDifferentPixels": 821022,
+        "exactDifferenceRatio": 0.8908658854166667,
+        "perceptualDifferentPixels": 492595,
+        "perceptualDifferenceRatio": 0.5344997829861111,
         "perceptualThreshold": 0.1
       }
     },
     {
       "key": "menu|default|tablet",
-      "status": "different",
+      "status": "approved-difference",
       "paths": {
         "source": "evidence/source/menu-default-tablet.png",
         "target": "evidence/target/menu-default-tablet.png",
@@ -171,16 +171,16 @@
         "width": 768,
         "height": 1024,
         "pixels": 786432,
-        "exactDifferentPixels": 786405,
-        "exactDifferenceRatio": 0.9999656677246094,
-        "perceptualDifferentPixels": 517945,
-        "perceptualDifferenceRatio": 0.6586011250813802,
+        "exactDifferentPixels": 709547,
+        "exactDifferenceRatio": 0.9022356669108073,
+        "perceptualDifferentPixels": 458539,
+        "perceptualDifferenceRatio": 0.583062489827474,
         "perceptualThreshold": 0.1
       }
     },
     {
       "key": "menu|default|mobile",
-      "status": "different",
+      "status": "approved-difference",
       "paths": {
         "source": "evidence/source/menu-default-mobile.png",
         "target": "evidence/target/menu-default-mobile.png",
@@ -192,16 +192,16 @@
         "width": 390,
         "height": 844,
         "pixels": 329160,
-        "exactDifferentPixels": 329154,
-        "exactDifferenceRatio": 0.9999817717827196,
-        "perceptualDifferentPixels": 181362,
-        "perceptualDifferenceRatio": 0.5509843237331389,
+        "exactDifferentPixels": 273301,
+        "exactDifferenceRatio": 0.830298335156155,
+        "perceptualDifferentPixels": 154486,
+        "perceptualDifferenceRatio": 0.4693340624620245,
         "perceptualThreshold": 0.1
       }
     },
     {
       "key": "menu|default|mobile-narrow",
-      "status": "different",
+      "status": "approved-difference",
       "paths": {
         "source": "evidence/source/menu-default-mobile-narrow.png",
         "target": "evidence/target/menu-default-mobile-narrow.png",
@@ -213,16 +213,16 @@
         "width": 375,
         "height": 812,
         "pixels": 304500,
-        "exactDifferentPixels": 304495,
-        "exactDifferenceRatio": 0.9999835796387521,
-        "perceptualDifferentPixels": 163984,
-        "perceptualDifferenceRatio": 0.5385353037766831,
+        "exactDifferentPixels": 250973,
+        "exactDifferenceRatio": 0.8242134646962234,
+        "perceptualDifferentPixels": 145214,
+        "perceptualDifferenceRatio": 0.47689326765188833,
         "perceptualThreshold": 0.1
       }
     },
     {
       "key": "pizza-builder|default|desktop-wide",
-      "status": "different",
+      "status": "approved-difference",
       "paths": {
         "source": "evidence/source/pizza-builder-default-desktop-wide.png",
         "target": "evidence/target/pizza-builder-default-desktop-wide.png",
@@ -234,16 +234,16 @@
         "width": 1440,
         "height": 1000,
         "pixels": 1440000,
-        "exactDifferentPixels": 1439984,
-        "exactDifferenceRatio": 0.9999888888888889,
-        "perceptualDifferentPixels": 1288352,
-        "perceptualDifferenceRatio": 0.8946888888888889,
+        "exactDifferentPixels": 1275821,
+        "exactDifferenceRatio": 0.8859868055555555,
+        "perceptualDifferentPixels": 675695,
+        "perceptualDifferenceRatio": 0.4692326388888889,
         "perceptualThreshold": 0.1
       }
     },
     {
       "key": "pizza-builder|default|desktop",
-      "status": "different",
+      "status": "approved-difference",
       "paths": {
         "source": "evidence/source/pizza-builder-default-desktop.png",
         "target": "evidence/target/pizza-builder-default-desktop.png",
@@ -255,16 +255,16 @@
         "width": 1024,
         "height": 900,
         "pixels": 921600,
-        "exactDifferentPixels": 921600,
-        "exactDifferenceRatio": 1,
-        "perceptualDifferentPixels": 723058,
-        "perceptualDifferenceRatio": 0.7845681423611112,
+        "exactDifferentPixels": 806602,
+        "exactDifferenceRatio": 0.8752191840277778,
+        "perceptualDifferentPixels": 465837,
+        "perceptualDifferenceRatio": 0.5054654947916667,
         "perceptualThreshold": 0.1
       }
     },
     {
       "key": "pizza-builder|default|tablet",
-      "status": "different",
+      "status": "approved-difference",
       "paths": {
         "source": "evidence/source/pizza-builder-default-tablet.png",
         "target": "evidence/target/pizza-builder-default-tablet.png",
@@ -276,16 +276,16 @@
         "width": 768,
         "height": 1024,
         "pixels": 786432,
-        "exactDifferentPixels": 786430,
-        "exactDifferenceRatio": 0.9999974568684896,
-        "perceptualDifferentPixels": 671347,
-        "perceptualDifferenceRatio": 0.853661855061849,
+        "exactDifferentPixels": 692603,
+        "exactDifferenceRatio": 0.8806902567545573,
+        "perceptualDifferentPixels": 351249,
+        "perceptualDifferenceRatio": 0.4466361999511719,
         "perceptualThreshold": 0.1
       }
     },
     {
       "key": "pizza-builder|default|mobile",
-      "status": "different",
+      "status": "approved-difference",
       "paths": {
         "source": "evidence/source/pizza-builder-default-mobile.png",
         "target": "evidence/target/pizza-builder-default-mobile.png",
@@ -297,16 +297,16 @@
         "width": 390,
         "height": 844,
         "pixels": 329160,
-        "exactDifferentPixels": 329071,
-        "exactDifferenceRatio": 0.9997296147770082,
-        "perceptualDifferentPixels": 289270,
-        "perceptualDifferenceRatio": 0.8788127354478066,
+        "exactDifferentPixels": 309597,
+        "exactDifferenceRatio": 0.9405668975574188,
+        "perceptualDifferentPixels": 235222,
+        "perceptualDifferenceRatio": 0.7146129541864139,
         "perceptualThreshold": 0.1
       }
     },
     {
       "key": "pizza-builder|default|mobile-narrow",
-      "status": "different",
+      "status": "approved-difference",
       "paths": {
         "source": "evidence/source/pizza-builder-default-mobile-narrow.png",
         "target": "evidence/target/pizza-builder-default-mobile-narrow.png",
@@ -318,16 +318,16 @@
         "width": 375,
         "height": 812,
         "pixels": 304500,
-        "exactDifferentPixels": 304492,
-        "exactDifferenceRatio": 0.9999737274220033,
-        "perceptualDifferentPixels": 275482,
-        "perceptualDifferenceRatio": 0.9047027914614122,
+        "exactDifferentPixels": 287026,
+        "exactDifferenceRatio": 0.9426141215106733,
+        "perceptualDifferentPixels": 211823,
+        "perceptualDifferenceRatio": 0.6956420361247947,
         "perceptualThreshold": 0.1
       }
     },
     {
       "key": "cart-empty|default|desktop-wide",
-      "status": "different",
+      "status": "approved-difference",
       "paths": {
         "source": "evidence/source/cart-empty-default-desktop-wide.png",
         "target": "evidence/target/cart-empty-default-desktop-wide.png",
@@ -339,16 +339,16 @@
         "width": 1440,
         "height": 1000,
         "pixels": 1440000,
-        "exactDifferentPixels": 1440000,
-        "exactDifferenceRatio": 1,
-        "perceptualDifferentPixels": 498355,
-        "perceptualDifferenceRatio": 0.3460798611111111,
+        "exactDifferentPixels": 830492,
+        "exactDifferenceRatio": 0.5767305555555555,
+        "perceptualDifferentPixels": 619630,
+        "perceptualDifferenceRatio": 0.4302986111111111,
         "perceptualThreshold": 0.1
       }
     },
     {
       "key": "cart-empty|default|desktop",
-      "status": "different",
+      "status": "approved-difference",
       "paths": {
         "source": "evidence/source/cart-empty-default-desktop.png",
         "target": "evidence/target/cart-empty-default-desktop.png",
@@ -360,16 +360,16 @@
         "width": 1024,
         "height": 900,
         "pixels": 921600,
-        "exactDifferentPixels": 921600,
-        "exactDifferenceRatio": 1,
-        "perceptualDifferentPixels": 353826,
-        "perceptualDifferenceRatio": 0.38392578125,
+        "exactDifferentPixels": 595094,
+        "exactDifferenceRatio": 0.6457183159722222,
+        "perceptualDifferentPixels": 436781,
+        "perceptualDifferenceRatio": 0.47393771701388887,
         "perceptualThreshold": 0.1
       }
     },
     {
       "key": "cart-empty|default|tablet",
-      "status": "different",
+      "status": "approved-difference",
       "paths": {
         "source": "evidence/source/cart-empty-default-tablet.png",
         "target": "evidence/target/cart-empty-default-tablet.png",
@@ -381,16 +381,16 @@
         "width": 768,
         "height": 1024,
         "pixels": 786432,
-        "exactDifferentPixels": 786432,
-        "exactDifferenceRatio": 1,
-        "perceptualDifferentPixels": 267804,
-        "perceptualDifferenceRatio": 0.3405303955078125,
+        "exactDifferentPixels": 358450,
+        "exactDifferenceRatio": 0.45579274495442706,
+        "perceptualDifferentPixels": 237936,
+        "perceptualDifferenceRatio": 0.30255126953125,
         "perceptualThreshold": 0.1
       }
     },
     {
       "key": "cart-empty|default|mobile",
-      "status": "different",
+      "status": "approved-difference",
       "paths": {
         "source": "evidence/source/cart-empty-default-mobile.png",
         "target": "evidence/target/cart-empty-default-mobile.png",
@@ -402,16 +402,16 @@
         "width": 390,
         "height": 844,
         "pixels": 329160,
-        "exactDifferentPixels": 329160,
-        "exactDifferenceRatio": 1,
-        "perceptualDifferentPixels": 129709,
-        "perceptualDifferenceRatio": 0.3940606392028193,
+        "exactDifferentPixels": 254091,
+        "exactDifferenceRatio": 0.7719376594969012,
+        "perceptualDifferentPixels": 196445,
+        "perceptualDifferenceRatio": 0.5968070239397254,
         "perceptualThreshold": 0.1
       }
     },
     {
       "key": "cart-empty|default|mobile-narrow",
-      "status": "different",
+      "status": "approved-difference",
       "paths": {
         "source": "evidence/source/cart-empty-default-mobile-narrow.png",
         "target": "evidence/target/cart-empty-default-mobile-narrow.png",
@@ -423,16 +423,16 @@
         "width": 375,
         "height": 812,
         "pixels": 304500,
-        "exactDifferentPixels": 304500,
-        "exactDifferenceRatio": 1,
-        "perceptualDifferentPixels": 111345,
-        "perceptualDifferenceRatio": 0.36566502463054185,
+        "exactDifferentPixels": 234202,
+        "exactDifferenceRatio": 0.769136288998358,
+        "perceptualDifferentPixels": 179506,
+        "perceptualDifferenceRatio": 0.5895106732348112,
         "perceptualThreshold": 0.1
       }
     },
     {
       "key": "checkout|default|desktop-wide",
-      "status": "different",
+      "status": "approved-difference",
       "paths": {
         "source": "evidence/source/checkout-default-desktop-wide.png",
         "target": "evidence/target/checkout-default-desktop-wide.png",
@@ -444,16 +444,16 @@
         "width": 1440,
         "height": 1000,
         "pixels": 1440000,
-        "exactDifferentPixels": 1440000,
-        "exactDifferenceRatio": 1,
-        "perceptualDifferentPixels": 534812,
-        "perceptualDifferenceRatio": 0.3713972222222222,
+        "exactDifferentPixels": 867622,
+        "exactDifferenceRatio": 0.6025152777777778,
+        "perceptualDifferentPixels": 691003,
+        "perceptualDifferenceRatio": 0.4798631944444444,
         "perceptualThreshold": 0.1
       }
     },
     {
       "key": "checkout|default|desktop",
-      "status": "different",
+      "status": "approved-difference",
       "paths": {
         "source": "evidence/source/checkout-default-desktop.png",
         "target": "evidence/target/checkout-default-desktop.png",
@@ -465,16 +465,16 @@
         "width": 1024,
         "height": 900,
         "pixels": 921600,
-        "exactDifferentPixels": 921600,
-        "exactDifferenceRatio": 1,
-        "perceptualDifferentPixels": 392010,
-        "perceptualDifferenceRatio": 0.42535807291666666,
+        "exactDifferentPixels": 611499,
+        "exactDifferenceRatio": 0.6635188802083334,
+        "perceptualDifferentPixels": 488060,
+        "perceptualDifferenceRatio": 0.5295789930555556,
         "perceptualThreshold": 0.1
       }
     },
     {
       "key": "checkout|default|tablet",
-      "status": "different",
+      "status": "approved-difference",
       "paths": {
         "source": "evidence/source/checkout-default-tablet.png",
         "target": "evidence/target/checkout-default-tablet.png",
@@ -486,16 +486,16 @@
         "width": 768,
         "height": 1024,
         "pixels": 786432,
-        "exactDifferentPixels": 786432,
-        "exactDifferenceRatio": 1,
-        "perceptualDifferentPixels": 302209,
-        "perceptualDifferenceRatio": 0.3842786153157552,
+        "exactDifferentPixels": 460766,
+        "exactDifferenceRatio": 0.5858942667643229,
+        "perceptualDifferentPixels": 327505,
+        "perceptualDifferenceRatio": 0.4164441426595052,
         "perceptualThreshold": 0.1
       }
     },
     {
       "key": "checkout|default|mobile",
-      "status": "different",
+      "status": "approved-difference",
       "paths": {
         "source": "evidence/source/checkout-default-mobile.png",
         "target": "evidence/target/checkout-default-mobile.png",
@@ -507,16 +507,16 @@
         "width": 390,
         "height": 844,
         "pixels": 329160,
-        "exactDifferentPixels": 329152,
-        "exactDifferenceRatio": 0.9999756957102929,
-        "perceptualDifferentPixels": 154266,
-        "perceptualDifferenceRatio": 0.4686656944950784,
+        "exactDifferentPixels": 274915,
+        "exactDifferenceRatio": 0.8352017256045692,
+        "perceptualDifferentPixels": 224443,
+        "perceptualDifferenceRatio": 0.6818659618422651,
         "perceptualThreshold": 0.1
       }
     },
     {
       "key": "checkout|default|mobile-narrow",
-      "status": "different",
+      "status": "approved-difference",
       "paths": {
         "source": "evidence/source/checkout-default-mobile-narrow.png",
         "target": "evidence/target/checkout-default-mobile-narrow.png",
@@ -528,16 +528,16 @@
         "width": 375,
         "height": 812,
         "pixels": 304500,
-        "exactDifferentPixels": 304493,
-        "exactDifferenceRatio": 0.9999770114942529,
-        "perceptualDifferentPixels": 119021,
-        "perceptualDifferenceRatio": 0.3908735632183908,
+        "exactDifferentPixels": 252298,
+        "exactDifferenceRatio": 0.8285648604269293,
+        "perceptualDifferentPixels": 203424,
+        "perceptualDifferenceRatio": 0.6680591133004926,
         "perceptualThreshold": 0.1
       }
     },
     {
       "key": "reservations|default|desktop-wide",
-      "status": "different",
+      "status": "approved-difference",
       "paths": {
         "source": "evidence/source/reservations-default-desktop-wide.png",
         "target": "evidence/target/reservations-default-desktop-wide.png",
@@ -549,16 +549,16 @@
         "width": 1440,
         "height": 1000,
         "pixels": 1440000,
-        "exactDifferentPixels": 1439955,
-        "exactDifferenceRatio": 0.99996875,
-        "perceptualDifferentPixels": 915828,
-        "perceptualDifferenceRatio": 0.6359916666666666,
+        "exactDifferentPixels": 825763,
+        "exactDifferenceRatio": 0.5734465277777778,
+        "perceptualDifferentPixels": 662481,
+        "perceptualDifferenceRatio": 0.46005625,
         "perceptualThreshold": 0.1
       }
     },
     {
       "key": "reservations|default|desktop",
-      "status": "different",
+      "status": "approved-difference",
       "paths": {
         "source": "evidence/source/reservations-default-desktop.png",
         "target": "evidence/target/reservations-default-desktop.png",
@@ -570,16 +570,16 @@
         "width": 1024,
         "height": 900,
         "pixels": 921600,
-        "exactDifferentPixels": 921590,
-        "exactDifferenceRatio": 0.9999891493055556,
-        "perceptualDifferentPixels": 686856,
-        "perceptualDifferenceRatio": 0.7452864583333333,
+        "exactDifferentPixels": 589471,
+        "exactDifferenceRatio": 0.6396169704861111,
+        "perceptualDifferentPixels": 457106,
+        "perceptualDifferenceRatio": 0.49599175347222224,
         "perceptualThreshold": 0.1
       }
     },
     {
       "key": "reservations|default|tablet",
-      "status": "different",
+      "status": "approved-difference",
       "paths": {
         "source": "evidence/source/reservations-default-tablet.png",
         "target": "evidence/target/reservations-default-tablet.png",
@@ -591,16 +591,16 @@
         "width": 768,
         "height": 1024,
         "pixels": 786432,
-        "exactDifferentPixels": 786404,
-        "exactDifferenceRatio": 0.9999643961588541,
-        "perceptualDifferentPixels": 549539,
-        "perceptualDifferenceRatio": 0.6987749735514323,
+        "exactDifferentPixels": 527139,
+        "exactDifferenceRatio": 0.6702919006347656,
+        "perceptualDifferentPixels": 401157,
+        "perceptualDifferenceRatio": 0.5100975036621094,
         "perceptualThreshold": 0.1
       }
     },
     {
       "key": "reservations|default|mobile",
-      "status": "different",
+      "status": "approved-difference",
       "paths": {
         "source": "evidence/source/reservations-default-mobile.png",
         "target": "evidence/target/reservations-default-mobile.png",
@@ -612,16 +612,16 @@
         "width": 390,
         "height": 844,
         "pixels": 329160,
-        "exactDifferentPixels": 329131,
-        "exactDifferenceRatio": 0.9999118969498116,
-        "perceptualDifferentPixels": 178246,
-        "perceptualDifferenceRatio": 0.5415178028922105,
+        "exactDifferentPixels": 252173,
+        "exactDifferenceRatio": 0.766110706039616,
+        "perceptualDifferentPixels": 195666,
+        "perceptualDifferenceRatio": 0.5944403937294933,
         "perceptualThreshold": 0.1
       }
     },
     {
       "key": "reservations|default|mobile-narrow",
-      "status": "different",
+      "status": "approved-difference",
       "paths": {
         "source": "evidence/source/reservations-default-mobile-narrow.png",
         "target": "evidence/target/reservations-default-mobile-narrow.png",
@@ -633,16 +633,16 @@
         "width": 375,
         "height": 812,
         "pixels": 304500,
-        "exactDifferentPixels": 304472,
-        "exactDifferenceRatio": 0.9999080459770114,
-        "perceptualDifferentPixels": 158360,
-        "perceptualDifferenceRatio": 0.5200656814449918,
+        "exactDifferentPixels": 229269,
+        "exactDifferenceRatio": 0.752935960591133,
+        "perceptualDifferentPixels": 184391,
+        "perceptualDifferenceRatio": 0.6055533661740559,
         "perceptualThreshold": 0.1
       }
     },
     {
       "key": "saved-pizzas|default|desktop-wide",
-      "status": "different",
+      "status": "approved-difference",
       "paths": {
         "source": "evidence/source/saved-pizzas-default-desktop-wide.png",
         "target": "evidence/target/saved-pizzas-default-desktop-wide.png",
@@ -654,16 +654,16 @@
         "width": 1440,
         "height": 1000,
         "pixels": 1440000,
-        "exactDifferentPixels": 1440000,
-        "exactDifferenceRatio": 1,
-        "perceptualDifferentPixels": 516386,
-        "perceptualDifferenceRatio": 0.3586013888888889,
+        "exactDifferentPixels": 809522,
+        "exactDifferenceRatio": 0.5621680555555556,
+        "perceptualDifferentPixels": 652237,
+        "perceptualDifferenceRatio": 0.45294236111111114,
         "perceptualThreshold": 0.1
       }
     },
     {
       "key": "saved-pizzas|default|desktop",
-      "status": "different",
+      "status": "approved-difference",
       "paths": {
         "source": "evidence/source/saved-pizzas-default-desktop.png",
         "target": "evidence/target/saved-pizzas-default-desktop.png",
@@ -675,16 +675,16 @@
         "width": 1024,
         "height": 900,
         "pixels": 921600,
-        "exactDifferentPixels": 921600,
-        "exactDifferenceRatio": 1,
-        "perceptualDifferentPixels": 370671,
-        "perceptualDifferenceRatio": 0.4022037760416667,
+        "exactDifferentPixels": 570472,
+        "exactDifferenceRatio": 0.6190017361111111,
+        "perceptualDifferentPixels": 452705,
+        "perceptualDifferenceRatio": 0.4912163628472222,
         "perceptualThreshold": 0.1
       }
     },
     {
       "key": "saved-pizzas|default|tablet",
-      "status": "different",
+      "status": "approved-difference",
       "paths": {
         "source": "evidence/source/saved-pizzas-default-tablet.png",
         "target": "evidence/target/saved-pizzas-default-tablet.png",
@@ -696,16 +696,16 @@
         "width": 768,
         "height": 1024,
         "pixels": 786432,
-        "exactDifferentPixels": 786430,
-        "exactDifferenceRatio": 0.9999974568684896,
-        "perceptualDifferentPixels": 278214,
-        "perceptualDifferenceRatio": 0.35376739501953125,
+        "exactDifferentPixels": 528501,
+        "exactDifferenceRatio": 0.6720237731933594,
+        "perceptualDifferentPixels": 402278,
+        "perceptualDifferenceRatio": 0.5115229288736979,
         "perceptualThreshold": 0.1
       }
     },
     {
       "key": "saved-pizzas|default|mobile",
-      "status": "different",
+      "status": "approved-difference",
       "paths": {
         "source": "evidence/source/saved-pizzas-default-mobile.png",
         "target": "evidence/target/saved-pizzas-default-mobile.png",
@@ -717,16 +717,16 @@
         "width": 390,
         "height": 844,
         "pixels": 329160,
-        "exactDifferentPixels": 329143,
-        "exactDifferenceRatio": 0.9999483533843724,
-        "perceptualDifferentPixels": 103853,
-        "perceptualDifferenceRatio": 0.3155091748693644,
+        "exactDifferentPixels": 235233,
+        "exactDifferenceRatio": 0.7146463725847612,
+        "perceptualDifferentPixels": 175172,
+        "perceptualDifferenceRatio": 0.5321788795722445,
         "perceptualThreshold": 0.1
       }
     },
     {
       "key": "saved-pizzas|default|mobile-narrow",
-      "status": "different",
+      "status": "approved-difference",
       "paths": {
         "source": "evidence/source/saved-pizzas-default-mobile-narrow.png",
         "target": "evidence/target/saved-pizzas-default-mobile-narrow.png",
@@ -738,10 +738,10 @@
         "width": 375,
         "height": 812,
         "pixels": 304500,
-        "exactDifferentPixels": 304481,
-        "exactDifferenceRatio": 0.9999376026272578,
-        "perceptualDifferentPixels": 101217,
-        "perceptualDifferenceRatio": 0.3324039408866995,
+        "exactDifferentPixels": 219146,
+        "exactDifferenceRatio": 0.7196912972085386,
+        "perceptualDifferentPixels": 167177,
+        "perceptualDifferenceRatio": 0.5490213464696223,
         "perceptualThreshold": 0.1
       }
     }

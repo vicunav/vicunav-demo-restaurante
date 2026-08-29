@@ -13,7 +13,7 @@ const baseline = fs.readFileSync(path.join(root, 'docs/visual/baseline-bonasera.
 assert.equal(manifest.schemaVersion, 1);
 assert.equal(manifest.impact, 'paridad-1-1');
 assert.equal(manifest.source.commit, '1e1f62787e088c0ca9701500e764802499d1b253');
-assert.equal(manifest.target.commit, '737d027f78ad301b4e0c80c2b316e131a1b807a5');
+assert.equal(manifest.target.commit, '7b43e4508a13616ec976060dc33b4a1a4d01a1ac');
 assert.notEqual(manifest.environment.browserVersion, 'auto');
 assert.doesNotMatch(manifestText, /\/Users\/|[A-Za-z]:\\Users\\/);
 assert.doesNotMatch(manifestText, /"(?:password|cookie|nonce|accessToken|refreshToken)"\s*:/i);
@@ -69,7 +69,10 @@ for (const row of manifest.evidence) {
       row[hashField],
     );
   }
-  assert.equal(row.status, 'different');
+  assert.equal(row.status, 'approved-difference');
+  assert.ok(row.difference);
+  assert.equal(row.approval.authority, 'usuario');
+  assert.match(row.approval.reference, /DEMO-REST-02E issue #19/);
 }
 
 const reportPath = path.join(path.dirname(manifestPath), manifest.report.json);
@@ -77,19 +80,19 @@ const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
 assert.deepEqual(report.summary, {
   rows: 35,
   matched: 0,
-  different: 35,
-  approvedDifferences: 0,
+  different: 0,
+  approvedDifferences: 35,
 });
 assert.equal(
   crypto.createHash('sha256').update(fs.readFileSync(reportPath)).digest('hex'),
   manifest.report.jsonSha256,
 );
 
-const missingAssets = manifest.assets
-  .filter(({ status }) => status === 'missing')
-  .map(({ id }) => id)
-  .sort();
-assert.deepEqual(missingAssets, [
+const approvedSubstitutes = manifest.assets
+	.filter(({ status }) => status === 'approved-substitute')
+	.map(({ id }) => id)
+	.sort();
+assert.deepEqual(approvedSubstitutes, [
   'dolci-original',
   'hero-video',
   'history-original',
@@ -97,6 +100,11 @@ assert.deepEqual(missingAssets, [
   'map-zulia',
   'testimonial-avatars',
 ]);
+for (const asset of manifest.assets.filter(({ status }) => status === 'approved-substitute')) {
+  assert.ok(asset.substitute);
+  assert.equal(asset.approval.authority, 'usuario');
+  assert.ok(asset.approval.reference);
+}
 
 assert.match(baseline, /\/pedido\//);
 assert.match(baseline, /\/privacidad\//);
