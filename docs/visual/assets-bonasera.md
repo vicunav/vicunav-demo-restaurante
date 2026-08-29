@@ -46,51 +46,45 @@ SHA-256 en `config/media.json`.
 La identidad de la fotografía se comprueba mediante la referencia y el identificador
 estable del proveedor. La integridad del archivo local se comprueba mediante su hash.
 
-## Sustitución pendiente
+## Sustitución aprobada
 
 `dolci.webp` usa una fotografía Pexels de tiramisú en lugar de
-`CATEGORY_IMG.dolci`. El original de Unsplash muestra una marca visible. Mantener el
-sustituto es una decisión conservadora, pero todavía no existe aprobación humana que
-lo convierta en diferencia aceptada. Su estado es `substitute-pending-approval` y
-bloquea el gate final.
-
-No se elimina el sustituto actual porque forma parte del runtime ya integrado y este
-issue no altera contenido. Tampoco se restaura el original sin resolver la diferencia.
+`CATEGORY_IMG.dolci`. El original de Unsplash muestra una marca visible. El usuario
+aprobó mantener el sustituto local durante DEMO-REST-02E. Su estado final es
+`approved-substitute` y no bloquea el gate.
 
 ## Originales retenidos
 
 | ID | Referencia | Estado | Motivo |
 | --- | --- | --- | --- |
-| `historia-original` | `HISTORIA_IMG` | `omitted-policy-pending-approval` | Personas identificables presentadas como familia ficticia |
-| `testimonial-avatar-t1` | `AVATAR_MAP.t1` | `omitted-policy-pending-approval` | Podría sugerir respaldo a un testimonio ficticio |
-| `testimonial-avatar-t2` | `AVATAR_MAP.t2` | `omitted-policy-pending-approval` | Podría sugerir respaldo a un testimonio ficticio |
-| `testimonial-avatar-t3` | `AVATAR_MAP.t3` | `omitted-policy-pending-approval` | Podría sugerir respaldo a un testimonio ficticio |
-| `dolci-original` | `CATEGORY_IMG.dolci` | `substitute-pending-approval` | Marca ajena visible; existe sustituto local no aprobado |
+| `historia-original` | `HISTORIA_IMG` | `approved-omission` | Personas identificables presentadas como familia ficticia |
+| `testimonial-avatar-t1` | `AVATAR_MAP.t1` | `approved-omission` | Podría sugerir respaldo a un testimonio ficticio |
+| `testimonial-avatar-t2` | `AVATAR_MAP.t2` | `approved-omission` | Podría sugerir respaldo a un testimonio ficticio |
+| `testimonial-avatar-t3` | `AVATAR_MAP.t3` | `approved-omission` | Podría sugerir respaldo a un testimonio ficticio |
+| `dolci-original` | `CATEGORY_IMG.dolci` | `approved-substitute` | Marca ajena visible; se mantiene el sustituto local |
 
 Los archivos no se descargan al repositorio. Sus URLs sobreviven solo como evidencia
-de procedencia en el inventario. Las cinco diferencias requieren aprobación humana en
-el gate final, aunque la omisión sea la opción recomendada por seguridad.
+de procedencia en el inventario. Las cinco diferencias quedaron aprobadas por el
+usuario en DEMO-REST-02E, sin reintroducir retratos asociados a testimonios ficticios.
 
 ## Originales no entregados
 
 | ID | Ruta esperada en la fuente | Estado |
 | --- | --- | --- |
-| `hero-video` | `public/uploads/hero-video.mp4` | `missing-original` |
-| `map-zulia` | `public/assets/mapa-zulia.png` | `missing-original` |
-| `map-maracaibo` | `public/assets/mapa-maracaibo.png` | `missing-original` |
+| `hero-video` | `public/uploads/hero-video.mp4` | `approved-missing-with-placeholder` |
+| `map-zulia` | `public/assets/mapa-zulia.png` | `approved-missing-with-placeholder` |
+| `map-maracaibo` | `public/assets/mapa-maracaibo.png` | `approved-missing-with-placeholder` |
 
 No existe binario, procedencia ni licencia para esos archivos en el commit auditado o
-en otra entrega autorizada. No se generan aproximaciones, cartografía ficticia ni un
-video nuevo como si fueran los originales.
+en otra entrega autorizada. El usuario aprobó los placeholders locales existentes y
+podrá sustituirlos desde WordPress cuando disponga de los originales.
 
-## Condiciones para desbloquear el gate
+## Condiciones para sustituir placeholders
 
 - Un original entregado debe incluir procedencia, licencia, dimensiones, peso, hash y
   texto alternativo aplicable antes de entrar al repositorio.
-- Un sustituto necesita referencia de aprobación humana y debe registrarse como
-  `approved-substitute` en el manifiesto visual.
-- Una omisión por privacidad o representación responsable necesita la misma aprobación
-  como diferencia intencional, sin reintroducir retratos en testimonios ficticios.
+- Todo reemplazo debe conservar la referencia de aprobación o registrar una nueva.
+- Las omisiones por privacidad no deben reintroducir retratos en testimonios ficticios.
 - La captura y el reporte visual se regeneran después de cualquier cambio de media.
 
 Hasta entonces, el manifiesto conserva seis grupos `missing`: tres no entregados y

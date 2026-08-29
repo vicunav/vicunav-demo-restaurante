@@ -1,128 +1,95 @@
 # Gate final Bonasera
 
-## Alcance y resultado
+## Alcance y veredicto
 
-DEMO-REST-01D compara el prototipo auditado en
-`1e1f62787e088c0ca9701500e764802499d1b253` con la composición FSE iniciada en
-`bdc0a1536c8cd7f80a85a1084dfa6c7194c57580`. El gate final pasa en WordPress 7.1 y
-PHP 8.2.29.
+DEMO-REST-02E compara el prototipo auditado en
+`1e1f62787e088c0ca9701500e764802499d1b253` con la recomposición Gutenberg
+consolidada en `7b43e4508a13616ec976060dc33b4a1a4d01a1ac`.
 
-Dependencias verificadas:
+El gate queda aprobado con diferencias explícitas. No se declara coincidencia píxel
+a píxel. La implementación conserva la dirección visual Bonasera, la jerarquía, la
+paleta, las familias tipográficas, el chrome, los banners, los controles y el
+comportamiento responsive mediante bloques core editables y contratos del plugin.
+Las diferencias restantes corresponden a densidad transaccional de la SPA, iconos y
+activos no entregados. El usuario autorizó similitud y placeholders en el issue #19.
 
-| Paquete | Commit |
+| Paquete | Commit validado |
 | --- | --- |
 | `vicunav-plugin-core` | `12870b0d5e297d715c985037e76898067a749909` |
 | `vicunav-pagos` | `16280c3bd74977ac025f0085ccdf22ae5b995277` |
-| `vicunav-restaurante` | `f14ee43be4f9e6757f572ecc93d87487073f8666` |
-| `vicunav-theme-core` | `4a5eeb5741fea50f9d2e6d7ae09346ae2b7afe89` |
+| `vicunav-restaurante` | `a46d1d746e0b880dca949a875d2dceb4b9207c61` |
+| `vicunav-theme-core` | `7c30b2ce250bb85572dae4a4cd51841921c4e98a` |
 
-La comparación busca equivalencia de intención, jerarquía y función. No declara
-paridad de activos: el video hero y los mapas de Zulia y Maracaibo no fueron
-entregados. La portada usa una imagen local licenciada y las zonas se presentan como
-datos operativos, sin inventar cartografía.
+## Evidencia visual reproducible
 
-## Gate reproducible
+La matriz contiene siete superficies y cinco viewports: 35 combinaciones. Cada fila
+versiona captura fuente, captura target, lado a lado, overlay, diff, hashes y métricas
+exactas y perceptuales.
 
-Con el sitio iniciado desde LocalWP y sus symlinks en los commits fijados:
+| Estado | Cantidad |
+| --- | ---: |
+| Coincidencia exacta | 0 |
+| Diferencia sin resolver | 0 |
+| Diferencia revisada y aprobada | 35 |
 
-```bash
-VICUNAV_PHP_BIN="/path/to/local/php" \
-VICUNAV_MYSQL_SOCKET="/path/to/mysqld.sock" \
-bash bin/install-local.sh \
-  --wp-path="/path/to/site/app/public" \
-  --site-url="https://example.local" \
-  --dry-run
+Los viewports son 1440 x 1000, 1024 x 900, 768 x 1024, 390 x 844 y 375 x 812.
+La revisión manual cubrió portada, menú, constructor de pizza, carrito vacío,
+checkout, reservas y pizzas guardadas. No se detectaron cortes horizontales, targets
+inaccesibles, texto ilegible ni jerarquía rota. En móvil, la traducción evita varios
+recortes presentes en la propia captura fuente.
 
-VICUNAV_PHP_BIN="/path/to/local/php" \
-VICUNAV_MYSQL_SOCKET="/path/to/mysqld.sock" \
-"/path/to/local/php" \
-  -d mysqli.default_socket="/path/to/mysqld.sock" \
-  -d pdo_mysql.default_socket="/path/to/mysqld.sock" \
-  /path/to/wp --path="/path/to/site/app/public" \
-  eval-file tests/qa-runtime.php
-```
+El informe navegable está en
+[`visual/evidence/visual-report.html`](visual/evidence/visual-report.html) y el
+contrato completo en
+[`visual/migration-manifest.json`](visual/migration-manifest.json).
 
-El instalador en modo `--dry-run` confirmó los cuatro symlinks, paquetes activos y
-commits exactos sin cambiar el sitio. La suite de runtime es de solo lectura y pasó
-sin fallos: nueve rutas 200, un H1 por ruta, cero hotlinks, siete bloques del vertical,
-37 productos, ocho categorías, tres entidades compartidas, 35 entidades operativas y
-nueve páginas.
+## Estructura, accesibilidad y FSE
 
-## Matriz estructural y responsive
+- Las nueve rutas públicas responden 200 y exponen un solo H1.
+- No hay hotlinks ni imágenes remotas en el frontend.
+- La portada y las páginas interiores usan bloques válidos, template parts y
+  patrones editables.
+- El editor de la página no reporta bloques inválidos.
+- Header, footer, botones, formularios, filtros y acordeones mantienen foco visible,
+  targets táctiles y wrapping en los cinco anchos.
+- `prefers-reduced-motion` conserva una experiencia estable.
 
-> Corrección de alcance de DESIGN-REST-02: esta matriz no fue una comparación
-> visual contra la fuente. `Aprobado` acredita los checks estructurales descritos en
-> la tabla, no fidelidad 1:1. El baseline visual y las diferencias reales están en
-> [`visual/baseline-bonasera.md`](visual/baseline-bonasera.md).
+## Regresión funcional de solo lectura
 
-| Ancho | Portada | Nueve rutas | Header y overflow | Controles de comercio | Estado |
-| ---: | --- | --- | --- | --- | --- |
-| 1440 px | Pasa | Pasa | Pasa | Pasa | Estructura aprobada |
-| 1024 px | Pasa | Pasa | Pasa | Pasa | Estructura aprobada |
-| 768 px | Pasa | Pasa | Pasa | Pasa | Estructura aprobada |
-| 390 px | Pasa | Pasa | Pasa | Pasa | Estructura aprobada |
-| 375 px | Pasa | Pasa | Pasa | Pasa | Estructura aprobada |
+La suite runtime valida las firmas públicas de siete flujos sin crear pedidos,
+reservas, usuarios ni datos privados:
 
-Las 45 combinaciones pasan con un `main` y un H1, cero overflow horizontal, cero
-imágenes rotas y cero controles de formulario sin etiqueta. La consola pública quedó
-limpia después de recorrer las nueve rutas.
+- menú, búsqueda y filtros;
+- constructor de pizza y toppings;
+- carrito y descuento;
+- checkout y formulario;
+- consulta de pedido;
+- reservas y disponibilidad;
+- pizzas guardadas y estado de autenticación.
 
-Evidencia visual versionada:
+También valida las nueve rutas, un H1 por ruta, ausencia de hotlinks y los contratos
+compartidos. La validación WP-CLI se ejecuta con el PHP y socket de LocalWP sin
+imprimir credenciales, salts ni tokens.
 
-- [Portada en 1440 px](evidence/bonasera-home-1440.png)
-- [Portada en 390 px](evidence/bonasera-home-390.png)
-- [Disponibilidad de reservas en 390 px](evidence/bonasera-reservas-390.png)
+## Activos y límites honestos
 
-## Flujos funcionales
+Se aprobaron sustitutos locales para el video hero, los mapas, la imagen de historia,
+los avatares de testimonios y la categoría dolci. Los originales no entregados siguen
+identificados en `config/media.json`; el usuario puede reemplazarlos desde WordPress.
+No se inventó cartografía, no se introdujo video remoto y no se presentó una marca
+ajena como si fuera un original disponible.
 
-- Menú: búsqueda de `Diavola` devuelve un resultado; la categoría Pizze devuelve
-  nueve y su combinación con Vegetariano devuelve cinco.
-- Pizza y carrito: una pizza mediana con champiñones se confirmó en `$10.75`; el
-  carrito calculó `$11.61` para retiro y `$13.11` con delivery de `$1.50`.
-- Checkout: resumen, proveedor manual y campos condicionales respondieron sin enviar
-  datos personales ni crear un pedido. Inputs, selects y textareas ocupan el ancho
-  disponible desde 375 px.
-- Reservas: el horario semanal devolvió nueve slots para dos personas el
-  2026-09-01; el formulario de confirmación quedó disponible sin crear una reserva.
-- Pedido y pizzas guardadas: sus estados públicos sin credencial son coherentes y no
-  exponen información privada.
+## Aprendizajes obligatorios para próximas migraciones
 
-## FSE, accesibilidad y responsive
+1. Congelar el commit fuente y capturar la matriz visual antes de implementar.
+2. Tratar la fuente auditada como contrato base, no como inspiración.
+3. Aprobar primero un corte vertical completo en desktop y móvil.
+4. Extraer chrome, tokens y patrones compartidos después de validar ese corte.
+5. Comparar cada superficie durante la implementación, no al final del proyecto.
+6. No confundir checks estructurales con fidelidad visual.
+7. Registrar un asset ausente desde el inicio y continuar con un placeholder editable.
+8. Mantener por separado coincidencias, diferencias pendientes y diferencias
+   aprobadas, siempre con evidencia y métricas.
 
-El Site Editor se abrió con un usuario local temporal, eliminado inmediatamente tras
-la prueba. La plantilla Bonasera cargó con estado `Saved`, sin bloques inválidos ni
-errores de consola. Los templates y template parts siguen almacenados como entidades
-editables de WordPress.
-
-La revisión manual confirmó:
-
-- skip link visible al recibir foco y landmarks únicos;
-- foco de 3 px con offset de 3 px en búsqueda, filtros y acciones;
-- targets táctiles de 44 px o superficies de etiqueta mayores;
-- selector de zona de 390 x 44 px en móvil;
-- acordeón FAQ cerrado al iniciar, respuesta visible sin JavaScript y estados
-  `aria-expanded`, `aria-controls`, `aria-label` y `hidden` sincronizados;
-- menú móvil, sticky UI y formularios sin contenido recortado.
-
-## Rendimiento, media y límites
-
-Los HTML medidos están entre 66 381 y 98 354 bytes. Las nueve imágenes WebP locales
-suman 916 450 bytes; la mayor pesa 169 986 bytes, por debajo del presupuesto de
-200 000 bytes por imagen. No existen imágenes remotas ni assets sin atribución en el
-inventario versionado.
-
-Límites explícitos del demo:
-
-- no incluye el video hero ni los dos mapas ausentes del handoff;
-- no presenta los cuatro métodos de pago teatrales del prototipo;
-- teléfono, correo, dirección, personas y testimonios son demostrativos;
-- no se realizaron transferencias, pedidos ni reservas reales durante el gate.
-
-## Defectos corregidos durante el gate
-
-- `vicunav-restaurante` #37 / PR #38: `legend` del filtro sin desborde de 4 px.
-- `vicunav-restaurante` #39 / PR #40: campos multilínea del checkout a ancho completo.
-- `vicunav-theme-core` #43 / PR #44: FAQ cerradas inicialmente como en el prototipo.
-- `vicunav-demo-restaurante`: landmark principal de portada, copy sin mapas ni
-  WhatsApp inexistentes, serialización válida del bloque Cover y orden canónico del
-  horario semanal.
+Este orden reduce retrabajo y evita que una migración técnicamente válida llegue tarde
+al gate visual con una composición equivocada.
