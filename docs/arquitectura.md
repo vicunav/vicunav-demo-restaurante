@@ -76,3 +76,10 @@ estructural aprobada no sustituye el gate de fidelidad 1:1.
 El estado de cada original, sustituto y omisión se conserva en
 [`visual/assets-bonasera.md`](visual/assets-bonasera.md). Solo el demo versiona media
 Bonasera; theme y plugins consumen contratos visuales sin apropiarse de esos archivos.
+
+DEMO-REST-02C compone la portada y los interiores contra el baseline aprobado. El hero,
+la franja de cobertura, los destacados, las categorías, la historia, la ubicación, los
+testimonios, las preguntas frecuentes, el contacto y las llamadas a la acción permanecen
+como bloques core o patterns editables. Cuando falta un original, el ensamblador utiliza
+un medio local del inventario como placeholder reemplazable desde WordPress; esa ausencia
+no bloquea la estructura ni introduce un hotlink.
