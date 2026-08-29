@@ -83,3 +83,8 @@ testimonios, las preguntas frecuentes, el contacto y las llamadas a la acción p
 como bloques core o patterns editables. Cuando falta un original, el ensamblador utiliza
 un medio local del inventario como placeholder reemplazable desde WordPress; esa ausencia
 no bloquea la estructura ni introduce un hotlink.
+
+DEMO-REST-02D mantiene una firma runtime por cada flujo público. El gate comprueba tanto
+el root del bloque como un control funcional representativo en menú, constructor, carrito,
+checkout, consulta de pedido, reservas y pizzas guardadas. Así se evita considerar
+integrada una ruta que solo conserve el banner editorial o el nombre del bloque en la base.

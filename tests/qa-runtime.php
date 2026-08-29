@@ -99,6 +99,15 @@ $expected_blocks = array(
 	'mis-pizzas' => 'vicunav/restaurante-saved-pizzas',
 );
 $routes          = array( '/', '/menu/', '/pizzas/', '/carrito/', '/checkout/', '/pedido/', '/reservas/', '/mis-pizzas/', '/privacidad/' );
+$flow_signatures = array(
+	'/menu/'       => array( 'wp-block-vicunav-restaurante-menu', 'vicu-restaurante-menu__search' ),
+	'/pizzas/'     => array( 'wp-block-vicunav-restaurante-pizza-builder', 'data-wp-on--click="actions.toggleTopping"' ),
+	'/carrito/'    => array( 'wp-block-vicunav-restaurante-cart', 'data-commerce-form="discount"' ),
+	'/checkout/'   => array( 'wp-block-vicunav-restaurante-checkout', 'data-commerce-form="checkout"' ),
+	'/pedido/'     => array( 'wp-block-vicunav-restaurante-order-status', 'data-commerce-form="order-lookup"' ),
+	'/reservas/'   => array( 'wp-block-vicunav-restaurante-reservations', 'data-reservation-form' ),
+	'/mis-pizzas/' => array( 'wp-block-vicunav-restaurante-saved-pizzas', 'vicu-restaurante-saved-pizzas__authentication' ),
+);
 $route_results   = array();
 $registry        = WP_Block_Type_Registry::get_instance();
 
@@ -192,6 +201,11 @@ foreach ( $routes as $route ) {
 	vicu_demo_qa_assert( 200 === $status, 'La ruta no responde 200: ' . $route );
 	vicu_demo_qa_assert( 1 === $h1_count, 'La ruta no contiene un H1 único: ' . $route );
 	vicu_demo_qa_assert( 0 === $hotlinks, 'La ruta contiene una imagen remota: ' . $route );
+	if ( isset( $flow_signatures[ $route ] ) ) {
+		foreach ( $flow_signatures[ $route ] as $signature ) {
+			vicu_demo_qa_assert( str_contains( $body, $signature ), 'Falta la firma funcional ' . $signature . ' en ' . $route );
+		}
+	}
 	$route_results[ $route ] = array(
 		'status'        => $status,
 		'h1_count'      => $h1_count,
