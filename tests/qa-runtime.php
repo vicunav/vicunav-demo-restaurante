@@ -110,6 +110,29 @@ foreach ( $expected_blocks as $block_name ) {
 	vicu_demo_qa_assert( $registry->is_registered( $block_name ), 'El bloque no está registrado: ' . $block_name );
 }
 
+$global_style_posts = get_posts(
+	array(
+		'post_type'   => 'wp_global_styles',
+		'post_status' => 'publish',
+		'numberposts' => 2,
+		'name'        => 'wp-global-styles-' . get_stylesheet(),
+		'tax_query'   => array(
+			array(
+				'taxonomy' => 'wp_theme',
+				'field'    => 'slug',
+				'terms'    => get_stylesheet(),
+			),
+		),
+	)
+);
+vicu_demo_qa_assert( 1 === count( $global_style_posts ), 'La variación Bonasera no tiene un único post Global Styles asociado al theme.' );
+if ( $global_style_posts ) {
+	$global_style_data = json_decode( $global_style_posts[0]->post_content, true );
+	vicu_demo_qa_assert( true === ( $global_style_data['isGlobalStylesUserThemeJSON'] ?? false ), 'La variación Bonasera no está marcada como JSON de usuario de Global Styles.' );
+	vicu_demo_qa_assert( '#0D0D0D' === ( $global_style_data['settings']['color']['palette'][0]['color'] ?? null ), 'La variación Bonasera no conserva su paleta efectiva.' );
+	vicu_demo_qa_assert( 'Big Shoulders Display' === ( $global_style_data['settings']['typography']['fontFamilies'][0]['fontFace'][0]['fontFamily'] ?? null ), 'La variación Bonasera no conserva su tipografía efectiva.' );
+}
+
 vicu_demo_qa_assert( 37 === count( vicu_demo_qa_posts( 'vicu_menu_item', 'menu-item:', true ) ), 'El catálogo Bonasera no contiene 37 platos marcados.' );
 vicu_demo_qa_assert( 8 === count( vicu_demo_qa_posts( 'vicu_faq', 'faq:', true ) ), 'No hay ocho FAQ marcadas.' );
 vicu_demo_qa_assert( 3 === count( vicu_demo_qa_posts( 'vicu_testimonial', 'testimonial:', true ) ), 'No hay tres testimonios marcados.' );

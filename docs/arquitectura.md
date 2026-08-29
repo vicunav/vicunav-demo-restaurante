@@ -53,9 +53,12 @@ medios y contenidos usan marcadores privados para que una segunda ejecución act
 la misma entidad sin duplicarla.
 
 El demo crea overrides FSE de `front-page` y `page`, selecciona la variación Bonasera
-y compone las ocho rutas reales. La portada contiene su único H1; las páginas internas
-reciben su H1 desde el template y reservan el contenido a bloques editoriales y los
-siete bloques dinámicos del vertical.
+y compone las ocho rutas reales. La selección persiste en el único post
+`wp_global_styles` asociado al stylesheet activo: conserva el JSON de la variación,
+incluye el marcador de seguridad `isGlobalStylesUserThemeJSON` y la taxonomía
+`wp_theme`. La portada contiene su único H1; las páginas internas reciben su H1 desde
+el template y reservan el contenido a bloques editoriales y los siete bloques dinámicos
+del vertical.
 
 No se importan las rutas teatrales de la SPA. El checkout usa solo el proveedor manual
 real y el sitio no escribe directamente en tablas del vertical. DEMO-REST-01D valida

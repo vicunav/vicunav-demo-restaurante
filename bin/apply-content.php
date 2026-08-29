@@ -718,12 +718,23 @@ if ( ! is_file( $style_path ) ) {
 	WP_CLI::error( 'Falta la variación Bonasera del theme.' );
 }
 $style_data = json_decode( (string) file_get_contents( $style_path ), true );
+if ( ! is_array( $style_data ) ) {
+	WP_CLI::error( 'La variación Bonasera no contiene JSON válido.' );
+}
+$style_data['isGlobalStylesUserThemeJSON'] = true;
 $styles     = get_posts(
 	array(
 		'post_type'   => 'wp_global_styles',
 		'post_status' => array( 'publish', 'draft' ),
 		'numberposts' => 1,
 		'name'        => 'wp-global-styles-' . get_stylesheet(),
+		'tax_query'   => array(
+			array(
+				'taxonomy' => 'wp_theme',
+				'field'    => 'slug',
+				'terms'    => get_stylesheet(),
+			),
+		),
 	)
 );
 $style_post = array(
@@ -732,6 +743,9 @@ $style_post = array(
 	'post_name'    => 'wp-global-styles-' . get_stylesheet(),
 	'post_title'   => 'Bonasera',
 	'post_content' => wp_json_encode( $style_data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ),
+	'tax_input'    => array(
+		'wp_theme' => array( get_stylesheet() ),
+	),
 );
 if ( $styles ) {
 	$style_post['ID'] = $styles[0]->ID;
