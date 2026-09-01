@@ -1,0 +1,22 @@
+/*
+ * Motivos decorativos propios de Bonasera (encabezado fantasma, tarjeta estilo
+ * ticket, tratamiento visual del doble header) que theme.json no puede expresar por
+ * sí solo.
+ *
+ * Alcance de #22 (este archivo): scaffold registrado y cargado en frontend + Editor
+ * del sitio vía wp_enqueue_block_style() (ver functions.php). El contenido real de
+ * cada motivo se construye sección por sección en #23 (chrome, hero y cobertura de
+ * portada) y #24 (secciones editoriales de portada), comparando contra
+ * legacy/Restaurante Guasábara.dc.html en cada corte, no reconstruido de memoria
+ * aquí.
+ *
+ * Convención: cada regla se ancla a una clase propia del child theme
+ * (`vicunav-bonasera-*`), nunca sobrescribe un selector genérico de theme-core.
+ */
+
+@media (prefers-reduced-motion: reduce) {
+	.vicunav-bonasera-motif {
+		animation: none !important;
+		transition: none !important;
+	}
+}

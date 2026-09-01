@@ -1,0 +1,11 @@
+/*
+Theme Name: Vicunav Bonasera
+Theme URI: https://github.com/vicunav/vicunav-demo-restaurante
+Description: Child theme de vicunav-theme-core con la identidad visual real de Bonasera (paleta, tipografía, motivos decorativos) para el demo de restaurante. No contiene lógica de negocio ni contenido; ver theme/vicunav-bonasera/docs/tokens.md para la procedencia de cada valor.
+Author: Vicunav
+Template: vicunav-theme-core
+Requires at least: 6.6
+Requires PHP: 8.1
+Version: 0.1.0
+Text Domain: vicunav-bonasera
+*/

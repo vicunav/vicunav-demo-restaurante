@@ -31,7 +31,12 @@
       "slug": "vicunav-theme-core",
       "type": "theme",
       "commit": "7c30b2ce250bb85572dae4a4cd51841921c4e98a",
-      "activate": true
+      "activate": false
     }
-  ]
+  ],
+  "child_theme": {
+    "path": "theme/vicunav-bonasera",
+    "slug": "vicunav-bonasera",
+    "activate": true
+  }
 }
