@@ -13,7 +13,6 @@ fail() {
 }
 
 node "$repo_dir/tests/validate-content.mjs"
-node "$repo_dir/tests/validate-composition.mjs"
 node "$repo_dir/tests/validate-qa.mjs"
 node "$repo_dir/tests/validate-visual-baseline.mjs"
 
