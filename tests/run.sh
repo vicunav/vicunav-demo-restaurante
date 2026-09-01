@@ -140,5 +140,33 @@ if run_installer >"$test_root/collision.log" 2>&1; then
 	fail 'una colisión de destino fue aceptada.'
 fi
 grep -q 'destino está ocupado' "$test_root/collision.log" || fail 'faltó el error de colisión.'
+rm -rf "$wp_root/wp-content/plugins/vicunav-pagos"
+
+cat > "$manifest" <<EOF
+{
+  "schema_version": 1,
+  "wordpress": { "minimum": "6.6", "php_minimum": "8.1" },
+  "packages": [
+    { "repository": "vicunav-plugin-core", "slug": "vicunav-plugin-core", "type": "plugin", "commit": "$core_commit", "activate": true },
+    { "repository": "vicunav-pagos", "slug": "vicunav-pagos", "type": "plugin", "commit": "$pagos_commit", "activate": true },
+    { "repository": "vicunav-restaurante", "slug": "vicunav-restaurante", "type": "plugin", "commit": "$restaurante_commit", "activate": true },
+    { "repository": "vicunav-theme-core", "slug": "vicunav-theme-core", "type": "theme", "commit": "$theme_commit", "activate": false }
+  ],
+  "child_theme": { "path": "theme/vicunav-bonasera", "slug": "vicunav-bonasera", "activate": true }
+}
+EOF
+
+: > "$activation_log"
+rm -rf "${state_dir:?}"
+mkdir -p "$state_dir"
+
+run_installer >/dev/null
+run_installer >/dev/null
+
+[[ -L "$wp_root/wp-content/themes/vicunav-bonasera" ]] || fail 'faltó el symlink del child theme.'
+[[ "$(readlink "$wp_root/wp-content/themes/vicunav-bonasera")" == "$repo_dir/theme/vicunav-bonasera" ]] || fail 'el symlink del child theme apunta a otra fuente.'
+[[ -f "$state_dir/theme-vicunav-bonasera" ]] || fail 'el child theme no quedó activado.'
+[[ ! -f "$state_dir/theme-vicunav-theme-core" ]] || fail 'el theme padre se activó directamente; solo el child theme debe activarse.'
+[[ "$(grep -c '^theme:vicunav-bonasera$' "$activation_log")" == '1' ]] || fail 'la segunda ejecución reactivó el child theme.'
 
 printf 'Pruebas de instalación completadas.\n'

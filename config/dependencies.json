@@ -30,8 +30,13 @@
       "repository": "vicunav-theme-core",
       "slug": "vicunav-theme-core",
       "type": "theme",
-      "commit": "7c30b2ce250bb85572dae4a4cd51841921c4e98a",
-      "activate": true
+      "commit": "b2d9839d9d64fd8a445406be184855e3bb4f5367",
+      "activate": false
     }
-  ]
+  ],
+  "child_theme": {
+    "path": "theme/vicunav-bonasera",
+    "slug": "vicunav-bonasera",
+    "activate": true
+  }
 }

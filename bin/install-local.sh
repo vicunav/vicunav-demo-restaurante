@@ -172,6 +172,45 @@ while IFS=$'\t' read -r slug package_type activate; do
 	fi
 done < <(jq -r '.packages[] | [.slug, .type, .activate] | @tsv' "$manifest_path")
 
+if jq -e '.child_theme' "$manifest_path" >/dev/null 2>&1; then
+	child_theme_path="$(jq -r '.child_theme.path' "$manifest_path")"
+	child_theme_slug="$(jq -r '.child_theme.slug' "$manifest_path")"
+	child_theme_activate="$(jq -r '.child_theme.activate' "$manifest_path")"
+	child_theme_source="$repo_dir/$child_theme_path"
+	[[ -d "$child_theme_source" ]] || fail "el child theme no existe: $child_theme_source"
+	child_theme_source="$(canonical_directory "$child_theme_source")"
+	child_theme_destination="$wp_path/wp-content/themes/$child_theme_slug"
+
+	if [[ -L "$child_theme_destination" ]]; then
+		link_target="$(readlink "$child_theme_destination")"
+		if [[ "$link_target" != /* ]]; then
+			link_target="$(dirname "$child_theme_destination")/$link_target"
+		fi
+		[[ -d "$link_target" ]] || fail "el symlink del child theme está roto: $child_theme_destination"
+		link_target="$(canonical_directory "$link_target")"
+		[[ "$link_target" == "$child_theme_source" ]] || fail "el symlink del child theme apunta a otra fuente: $child_theme_destination"
+		printf 'Correcto: %s -> %s\n' "$child_theme_destination" "$child_theme_source"
+	elif [[ -e "$child_theme_destination" ]]; then
+		fail "el destino del child theme está ocupado y no es un symlink: $child_theme_destination"
+	elif [[ "$dry_run" == true ]]; then
+		printf 'Crearía: %s -> %s\n' "$child_theme_destination" "$child_theme_source"
+	else
+		log_command ln -s "$child_theme_source" "$child_theme_destination"
+		ln -s "$child_theme_source" "$child_theme_destination"
+	fi
+
+	if [[ "$child_theme_activate" == 'true' ]]; then
+		if run_wp theme is-active "$child_theme_slug" >/dev/null 2>&1; then
+			printf 'Activo: %s\n' "$child_theme_slug"
+		elif [[ "$dry_run" == true ]]; then
+			printf 'Activaría theme: %s\n' "$child_theme_slug"
+		else
+			run_wp theme activate "$child_theme_slug"
+			run_wp theme is-active "$child_theme_slug" >/dev/null
+		fi
+	fi
+fi
+
 if [[ "$dry_run" == true ]]; then
 	printf 'Dry run completado sin cambios.\n'
 else
