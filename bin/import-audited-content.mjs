@@ -106,18 +106,22 @@ const content = normalize({
 		{
 			id: 'inicio',
 			path: '/',
-			h1: 'Bonasera',
-			eyebrow: 'Trattoria italiana familiar en Maracaibo',
+			// h1, ghostHeading y lead se copian literales de HomeScreen.js (el
+			// componente real del hero), no del resumen editorial de esta lista:
+			// ese resumen nunca estuvo sincronizado con el copy que de verdad
+			// se renderiza, y quedó demostrado comparando contra Claude Design.
+			h1: 'Cucina italiana, tradición viva.',
+			ghostHeading: 'Cucina italiana',
 			lead:
-				'Pastas, pizzas al horno de piedra y recetas de la Nonna, listas para pedir o retirar.',
+				'Trattoria familiar en Maracaibo: pastas, pizzas al horno de piedra y recetas de la Nonna, listas para pedir en segundos desde tu teléfono y recibir calientitas en tu puerta, o retirar tú mismo en el local.',
 			sections: [
 				'Platillos destacados',
 				'Nuestro menú',
 				'Nuestra historia',
-				'Dónde estamos',
+				'Dónde estamos ubicados',
 				'Lo que dicen nuestros clientes',
 				'Preguntas frecuentes',
-				'Hablemos',
+				'Contáctanos',
 			],
 		},
 		{
@@ -164,11 +168,15 @@ const content = normalize({
 		},
 	],
 	editorial: {
+		// Copiado literal de HomeScreen.js (sección "Nuestra historia"), no
+		// parafraseado: es la misma fuente que definimos como contrato para el
+		// resto de la portada.
 		story: [
-			'Bonasera nació en la cocina de la familia Ferraro, italianos que llegaron a Maracaibo en los años sesenta y conservaron sus recetas de casa.',
-			'Hoy esa memoria inspira una trattoria demostrativa de ambiente cálido, horno de piedra y cocina hecha al momento.',
+			'Bonasera nació en la cocina de la familia Ferraro, italianos que llegaron a Maracaibo en los años 60 y nunca dejaron de cocinar como en Nápoles. Los domingos, toda la cuadra se enteraba de que había lasagna en el horno.',
+			'El nombre viene de "buonasera", el saludo con el que el abuelo Vittorio recibía a cada cliente en la puerta, sin excepción. Seguimos recibiendo así: sin apuro, con la mesa lista y la masa recién amasada.',
+			'Hoy seguimos siendo una trattoria familiar, con recetas que pasan de generación en generación. Lo único que cambió es que ahora puedes pedirlo desde tu teléfono.',
 		],
-		contact_heading: 'Hablemos',
+		contact_heading: 'Contáctanos',
 		contact_copy:
 			'Para pedidos y reservas utiliza los flujos del sitio. Los datos de contacto visibles son demostrativos y no reciben mensajes reales.',
 	},

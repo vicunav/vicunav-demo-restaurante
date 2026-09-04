@@ -6,6 +6,13 @@
 		"color": {
 			"defaultGradients": false,
 			"defaultPalette": false,
+			"gradients": [
+				{
+					"gradient": "linear-gradient(180deg, rgba(13, 13, 13, 0.15) 0%, rgba(13, 13, 13, 0.45) 55%, rgba(13, 13, 13, 0.92) 100%)",
+					"name": "Scrim del hero",
+					"slug": "vicunav-bonasera-hero-scrim"
+				}
+			],
 			"palette": [
 				{ "color": "#0D0D0D", "name": "Tinta", "slug": "vicunav-primary" },
 				{ "color": "#4A3B33", "name": "Marrón malta", "slug": "vicunav-secondary" },
