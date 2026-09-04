@@ -51,6 +51,21 @@
 	z-index: 1;
 }
 
+/*
+ * Por debajo de 1024px (el mismo corte al que ya colapsa el nav del header,
+ * ver docs/chrome-restaurante.md) el H1 fijo de 44px envuelve a dos líneas
+ * dentro del ancho de 600px de title-wrap. El fantasma, anclado arriba del
+ * wrap con `top:-16%`, queda entonces pegado sobre la primera línea del
+ * título real en vez de sangrar detrás de él como en escritorio. La fuente
+ * (components.css) no define una variante móvil de este motivo; ocultarlo
+ * aquí es la opción legible frente a un solapamiento que rompe el H1 real.
+ */
+@media (max-width: 63.9375rem) {
+	.vicunav-bonasera-hero__ghost-text {
+		display: none;
+	}
+}
+
 @media (prefers-reduced-motion: reduce) {
 	.vicunav-bonasera-motif {
 		animation: none !important;
