@@ -73,8 +73,12 @@
     {
       "id": "pizzas",
       "path": "/pizzas/",
-      "h1": "Crea tu pizza",
-      "lead": "Elige tamaño, masa, salsa, queso y toppings con precio autoritativo."
+      "h1": "Nuestras pizzas",
+      "lead": "Pizzas napolitanas al horno de piedra en Maracaibo, o armadas a tu gusto con nuestro creador de pizzas.",
+      "sections": [
+        "Directo del horno de piedra, listas para pedir.",
+        "Crea tu pizza"
+      ]
     },
     {
       "id": "carrito",

@@ -133,8 +133,15 @@ const content = normalize({
 		{
 			id: 'pizzas',
 			path: '/pizzas/',
-			h1: 'Crea tu pizza',
-			lead: 'Elige tamaño, masa, salsa, queso y toppings con precio autoritativo.',
+			// H1 y lead copiados literales del HomeScreen real ("Nuestras
+			// pizzas"), no del resumen editorial: la página real tiene una
+			// vitrina de pizzas predefinidas antes del constructor, y el
+			// título anterior ("Crea tu pizza") describía solo esa segunda
+			// sección, no la página completa.
+			h1: 'Nuestras pizzas',
+			lead:
+				'Pizzas napolitanas al horno de piedra en Maracaibo, o armadas a tu gusto con nuestro creador de pizzas.',
+			sections: [ 'Directo del horno de piedra, listas para pedir.', 'Crea tu pizza' ],
 		},
 		{
 			id: 'carrito',
